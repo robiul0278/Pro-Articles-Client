@@ -49,7 +49,7 @@ const AddReview = () => {
           <div className='mb-10' data-aos="fade-right">
             <img className='w-[100%] h-auto' src="https://i.ibb.co/8x8DvSD/Email-campaign-amico.png" alt="" data-aos="zoom-in" />
           </div>
-          <div>
+          <div className="md:pt-28">
             <form
               onSubmit={handleReview}
               className="gap-5 grid grid-cols-1"
