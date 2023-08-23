@@ -1,14 +1,15 @@
 import {
     createBrowserRouter,
 } from "react-router-dom";
-import Main from "../Layout/Main";
-import Home from "../Page/Home/Home/Home";
-import AddReview from "../Page/Home/Review/AddReview";
-import AddPost from "../Page/Write/AddPost";
-import Contact from "../Page/Home/Contacts/Contact";
-import Login from "../Page/FirebaseAuth/Login/Login";
-import Register from "../Page/FirebaseAuth/Register/Register";
-import ErrorPage from "../Page/ErrorPage/ErrorPage";
+
+import Main from "../../Layout/Main";
+import ErrorPage from "../ErrorPage/ErrorPage";
+import Home from "../Home/Home/Home";
+import AddReview from "../Home/Review/AddReview";
+import Login from "../FirebaseAuth/Login/Login";
+import Register from "../FirebaseAuth/Register/Register";
+import WriteArticle from "../Write/WriteArticle";
+import Contact from "../Home/Contact/Contact";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -33,8 +34,8 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/addPost',
-                element: <AddPost></AddPost>
+                path: '/write',
+                element: <WriteArticle></WriteArticle>
             },
             {
                 path: '/contact',
