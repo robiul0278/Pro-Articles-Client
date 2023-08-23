@@ -1,12 +1,11 @@
 import * as React from "react";
-import { useState } from "react";
 import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
+import useArticle from "../../../Hooks/useArticle";
+import ArticleTabs from "./ArticleTabs";
 
 
 
@@ -44,13 +43,23 @@ function a11yProps(index) {
 
 export default function Categories() {
   const [value, setValue] = React.useState(0);
-  const [article, setArticle] = useState([]);
+  const [article] = useArticle();
+  console.log(article)
+  const technology = article.filter( item => item.category === "Technology" );
+  const marketing = article.filter( item => item.category === "Marketing" );
+  const social = article.filter( item => item.category === "Social" );
+  const writing = article.filter( item => item.category === "Writing" );
+  const business = article.filter( item => item.category === "Business" );
+  const travel = article.filter( item => item.category === "Travel" );
+  const culture = article.filter( item => item.category === "Culture" );
+  const society = article.filter( item => item.category === "Society" );
+  const life = article.filter( item => item.category === "Life" );
+  const history = article.filter( item => item.category === "History" );
+  const religion = article.filter( item => item.category === "Religion" );
+  const cryptocurrency = article.filter( item => item.category === "Cryptocurrency" );
+  const education = article.filter( item => item.category === "Education" );
 
-  React.useEffect(() => {
-    fetch("https://premium-articles-platform-sever.vercel.app/article")
-      .then((res) => res.json())
-      .then((data) => setArticle(data));
-  }, []);
+
 
   const handleChange = (event, newValue) => {
     // Use the event parameter here if needed
@@ -79,90 +88,87 @@ export default function Categories() {
               aria-label="scrollable auto tabs example"
               // aria-label="basic tabs example"
             >
-              <Tab label="Social Media" {...a11yProps(0)} />
+              <Tab label="Technology" {...a11yProps(0)} />
               <Tab label=" Marketing" {...a11yProps(1)} />
-              <Tab label="Technology" {...a11yProps(2)} />
+              <Tab label="Social Media" {...a11yProps(2)} />
               <Tab label="Writing" {...a11yProps(3)} />
               <Tab label="Business" {...a11yProps(4)} />
-              <Tab label="Politics" {...a11yProps(5)} />
+              <Tab label="Travel" {...a11yProps(5)} />
               <Tab label="Culture" {...a11yProps(6)} />
-              <Tab label="Facebook" {...a11yProps(7)} />
+              <Tab label="Society" {...a11yProps(7)} />
               <Tab label="Life" {...a11yProps(8)} />
               <Tab label="History" {...a11yProps(9)} />
-              <Tab label="Society" {...a11yProps(10)} />
-              <Tab label="Art" {...a11yProps(11)} />
-              <Tab label="Music" {...a11yProps(12)} />
-              <Tab label="Travel" {...a11yProps(13)} />
-              <Tab label="Life Lessons" {...a11yProps(14)} />
+              <Tab label="Religion" {...a11yProps(10)} />
+              <Tab label="Cryptocurrency" {...a11yProps(11)} />
+              <Tab label="Education" {...a11yProps(12)} />
             </Tabs>
           </div>
         </Box>
         <div className=" bg-white">
           <TabPanel value={value} index={0}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-              {article.map((blog) => (
-                <div key={blog.id}>
-                  <div>
-                    <div className="card card-compact bg-base-100 shadow-x">
-                      <figure className="">
-                        <img
-                          className=" bg-cover md:h-64 w-full bg-center rounded-xl"
-                          src={blog.image}
-                          alt="image"
-                        />
-                      </figure>
-                      <div className="card-body">
-                        <div className="flex justify-between pb-3">
-                          <div className="flex items-center">
-                            <div>
-                              <img
-                                className="rounded-full w-14"
-                                src={blog.authorImage}
-                                alt="author"
-                              />
-                            </div>
-                            <div className=" px-3 leading-6">
-                              <p className="font-bold">
-                                {blog.authorName}
-                              </p>
-                              <p className="text-neutral-500 text-sm">
-                                {blog.date}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="px-3 ">
-                            <span className="text-neutral-500 pr-2 text-">
-                              {blog.readTime} min read
-                            </span>
-                            <button >
-                              <FontAwesomeIcon
-                                className="hover:text-blue-400 text-slate-600 text-xl"
-                                icon={faBookmark}
-                              />
-                            </button>
-                          </div>
-                        </div>
-                        <h2 className="card-title text-xl font-bold py-3">
-                          {blog.title}
-                        </h2>
-                        <p className="py-1 text-xl">#beginners #programming</p>
-                        <a
-                          className="pb-2 text-indigo-600 font-bold"
-                        >
-                          Mark as read
-                        </a>
-                        <hr />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+              <ArticleTabs
+                items={technology}
+              ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={1}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-              {/* map  */}
-            </div>
+              <ArticleTabs
+                items={marketing}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+              <ArticleTabs
+                items={social}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={3}>
+              <ArticleTabs
+                items={writing}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={4}>
+              <ArticleTabs
+                items={business}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={5}>
+              <ArticleTabs
+                items={travel}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={6}>
+              <ArticleTabs
+                items={culture}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={7}>
+              <ArticleTabs
+                items={society}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={8}>
+              <ArticleTabs
+                items={life}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={9}>
+              <ArticleTabs
+                items={history}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={10}>
+              <ArticleTabs
+                items={religion}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={11}>
+              <ArticleTabs
+                items={cryptocurrency}
+              ></ArticleTabs>
+          </TabPanel>
+          <TabPanel value={value} index={12}>
+              <ArticleTabs
+                items={education}
+              ></ArticleTabs>
           </TabPanel>
         </div>
       </Box>

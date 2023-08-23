@@ -5,11 +5,12 @@ import {
 } from "react-router-dom";
 import './index.css'
 import router from './Page/Routes/Routes';
+import AuthProvider from './Page/FirebaseAuth/Provider/AuthProvider';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-      <div className=''>
-        <RouterProvider router={router} />
-      </div>
+    <AuthProvider>
+    <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>,
 )
