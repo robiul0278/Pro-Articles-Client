@@ -1,5 +1,6 @@
 import { useForm} from "react-hook-form";
 import Swal from "sweetalert2";
+import JoditEditor from 'jodit-react';
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
