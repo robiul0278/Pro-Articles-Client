@@ -83,7 +83,7 @@ const AddReview = () => {
               <div className="flex justify-center">
                 <button
                   type="submit"
-                  className="btn md:btn-wide bg-slate-200 font-bold  rounded focus:outline-none focus:ring-2 "
+                  className="btn md:btn-wide w-full bg-error   rounded focus:outline-none focus:ring-2 "
                 >
                   Submit
                 </button>
