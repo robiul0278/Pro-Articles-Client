@@ -1,6 +1,5 @@
 import Banner from "../Banner/Banner";
 import Categories from "../Categories/Categories";
-import Contact from "../Contact/Contact";
 import Testimonials from "../Testimonial/Testimonials";
 import Trending from "../Trending/Trending";
 
@@ -13,7 +12,6 @@ const Home = () => {
         <Trending />
         <Categories></Categories>
         <Testimonials></Testimonials>
-        <Contact></Contact>
       </div>
     </div>
   );

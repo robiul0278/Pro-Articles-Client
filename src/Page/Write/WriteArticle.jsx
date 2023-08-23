@@ -1,5 +1,6 @@
 import { useForm} from "react-hook-form";
 import Swal from "sweetalert2";
+import useAuth from "../../Hooks/useAuth";
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
@@ -10,7 +11,9 @@ const WriteArticle = () => {
     console.log(img_hosting_url,'', img_hosting_token);
 
 
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit , reset } = useForm();
+    const {user} = useAuth();
+
     
 
     const onSubmit = (data ) => {
@@ -26,14 +29,17 @@ const WriteArticle = () => {
         .then(imgResponse => {
             if (imgResponse.success) {
                 const imgurl = imgResponse.data.display_url;
-                const {title,name,email,content,category} = data;
+                const {title,name,description, tag, category, readTime, date} = data;
                 const articleDetails = {
-                    articleTitle : title,
                     authorName : name,
-                    authorEmail : email,
-                    content,
+                    authorEmail : user?.email,
+                    description,
                     category,
-                    articleThumbnail: imgurl
+                    readTime,
+                    date,
+                    tag,
+                    title,
+                    image: imgurl
                 }
                 
 
@@ -48,11 +54,11 @@ const WriteArticle = () => {
                 }).then(res => res.json())
                     .then(data => {
 
-
+                        reset()
                         console.log(data)
                         Swal.fire({
                             icon: 'success',
-                            title: 'Account create successfully',
+                            title: 'Article create successfully',
                         })
                     });
             }
@@ -79,53 +85,71 @@ const WriteArticle = () => {
                         <div className="md:flex gap-3">
                             <div className="w-full">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
+                                    <span className="label-text">Your Name</span>
                                 </label>
                                 <input type="text"   {...register("name")} placeholder="name" className="input w-full input-bordered" />
                             </div>
-                            <div className="w-full">
+                            {/* <div className="w-full">
                                 <label className="label">
-                                    <span className="label-text">email</span>
+                                    <span className="label-text">Your Email</span>
                                 </label>
                                 <input type="email" {...register("email")} placeholder="email" className="input w-full input-bordered" />
-                            </div>
+                            </div> */}
                         </div>
                         {/* category */}
                         <div className="w-full">
                             <label className="label">
-                                <span className="label-text">Category</span>
+                                <span className="label-text">Post Category</span>
                             </label>
                             <select {...register("category")} defaultValue="Pick One" className="select select-bordered w-full">
                                 <option disabled>Pick One</option>
-                                <option>Social Media</option>
-                                <option>Marketing</option>
                                 <option>Technology</option>
+                                <option>Marketing</option>
+                                <option>Social</option>
                                 <option>Writing</option>
                                 <option>Business</option>
-                                <option>Politics</option>
+                                <option>Travel</option>
                                 <option>Culture</option>
-                                <option>Facebook</option>
+                                <option>Society</option>
                                 <option>Life</option>
                                 <option>History</option>
-                                <option>Society</option>
-                                <option>Art</option>
-                                <option>Music</option>
-                                <option>Travel</option>
-                                <option>Life Lesson</option>
-                                <option>Leadership</option>
+                                <option>Religion</option>
+                                <option>Cryptocurrency</option>
+                                <option>Education</option>
                             </select>
                         </div>
                         {/* title */}
                         <div className="">
                             <label className="label">
-                                <span className="label-text">Title</span>
+                                <span className="label-text">Article Title</span>
                             </label>
                             <input {...register("title")} type="text" placeholder="Title" className="input w-full input-bordered" />
+                        </div>
+                        {/* Read time  */}
+                        <div className="">
+                            <label className="label">
+                                <span className="label-text">Read Time</span>
+                            </label>
+                            <input {...register("readTime")} type="number" placeholder="Read time" className="input w-full input-bordered" />
+                        </div>
+                        {/* Time and Date  */}
+                        <div className="">
+                            <label className="label">
+                                <span className="label-text">Article Write Date</span>
+                            </label>
+                            <input {...register("date")} type="date" placeholder="read time" className="input w-full input-bordered" />
+                        </div>
+                        {/* Post tag  */}
+                        <div className="">
+                            <label className="label">
+                                <span className="label-text">Add Article #Tag</span>
+                            </label>
+                            <input {...register("tag")} type="text" placeholder="Write #tag" className="input w-full input-bordered" />
                         </div>
                         {/* image */}
                         <div className="w-full ">
                             <label className="label">
-                                <span className="label-text">Image*</span>
+                                <span className="label-text">Article Image*</span>
                             </label>
                             {/* <input type="file" className="file-input file-input-bordered  " /> */}
                             <input {...register("image")} type="file" placeholder="Title" required className="file-input file-input-bordered w-full max-w-xs" />
@@ -133,11 +157,11 @@ const WriteArticle = () => {
                         {/* content */}
                         <div className="w-full">
                             <label className="label">
-                                <span className="label-text">Content</span>
+                                <span className="label-text">Article Description</span>
                             </label>
                             <textarea
-                                {...register("content")}
-                                placeholder="write"
+                                {...register("description")}
+                                placeholder="write...."
                                 required
                                 style={{ width: "100%", height: "300px" }}
                                 className="input input-bordered" />
