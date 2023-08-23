@@ -47,7 +47,7 @@ const ArticleCard = ({ item }) => {
                     <h2 className="card-title text-xl font-bold py-3">
                         {title}
                     </h2>
-                    <p className="py-1 text-xl">{tag}</p>
+                    <p className="py-1 text-sm">{tag}</p>
                     <hr />
                 </div>
             </div>

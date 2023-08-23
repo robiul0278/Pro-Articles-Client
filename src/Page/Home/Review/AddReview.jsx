@@ -40,12 +40,13 @@ const AddReview = () => {
       });
   };
   return (
-    <div>
-      <div className="bg-gray-100">
-        <div className=" mx-auto px-4 py-8">
-          <div className="text-center outline outline-offset-2 outline-slate-300 bg-white p-12">
-            <h1 className="text-4xl font-bold ">ADD YOUR REVIEW</h1>
-          </div>
+    <section className='bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
+      <div className="px-4 lg:px-0 max-w-7xl mx-auto ">
+      <h1 className="text-5xl  text-center font-bold py-10">Add Your Review</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+        <div className='mb-10' data-aos="fade-right">
+                    <img className='w-[100%] h-auto' src="https://i.ibb.co/8x8DvSD/Email-campaign-amico.png" alt="" data-aos="zoom-in" />
+                </div>
           <form
             onSubmit={handleReview}
             className="gap-5 grid grid-cols-1 py-16 md:px-32 mx-auto"
@@ -87,7 +88,7 @@ const AddReview = () => {
           </form>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -9,7 +9,7 @@ const Trending = () => {
     const [blogs, setBlog] = useState([]);
 
     useEffect(() => {
-        fetch("data.json")
+        fetch("https://premium-articles-platform-sever.vercel.app/article")
             .then((res) => res.json())
             .then((data) => setBlog(data));
     }, []);
