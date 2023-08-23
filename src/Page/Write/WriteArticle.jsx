@@ -13,7 +13,7 @@ const WriteArticle = () => {
 
     const { register, handleSubmit , reset } = useForm();
     const {user} = useAuth();
-
+console.log(user)
     
 
     const onSubmit = (data ) => {
@@ -83,18 +83,18 @@ const WriteArticle = () => {
                     <div>
                     <form onSubmit={handleSubmit(onSubmit)} className="w-full mx-auto">
                         <div className="md:flex gap-3">
-                            <div className="w-full">
+                            {/* <div className="w-full">
                                 <label className="label">
                                     <span className="label-text">Your Name</span>
                                 </label>
-                                <input type="text"   {...register("name")} placeholder="name" className="input w-full input-bordered" />
-                            </div>
-                            {/* <div className="w-full">
+                                <input type="text"  {...register("name")} placeholder="name" className="input w-full input-bordered" />
+                            </div> */}
+                            <div className="w-full">
                                 <label className="label">
                                     <span className="label-text">Your Email</span>
                                 </label>
                                 <input type="email" {...register("email")} placeholder="email" className="input w-full input-bordered" />
-                            </div> */}
+                            </div>
                         </div>
                         {/* category */}
                         <div className="w-full">
