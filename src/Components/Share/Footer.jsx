@@ -2,7 +2,7 @@
 const Footer = () => {
     return (
         <footer className="bg-[#EFF6FF]  ">
-            
+
             <div className="footer p-10  text-base-content max-w-7xl mx-auto">
                 <div>
                     {/* <img className='rounded-full' style={{ height: '50px' }} src={footerLogo} alt="" /> */}
@@ -34,9 +34,9 @@ const Footer = () => {
                 </div>
 
             </div>
-             <div className="border-b-[3px]">
-                
-             </div>
+            <div className="border-b-[3px]">
+
+            </div>
             <div className="footer footer-center p-4 bg-[#EFF6FF]  text-base-content">
                 <div>
                     <p>Copyright © 2023 - All right reserved by summer camp</p>
