@@ -1,17 +1,17 @@
 import { Link, NavLink } from "react-router-dom";
 const Navbar = () => {
     // const user: boolean = false;
-    const navItem  =
+    const navItem =
         <>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/">Home</NavLink></li>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/write">Write</NavLink></li>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/membership">Membership</NavLink></li>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/about">About Us</NavLink></li>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/contact">Contact Us</NavLink></li>
         </>
     return (
@@ -28,7 +28,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                
+
                 <Link to="/" className="w-40"><img src="logo.png" alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
