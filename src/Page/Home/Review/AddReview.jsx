@@ -1,8 +1,10 @@
 import { useLoaderData } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAuth from "../../../Hooks/useAuth";
 
 const AddReview = () => {
   const review = useLoaderData();
+  const {user} = useAuth()
   console.log(review);
 
   const handleReview = (event) => {
@@ -19,7 +21,7 @@ const AddReview = () => {
     };
     console.log(saveData);
 
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://premium-articles-platform-sever.vercel.app/reviews", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +33,7 @@ const AddReview = () => {
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: "Added Successfully!",
+          title: "Review Added Successfully!",
           showConfirmButton: false,
           timer: 1500,
         });
@@ -42,50 +44,52 @@ const AddReview = () => {
   return (
     <section className='bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
       <div className="px-4 lg:px-0 max-w-7xl mx-auto ">
-      <h1 className="text-5xl  text-center font-bold py-10">Add Your Review</h1>
+        <h1 className="text-5xl  text-center font-bold py-10">Add Your Review</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div className='mb-10' data-aos="fade-right">
-                    <img className='w-[100%] h-auto' src="https://i.ibb.co/8x8DvSD/Email-campaign-amico.png" alt="" data-aos="zoom-in" />
-                </div>
-          <form
-            onSubmit={handleReview}
-            className="gap-5 grid grid-cols-1 py-16 md:px-32 mx-auto"
-          >
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                Your Address
-              </label>
-              <input
-                type="text"
-                id="address"
-                required
-                name="address"
-                placeholder="address"
-                className="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-700 font-bold mb-2">
-                Review Description
-              </label>
-              <textarea
-                id="description"
-                required
-                name="description"
-                placeholder="description"
-                rows={4}
-                className="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-              ></textarea>
-            </div>
-            <div className="flex justify-center">
-              <button
-                type="submit"
-                className="btn md:btn-wide bg-slate-200 font-bold  rounded focus:outline-none focus:ring-2 "
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+          <div className='mb-10' data-aos="fade-right">
+            <img className='w-[100%] h-auto' src="https://i.ibb.co/8x8DvSD/Email-campaign-amico.png" alt="" data-aos="zoom-in" />
+          </div>
+          <div>
+            <form
+              onSubmit={handleReview}
+              className="gap-5 grid grid-cols-1"
+            >
+              <div className="mb-4">
+                <label className="block text-gray-700 font-bold mb-2">
+                  Your Address
+                </label>
+                <input
+                  type="text"
+                  id="address"
+                  required
+                  name="address"
+                  placeholder="address"
+                  className="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 font-bold mb-2">
+                  Review Description
+                </label>
+                <textarea
+                  id="description"
+                  required
+                  name="description"
+                  placeholder="description"
+                  rows={4}
+                  className="border rounded-md px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+                ></textarea>
+              </div>
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="btn md:btn-wide bg-slate-200 font-bold  rounded focus:outline-none focus:ring-2 "
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
