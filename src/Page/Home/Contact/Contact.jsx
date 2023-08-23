@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 
 const Contact = () => {
     const form = useRef();
+
+
     //import.meta.env.VITE_SERVICE_ID
     const ServiceId = import.meta.env.VITE_SERVICE_ID
     const TemplateId = import.meta.env.VITE_TEMPLATE_ID
@@ -37,7 +39,8 @@ const Contact = () => {
         <section className='bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
             <div className='px-4 lg:px-0 max-w-7xl mx-auto '>
             <h1 className="text-5xl  text-center font-bold py-10">Contact Us</h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 gap-5 '>
+            {/* gap-5 */}
+            <div className='grid grid-cols-1 md:grid-cols-2  '>
 
                 <div className='mb-10' data-aos="fade-right">
                     <img className='w-[100%] h-auto' src="https://i.ibb.co/8x8DvSD/Email-campaign-amico.png" alt="" data-aos="zoom-in" />
