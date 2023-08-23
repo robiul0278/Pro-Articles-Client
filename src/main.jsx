@@ -4,12 +4,12 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import router from './Routes/Routes.tsx'
+import router from './Page/Routes/Routes';
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-<div className=''>
-<React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
-</div>,
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+      <div className=''>
+        <RouterProvider router={router} />
+      </div>
+  </React.StrictMode>,
 )
