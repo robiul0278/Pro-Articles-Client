@@ -43,8 +43,11 @@ function a11yProps(index) {
 
 export default function Categories() {
   const [value, setValue] = React.useState(0);
-  const [article] = useArticle();
+  const [article, loading] = useArticle();
   console.log(article)
+
+
+
   const technology = article.filter( item => item.category === "Technology" );
   const marketing = article.filter( item => item.category === "Marketing" );
   const social = article.filter( item => item.category === "Social" );
@@ -108,66 +111,79 @@ export default function Categories() {
           <TabPanel value={value} index={0}>
               <ArticleTabs
                 items={technology}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={1}>
               <ArticleTabs
                 items={marketing}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={2}>
               <ArticleTabs
                 items={social}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={3}>
               <ArticleTabs
                 items={writing}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={4}>
               <ArticleTabs
                 items={business}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={5}>
               <ArticleTabs
                 items={travel}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={6}>
               <ArticleTabs
                 items={culture}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={7}>
               <ArticleTabs
                 items={society}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={8}>
               <ArticleTabs
                 items={life}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={9}>
               <ArticleTabs
                 items={history}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={10}>
               <ArticleTabs
                 items={religion}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={11}>
               <ArticleTabs
                 items={cryptocurrency}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
           <TabPanel value={value} index={12}>
               <ArticleTabs
                 items={education}
+                loader={loading}
               ></ArticleTabs>
           </TabPanel>
         </div>
