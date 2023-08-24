@@ -7,7 +7,7 @@ const ArticleTabs = ({ items, loader }) => {
     <>
     {
             loader ?
-            <div className="flex items-center justify-center py-32">
+            <div className="flex items-center justify-center py-36">
               <Dna
                 visible={true}
                 height="80"
