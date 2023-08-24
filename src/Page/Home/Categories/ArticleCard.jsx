@@ -44,7 +44,7 @@ const ArticleCard = ({ item }) => {
                             </button>
                         </div>
                     </div>
-                    <h2 className="card-title text-xl font-bold py-3">
+                    <h2 className="card-title text-xl font-bold">
                         {title}
                     </h2>
                     <p className="py-1 text-sm">{tag}</p>

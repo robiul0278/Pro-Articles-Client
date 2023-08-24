@@ -10,7 +10,7 @@ import { useState } from "react";
 const Login = () => {
     const { register, handleSubmit, reset} = useForm();
   const [error, setError,] = useState('')
-  const {Login ,googleSignIn, gitHubSignIn,} = useAuth() ;
+  const {Login ,googleSignIn, gitHubSignIn, profileUpdate} = useAuth() ;
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -64,6 +64,14 @@ const Login = () => {
                 popup: 'animate__animated animate__fadeOutUp'
             }
         });
+        profileUpdate()
+        .then(() => {
+            console.log("profile updated");
+            reset();
+        })
+        .catch(error => {
+            setError(error.message);
+        })
     })
     .catch((error) => {
         const errorMessage = error.message;
