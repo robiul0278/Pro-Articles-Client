@@ -81,7 +81,7 @@ const Register = () => {
     return (
         <section className="bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]">
             <div className="px-4 max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10 justify-center items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10  justify-center items-center">
                     <div className="hidden lg:flex">
                         <img
                             className="w-[100%] h-auto"
@@ -91,7 +91,7 @@ const Register = () => {
                         />
                     </div>
                     {/* From  */}
-                    <div>
+                    <div className="py-10">
                         <form
                             onSubmit={handleSubmit(onSubmit)}
                             className="card flex-shrink-0 w-full bg-white max-w-md border-b-8 border-b-error border"

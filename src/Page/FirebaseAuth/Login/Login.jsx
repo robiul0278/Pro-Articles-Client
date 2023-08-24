@@ -87,7 +87,7 @@ const Login = () => {
             <img className='w-[100%] h-auto' src="login.svg" alt="" data-aos="zoom-in" />
           </div>
           {/* From  */}
-          <div>
+          <div className="py-10">
             <form
               onSubmit={handleSubmit(onSubmit)}
               className="card bg-white flex-shrink-0 w-full max-w-md border-b-8 border-b-error border"
