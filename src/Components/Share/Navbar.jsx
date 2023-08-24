@@ -1,17 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
 const Navbar = () => {
+    const {user, logOut} = useAuth();
+
+
+    const handleLogOut = () => {
+        logOut();
+    }
     // const user: boolean = false;
-    const navItem  =
+    const navItem =
         <>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/">Home</NavLink></li>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/write">Write</NavLink></li>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/membership">Membership</NavLink></li>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/about">About Us</NavLink></li>
-            <li><NavLink  className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/contact">Contact Us</NavLink></li>
         </>
     return (
@@ -28,7 +35,7 @@ const Navbar = () => {
                         }
                     </ul>
                 </div>
-                
+
                 <Link to="/" className="w-40"><img src="logo.png" alt="" /></Link>
             </div>
             <div className="navbar-center hidden lg:flex">
@@ -39,13 +46,25 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <div className="flex items-center justify-center gap-4">
-                    <Link to="/login" className="hover:text-info hover:transition-colors hover:duration-500">Sign In</Link>
-                    <Link to="/login" className="hidden lg:block bg-[#e73635] text-base-100 p-3 rounded-lg hover:bg-info hover:transition-colors
-                    hover:duration-500">Get Started</Link>
-                </div>
+      {user ? (
+          <div className=" align-middle flex">
+            <NavLink
+              to="/login"
+              onClick={handleLogOut}
+              className="px-4 btn logout py-1 rounded"
+            >
+              LogOut
+            </NavLink>
+          </div>
+        ) : (
+          <div>
+            <NavLink to="/login" className="btn ml-4">
+              Login
+            </NavLink>
+          </div>
+        )}
+      </div>
             </div>
-        </div>
     );
 };
 

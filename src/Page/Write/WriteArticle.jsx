@@ -10,6 +10,8 @@ const WriteArticle = () => {
     const img_hosting_url = `https://api.imgbb.com/1/upload?&key=cf6bb3b03fa4376aa28f506d68c0272c`
     console.log(img_hosting_url, '', img_hosting_token);
 
+    
+
 
     const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth();
