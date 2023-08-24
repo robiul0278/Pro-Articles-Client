@@ -37,12 +37,13 @@ const WriteArticle = () => {
                         category,
                         readTime,
                         date,
+                        authorImage: user?.photoURL,
                         tag,
                         title,
-                        authorImage: user?.photoURL,
                         image: imgurl
                     }
                     console.log(articleDetails);
+
 
 
                     /********Insert user details in the database********/
