@@ -11,6 +11,7 @@ import Register from "../FirebaseAuth/Register/Register";
 import WriteArticle from "../Write/WriteArticle";
 import Contact from "../Home/Contact/Contact";
 import About from "../About/About";
+import Membership from "../Membership/Membership";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
             {
                 path: '/about',
                 element: <About></About>
+            },
+            {
+                path: '/membership',
+                element: <Membership></Membership>
             },
 
         ]
