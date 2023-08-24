@@ -80,9 +80,9 @@ const Register = () => {
 
     return (
         <section className="bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]">
-            <div className=" max-w-7xl mx-auto">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
-                    <div className="">
+            <div className="px-4 max-w-7xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10 justify-center items-center">
+                    <div className="hidden lg:flex">
                         <img
                             className="w-[100%] h-auto"
                             src="register.svg"
@@ -97,7 +97,7 @@ const Register = () => {
                             className="card flex-shrink-0 w-full bg-white max-w-md border-b-8 border-b-error border"
                         >
 
-                            <div className="card-body">
+                            <div className="card-body font-bold">
                                 <div className="text-center">
                                     <h1 className="text-error font-bold text-3xl">Register ProWriter</h1>
                                 </div>
@@ -140,30 +140,30 @@ const Register = () => {
                                     />
                                 </div>
                                 <p className=" text-orange-800">{error}</p>
-                                <div className="form-control mt-6">
+                                <div className="form-control">
                                     <button className="btn btn-error text-white font-semibold">Register</button>
                                 </div>
                                 <div>
-                                    <h2 className="text-center pt-4  font-bold">OR</h2>
-                                    <h2 className="font-semibold text-center pb-4">
+                                    <h2 className="text-center font-bold">OR</h2>
+                                    <h2 className="font-semibold text-center">
                                         to continue to ProWriter
                                     </h2>
-                                    <div className="gap-5 flex">
+                                    <div className="gap-5 grid grid-cols-2 pt-2">
                                         <button
                                             onClick={handleGoogle}
                                             className="btn md:w-44 bg-blue-500 hover:bg-blue-600  text-white"
                                         >
-                                            <FcGoogle className="mr-2"></FcGoogle> Google
+                                            <FcGoogle className=""></FcGoogle> Google
                                         </button>
                                         <button
                                             onClick={handleGit}
                                             className="btn md:w-44 bg-blue-500 hover:bg-blue-600  text-white"
                                         >
-                                            <FaGithub className="mr-2"></FaGithub> GitHub
+                                            <FaGithub className=""></FaGithub> GitHub
                                         </button>
                                     </div>
                                 </div>
-                                <div className="text-center card-body">
+                                <div className="text-center">
                                     <span>
                                         You have already account?&ensp;
                                         <Link to="/login" className=" text-blue-600">
