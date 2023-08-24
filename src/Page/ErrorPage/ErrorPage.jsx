@@ -1,12 +1,9 @@
 import { Link } from 'react-router-dom'
-import Navbar from '../../Components/Share/Navbar'
-import Footer from '../../Components/Share/Footer'
 
 
 const ErrorPage = () => {
   return (
     <div>
-        <div><Navbar></Navbar></div>
         <div>
         <section className='flex items-center h-screen p-16 bg-gray-100 text-gray-900'>
       <div className='container flex flex-col items-center justify-center px-5 mx-auto my-8'>
@@ -52,7 +49,6 @@ const ErrorPage = () => {
       </div>
     </section>
         </div>
-        <div><Footer></Footer></div>
     </div>
   )
 }

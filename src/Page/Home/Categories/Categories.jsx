@@ -69,7 +69,7 @@ export default function Categories() {
   
 
   return (
-    <div className="">
+    <section className="bg-white">
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
           <div className="text-center mb-5">
@@ -172,7 +172,7 @@ export default function Categories() {
           </TabPanel>
         </div>
       </Box>
-    </div>
+    </section>
   );
 }
 
