@@ -15,7 +15,7 @@ const Trending = () => {
     }, []);
     console.log(blogs);
     return (
-        <div className="my-10 mx-3 md:mx-0">
+        <section className="my-5 bg-white p-5 mx-3 md:mx-0">
             <h1 className="font-bold text-4xl px-4">Trending Topics</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                 {
@@ -51,7 +51,7 @@ const Trending = () => {
                     )
                 }
             </div>
-        </div>
+        </section>
     );
 };
 
