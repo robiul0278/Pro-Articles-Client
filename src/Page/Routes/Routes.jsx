@@ -11,6 +11,7 @@ import Register from "../FirebaseAuth/Register/Register";
 import WriteArticle from "../Write/WriteArticle";
 import Contact from "../Home/Contact/Contact";
 import About from "../About/About";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -36,7 +37,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/write',
-                element: <WriteArticle></WriteArticle>
+                element: <PrivateRoute>
+                    <WriteArticle>
+                    </WriteArticle>
+                </PrivateRoute>
             },
             {
                 path: '/contact',

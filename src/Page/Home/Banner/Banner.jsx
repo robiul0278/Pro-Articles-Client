@@ -1,7 +1,7 @@
 const Banner = () => {
     return (
       <div
-      className="bg-cover bg-center py-40"
+      className="bg-cover bg-center py-40 hidden lg:flex"
       style={{
         backgroundImage: "url('hero3.svg')",
         // height: "800px"  Adjust the height value as needed

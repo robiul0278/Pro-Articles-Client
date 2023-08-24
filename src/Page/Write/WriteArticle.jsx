@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
+import useTitle from "../../Hooks/useTitle"
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
@@ -12,7 +13,7 @@ const WriteArticle = () => {
 
     
 
-
+    useTitle("Write");
     const { register, handleSubmit, reset } = useForm();
     const { user } = useAuth();
 
@@ -77,7 +78,7 @@ const WriteArticle = () => {
     // }
     return (
         <section className='bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
-            <div className=" lg:px-0 container mx-auto">
+            <div className="px-4 lg:px-0 container mx-auto">
                 <h1 className="text-5xl  text-center font-bold py-10">Write a Article</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pb-5">
 

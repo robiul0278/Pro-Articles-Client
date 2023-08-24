@@ -1,5 +1,6 @@
 
 const About = () => {
+    
     return (
         <div className="mx-auto max-w-screen-xl">
             <h1 className="text-7xl p-5 font-bold text-center">Everyone has a story to tell.</h1>
