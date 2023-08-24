@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { Bars } from "react-loader-spinner";
