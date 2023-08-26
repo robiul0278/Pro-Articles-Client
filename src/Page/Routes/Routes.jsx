@@ -12,6 +12,7 @@ import WriteArticle from "../Write/WriteArticle";
 import Contact from "../Home/Contact/Contact";
 import About from "../About/About";
 import PrivateRoute from "./PrivateRoute";
+import ArticleDetails from "../ArticleDetails/ArticleDetails";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/review",
-                element: <AddReview></AddReview>,
+                element: <PrivateRoute><AddReview></AddReview></PrivateRoute>,
             },
             {
                 path: '/login',
@@ -37,10 +38,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/write',
-                element: <PrivateRoute>
-                    <WriteArticle>
-                    </WriteArticle>
-                </PrivateRoute>
+                element: <PrivateRoute><WriteArticle></WriteArticle></PrivateRoute>
             },
             {
                 path: '/contact',
@@ -50,7 +48,11 @@ const router = createBrowserRouter([
                 path: '/about',
                 element: <About></About>
             },
-
+            {
+                path: '/article/:id',
+                element: <ArticleDetails></ArticleDetails>,
+                loader: ({params}) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
+              },
         ]
     },
 ]);
