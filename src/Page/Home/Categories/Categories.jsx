@@ -44,7 +44,7 @@ function a11yProps(index) {
 export default function Categories() {
   const [value, setValue] = React.useState(0);
   const [article, loading] = useArticle();
-  console.log(article)
+  // console.log(article)
 
 
 

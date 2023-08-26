@@ -18,7 +18,7 @@ const Trending = () => {
                 setLoading(false);
             })
     }, []);
-    console.log(blogs);
+    // console.log(blogs);
     return (
         <section className="my-5 bg-white p-5 mx-3 md:mx-0">
             <h1 className="font-bold text-4xl py-4">Trending Topics</h1>

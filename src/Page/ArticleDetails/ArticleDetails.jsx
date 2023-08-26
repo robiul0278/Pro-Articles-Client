@@ -1,14 +1,15 @@
 /* eslint-disable react/prop-types */
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBookmark } from "@fortawesome/free-solid-svg-icons";
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 
-const ArticleCard = ({ item }) => {
-    const { image, authorImage, authorName, date, readTime, title,tag , _id} = item;
+const ArticleDetails = () => {
+  const article = useLoaderData()
+    const { image, authorImage, authorName, date, description, title,} = article;
     return (
-        <div className="card card-compact bg-base-100 shadow-x">
-                <figure className="">
+<section>
+
+<div className="max-w-7xl mx-auto ">
+                <figure className="w-3/4 mx-auto pt-16">
                     <img
                         className=" bg-cover md:h-64 w-full bg-center rounded-xl"
                         src={image}
@@ -34,28 +35,19 @@ const ArticleCard = ({ item }) => {
                                 </p>
                             </div>
                         </div>
-                        <div className="px-3 ">
-                            <span className="text-neutral-500 pr-2 text-">
-                                {readTime} min read
-                            </span>
-                            <button >
-                                <FontAwesomeIcon
-                                    className="hover:text-blue-400 text-slate-600 text-xl"
-                                    icon={faBookmark}
-                                />
-                            </button>
-                        </div>
+
                     </div>
-                    <Link to={`/article/${_id}`}>
-                    <h2 className="card-title text-xl font-bold hover:underline ">
+                    <Link>
+                    <h2 className="card-title text-3xl font-bold hover:underline ">
                         {title}
                     </h2>
                     </Link>
-                    <p className="py-1 text-sm">{tag}</p>
+                    <p className="py-1 text-xl text-justify">{description}</p>
                     <hr />
                 </div>
             </div>
+</section>
     );
 };
 
-export default ArticleCard;
+export default ArticleDetails;
