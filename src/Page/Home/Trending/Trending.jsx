@@ -20,8 +20,8 @@ const Trending = () => {
     }, []);
     // console.log(blogs);
     return (
-        <section className="my-5 bg-white p-5 mx-3 md:mx-0">
-            <h1 className="font-bold text-4xl py-4">Trending Topics</h1>
+        <section className="my-5 bg-white p-5">
+            <h1 className="font-bold text-2xl md:text-4xl py-4">Recent Posts</h1>
             {
                 loading ?
                     <div className="flex items-center justify-center py-28">
@@ -46,12 +46,12 @@ const Trending = () => {
                                     <div className="my-2">
                                         <div className="flex items-center gap-2">
                                             <figure className="w-6 ">
-                                                <img className="rounded-full" src={blog.authorImage} alt="" />
+                                                <img className="rounded-full" src={blog?.authorImage} alt="" />
                                             </figure>
-                                            <Link to="#"><h4 className="text-xs text-gray-400">{blog.authorName}</h4></Link>
+                                            <Link to="#"><h4 className="text-xs text-gray-400">{blog?.authorName}</h4></Link>
                                         </div>
                                         <div>
-                                            <h2 className="my-1 font-semibold">{blog.title}</h2>
+                                            <Link to={`/article/${blog?._id}`} className="my-1 hover:underline font-semibold">{blog?.title}</Link>
                                         </div>
                                         <div className="flex justify-start gap-3 items-center">
                                             <h6 className="text-xs text-gray-400">9 Aug</h6>
@@ -60,14 +60,18 @@ const Trending = () => {
                                                     className="mr-2"
                                                     icon={faEye}
                                                 />
-                                                {blog.views}
+                                                {blog?.views}
                                             </h6>
                                         </div>
                                     </div>
+
                                 </div>
+
                             )
                         }
+                     <hr />
                     </div>
+               
             }
         </section>
     );

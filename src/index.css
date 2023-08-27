@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: #f3f4f6;
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600&display=swap');
+body{
+  background-color: #f0f8fb;
+  font-family: 'Hind Siliguri', sans-serif;
 }

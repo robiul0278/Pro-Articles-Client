@@ -1,5 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -16,8 +18,8 @@ const Navbar = () => {
     <>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/">Home</NavLink></li>
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/write">Write</NavLink></li>
+      {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            hover:duration-500" to="/write">Write</NavLink></li> */}
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/membership">Membership</NavLink></li>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
@@ -40,7 +42,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <Link to="/" className="w-40 text-3xl"><img src="logo." alt="" /> <h1 >ProWriter</h1></Link>
+        <Link to="/" className="w-40 text-error font-bold text-3xl"><img src="logo." alt="" /> <h1 >ProWriter</h1></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="flex items-center justify-center gap-4 px-1">
@@ -51,7 +53,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="dropdown dropdown-bottom dropdown-end">
+          <div className="dropdown dropdown-bottom z-10  dropdown-end">
           <label tabIndex={0} className=" m-1">
              <div className="avatar">
                <div className="w-10 rounded-full ring ring-error  ring-offset-base-100 ring-offset-2">
@@ -59,9 +61,11 @@ const Navbar = () => {
                </div>
              </div>
           </label>
-          <ul tabIndex={0} className="menu menu-sm text-black bg-white dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
-            <li><NavLink onClick={handleLogOut}>Log Out</NavLink></li>
-            <li><a>Item 2</a></li>
+          <ul tabIndex={0} className="menu-md menu text-black bg-white dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
+          <li><Link to='/write'>Write</Link></li>
+          <li><a>Dashboard</a></li>
+          <li><NavLink  onClick={handleLogOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign Out</NavLink></li>
+            
           </ul>
         </div>
         ) : (

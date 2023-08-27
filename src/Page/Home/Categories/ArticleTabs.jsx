@@ -17,7 +17,7 @@ const ArticleTabs = ({ items, loader }) => {
                 wrapperClass="dna-wrapper"
               />
             </div> :
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+            <div className="grid grid-cols-1 md:px-16">
               {items.map((item) => (
                 <ArticleCard key={item._id} item={item}></ArticleCard>
               ))}
