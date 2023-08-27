@@ -72,16 +72,16 @@ export default function Categories() {
   
 
   return (
-    <section className="bg-white">
+    <section className="">
       <Box sx={{ width: "100%" }}>
         <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <div className="text-center mb-5">
-            <div className="pt-16">
-              <h1 className="font-bold text-4xl px-4">Popular Article Section</h1>
+          <div className="text-center bg-white pb-5">
+            <div className="md:pt-16 pt-5">
+              <h1 className="font-bold text-2xl md:text-4xl">Popular Article Section</h1>
             </div>
-            <h4 className="px-4">Let’s See What’s New</h4>
+            <h4 className="">Let’s See What’s New</h4>
           </div>
-          <div className="text-center">
+          <div className="bg-white">
             <Tabs
               className="w-full text-center border-none"
               value={value}
@@ -107,7 +107,7 @@ export default function Categories() {
             </Tabs>
           </div>
         </Box>
-        <div className=" bg-white">
+        <div className="">
           <TabPanel value={value} index={0}>
               <ArticleTabs
                 items={technology}
