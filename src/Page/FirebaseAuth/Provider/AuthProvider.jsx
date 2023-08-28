@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { createContext, useEffect, useState } from "react";
 import {
   createUserWithEmailAndPassword,
@@ -59,6 +60,7 @@ const AuthProvider = ({ children }) => {
 
   //   update Profile user 
   const profileUpdate = (name, photo) => {
+    setLoading(true);
     return updateProfile(auth.currentUser, {
       displayName: name, photoURL: photo
     });

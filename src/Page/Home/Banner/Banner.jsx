@@ -1,42 +1,170 @@
+import { useKeenSlider } from "keen-slider/react"
+import "keen-slider/keen-slider.min.css"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBitcoinSign, faBriefcase, faChartSimple, faHeart, faLandmarkDome, faMicrochip, faMosque, faPencil, faPeopleArrows, faPersonDigging, faThumbsUp, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
+
+const animation = { duration: 10000, easing: (t) => t }
 const Banner = () => {
-    return (
-      <div
-      className="bg-cover bg-center py-40"
+  const [sliderRef] = useKeenSlider({
+    loop: true,
+    renderMode: "performance",
+    drag: false,
+    created(s) {
+      s.moveToIdx(5, true, animation)
+    },
+    updated(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation)
+    },
+    animationEnded(s) {
+      s.moveToIdx(s.track.details.abs + 5, true, animation)
+    },
+  })
+  return (
+    <div
+      className="bg-cover -mt-32 bg-center"
       style={{
-        backgroundImage: "url('hero3.svg')",
+        backgroundImage: "url('https://i.ibb.co/4PXLx0Z/young-woman-reading-textbook-home-library-generated-by-ai.jpg')",
         // height: "800px"  Adjust the height value as needed
       }}
-      >
-        <div className="container mx-auto">
-          <div className="flex">
-            <div className="w-3/4 text-center mx-auto">
-              <div>
-                <h1 className="text-4xl font-bold text-[#ffffff] mt-5">
-                  Welcome To Our <br />
-                  <span className="text-[#d3b714] md:text-6xl tex-3xl font-bold">
-                    Paid Article Service
-                  </span>{" "}
+    >
+      <div className="mx-auto hero-overlay bg-opacity-60 pb-5 md:pb-36 mt-16 md:pt-56">
+        <div className="flex">
+          <div className="w-3/4 text-center md:mt-0 mt-12 mx-auto">
+            <div className="md:leading-10">
+              <div className="items-center justify-center">
+                <h1 className="md:text-5xl text-2xl  font-bold text-[#ffffff] md:mt-10 mt-16">
+                  Search Your Favorite Article Here!
                 </h1>
-  
-                <p className="mt-5 text-white text-xl">
-                  Published author, editor, and PR consultant Wendy Burt-Thomas
-                  covers all aspects of writing, including how to: Prepare to
-                  write, from planning to research to organization Properly
-                  structure your piece to fit your chosen genre Stay focused .
-                  Teamwork, sportsmanship and fair play are fundamental to the
-                  philosophy that guides the program.
-                </p>
-                <button className="btn btn-outline btn-error mt-5">
-                  See More
-                </button>
+                <p className="text-white md:text-2xl">Engage customers with the best Article.</p>
+              </div>
+              <div className="mt-5 join">
+                <div>
+                  <div>
+                    <input className="input input-bordered join-item" placeholder="Search" />
+                  </div>
+                </div>
+                <div className="">
+                  <button className="btn bg-error text-white join-item">Search</button>
+                </div>
+              </div>
+
+              {/* Carusel  */}
+
+              <div className="md:hidden mt-5 w-5/6 md:w-1/6 pb-6  mx-auto px-14">
+                <div ref={sliderRef} className="keen-slider text-white">
+                  <div className="keen-slider__slide number-slide1 flex items-center justify-center ">
+                    <span className="mr-1"><FontAwesomeIcon icon={faMicrochip} /></span>
+                    <h1>Technology</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide2 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faChartSimple} /></span>
+                    <h1>Marketing</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide3 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faThumbsUp} /></span>
+                    <h1>Social</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide4 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faPencil} /></span>
+                    <h1>Writing</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide5 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faBriefcase} /></span>
+                    <h1>Business</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide6 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faUserGraduate} /></span>
+                    <h1>Education</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide7 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faLandmarkDome} /></span>
+                    <h1>History</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide8 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faHeart} /></span>
+                    <h1>Life</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide9 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faPeopleArrows} /></span>
+                    <h1>Society</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide10 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faPersonDigging} /></span>
+                    <h1>Culture</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide11 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faBitcoinSign} /></span>
+                    <h1>Cryptocurrency</h1>
+                  </div>
+                  <div className="keen-slider__slide number-slide12 flex items-center justify-center">
+                    <span className="mr-1"><FontAwesomeIcon icon={faMosque} /></span>
+                    <h1>Religion</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            {/* Categories list   */}
+
+            <div className="hidden lg:flex">
+              <div className="grid md:grid-cols-6 grid-cols-3 mt-32 md:w-3/5 mx-auto gap-6 md:gap-5 text-start text-white">
+                <div className="flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faMicrochip} /></span>
+                  <h1>Technology</h1>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faChartSimple} /></span>
+                  <h1>Marketing</h1>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faThumbsUp} /></span>
+                  <h1>Social</h1>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faPencil} /></span>
+                  <h1>Writing</h1>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faBriefcase} /></span>
+                  <h1>Business</h1>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faUserGraduate} /></span>
+                  <h1>Education</h1>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faLandmarkDome} /></span>
+                  <h1>History</h1>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faHeart} /></span>
+                  <h1>Life</h1>
+                </div>
+                <div className="flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faPeopleArrows} /></span>
+                  <h1>Society</h1>
+                </div>
+                <div className=" flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faPersonDigging} /></span>
+                  <h1>Culture</h1>
+                </div>
+                <div className=" flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faBitcoinSign} /></span>
+                  <h1>Crypto</h1>
+                </div>
+                <div className=" flex items-center">
+                  <span className="mr-1"><FontAwesomeIcon icon={faMosque} /></span>
+                  <h1>Religion</h1>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        F
       </div>
-    );
-  };
-  
-  export default Banner;
-  
+
+    </div>
+  );
+};
+
+export default Banner;

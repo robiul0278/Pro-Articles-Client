@@ -8,9 +8,9 @@ import { useState } from "react";
 
 
 const Login = () => {
-    const { register, handleSubmit, reset} = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [error, setError,] = useState('')
-  const {Login ,googleSignIn, gitHubSignIn, profileUpdate} = useAuth() ;
+  const { Login, googleSignIn, gitHubSignIn, profileUpdate } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -21,14 +21,14 @@ const Login = () => {
 
   const handleGoogle = () => {
     googleSignIn()
-    .then((result) => {
-      const user = result.user;
-      navigate(from, {replace: true})
-      console.log(user)
-    }).catch((error) => {
-      const errorMessage = error.message;
-      setError(errorMessage);
-    });
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true })
+        console.log(user)
+      }).catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
   }
 
 
@@ -36,72 +36,72 @@ const Login = () => {
 
   const handleGit = () => {
     gitHubSignIn()
-  .then((result) => {
-    navigate(from, {replace: true})
-    const user = result.user;
-    console.log(user)
-  }).catch((error) => {
-    const errorMessage = error.message;
-    setError(errorMessage);
-  });
+      .then((result) => {
+        navigate(from, { replace: true })
+        const user = result.user;
+        console.log(user)
+      }).catch((error) => {
+        const errorMessage = error.message;
+        setError(errorMessage);
+      });
   }
 
   // email password login ====================
 
   const onSubmit = (data) => {
     Login(data.email, data.password)
-    .then(result => {
+      .then(result => {
         const user = result.user;
         console.log(user);
         reset();
         navigate(from, { replace: true });
         Swal.fire({
-            title: 'Login Successfully !.',
-            showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-            },
-            hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-            }
+          title: 'Login Successfully !.',
+          showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+          },
+          hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+          }
         });
         profileUpdate()
-        .then(() => {
+          .then(() => {
             console.log("profile updated");
             reset();
-        })
-        .catch(error => {
+          })
+          .catch(error => {
             setError(error.message);
-        })
-    })
-    .catch((error) => {
+          })
+      })
+      .catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
         console.log(errorMessage);
-    });
+      });
   };
   return (
     <section className="bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]">
       <div className="px-4 lg:px-0 max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 py-10">
-        <div className=''>
-                    <img className='w-[100%] h-auto' src="login.svg" alt="" data-aos="zoom-in" />
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center items-center">
+          <div className='hidden lg:flex'>
+            <img className='w-[100%] h-auto' src="login.svg" alt="" data-aos="zoom-in" />
+          </div>
           {/* From  */}
-          <div>
+          <div className="py-10">
             <form
-              onSubmit={handleSubmit(onSubmit)} 
-              className="card bg-white flex-shrink-0 w-full md:w-full max-w-md border-b-8 border-b-error border"
+              onSubmit={handleSubmit(onSubmit)}
+              className="card bg-white flex-shrink-0 w-full max-w-md border-b-8 border-b-error border"
             >
-              <div className="card-body">
-              <div className="text-center">
-                                    <h1 className="text-error font-bold text-3xl">Login ProWriter</h1>
-                                </div>
+              <div className="card-body font-bold">
+                <div className="text-center">
+                  <h1 className="text-error font-bold text-3xl">Login ProWriter</h1>
+                </div>
                 <div className="form-control">
                   <label className="label">
                     <span className="label-text">Email</span>
                   </label>
                   <input
-                  {...register("email", { required: true })}
+                    {...register("email", { required: true })}
                     name="email"
                     type="email"
                     placeholder="Your email"
@@ -114,7 +114,7 @@ const Login = () => {
                     <span className="label-text">Password</span>
                   </label>
                   <input
-                  {...register("password", { required: true })}
+                    {...register("password", { required: true })}
                     name="password"
                     type="password"
                     placeholder="Your password"
@@ -127,37 +127,37 @@ const Login = () => {
                     </a>
                   </label>
                 </div>
-                <div className="form-control mt-6">
+                <div className="form-control">
                   <button className="btn btn-error text-white font-semibold">Login</button>
                 </div>
                 <div>
-                  <h2 className="text-center pt-4  font-bold">OR</h2>
-                  <h2 className="font-semibold pb-4 text-center">
-                  to continue to ProWriter
+                  <h2 className="text-center font-bold">OR</h2>
+                  <h2 className="font-semibold text-center">
+                    to continue to ProWriter
                   </h2>
-                  <div className="gap-5 justify-center align-middle flex">
+                  <div className="grid grid-cols-2 gap-5 pt-2">
                     <button
                       onClick={handleGoogle}
                       className="btn  bg-blue-500 hover:bg-blue-600 text-white md:w-44"
                     >
-                      <FcGoogle className="mr-2"></FcGoogle> Google
+                      <FcGoogle className=""></FcGoogle> Google
                     </button>
                     <button
                       onClick={handleGit}
                       className="btn md:w-44 bg-blue-500 hover:bg-blue-600  text-white"
                     >
-                      <FaGithub className="mr-2"></FaGithub> GitHub
+                      <FaGithub className=""></FaGithub> GitHub
                     </button>
                   </div>
                 </div>
-                <div className="text-center card-body">
-            <div>
-              New member ?&ensp;
-              <Link to="/register" className=" text-blue-600">
-                Create an account.
-              </Link>
-            </div>
-          </div>
+                <div className="text-center pt-3">
+                  <div>
+                    New member ?&ensp;
+                    <Link to="/register" className=" text-blue-600">
+                      Create an account.
+                    </Link>
+                  </div>
+                </div>
               </div>
             </form>
           </div>
