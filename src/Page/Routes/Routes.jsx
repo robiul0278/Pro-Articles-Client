@@ -13,6 +13,7 @@ import Contact from "../Home/Contact/Contact";
 import About from "../About/About";
 import PrivateRoute from "./PrivateRoute";
 import ArticleDetails from "../ArticleDetails/ArticleDetails";
+import Dashboard from "../../Layout/Dashboard";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -51,9 +52,13 @@ const router = createBrowserRouter([
             {
                 path: '/article/:id',
                 element: <ArticleDetails></ArticleDetails>,
-                loader: ({params}) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
-              },
+                loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
+            },
         ]
     },
+    {
+        path:'/dashboard',
+        element: <Dashboard></Dashboard>
+    }
 ]);
 export default router;

@@ -12,6 +12,7 @@ import {
 import { GoogleAuthProvider } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
 import app from "../firebase/firebase.config";
+import axios from "axios";
 
 
 
@@ -71,6 +72,18 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
         setUser(loggedUser);
         setLoading(false);
+                    // get and set token
+                    if (loggedUser) {
+                      axios.post('https://premium-articles-platform-sever.vercel.app/jwt', { email: loggedUser.email })
+                          .then(data => {
+                              // console.log(data.data.token)
+                              localStorage.setItem('access-token', data.data.token)
+                              setLoading(false);
+                          })
+                  }
+                  else {
+                      localStorage.removeItem('access-token')
+                  }
       })
 
       return() => {
