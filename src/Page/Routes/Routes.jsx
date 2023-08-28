@@ -13,6 +13,7 @@ import Contact from "../Home/Contact/Contact";
 import About from "../About/About";
 import Membership from "../Membership/Membership";
 import PrivateRoute from "./PrivateRoute";
+import Dashboard from "../../Layout/Dashboard";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -55,5 +56,9 @@ const router = createBrowserRouter([
 
         ]
     },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>
+    }
 ]);
 export default router;
