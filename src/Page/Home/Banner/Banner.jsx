@@ -2,7 +2,6 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBitcoinSign, faBriefcase, faChartSimple, faHeart, faLandmarkDome, faMicrochip, faMosque, faPencil, faPeopleArrows, faPersonDigging, faThumbsUp, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
-import './Banner.css'
 
 const animation = { duration: 10000, easing: (t) => t }
 const Banner = () => {
@@ -22,36 +21,36 @@ const Banner = () => {
   })
   return (
     <div
-      className="bg-cover -mt-20 bg-center"
+      className="bg-cover -mt-32 bg-center"
       style={{
         backgroundImage: "url('https://i.ibb.co/4PXLx0Z/young-woman-reading-textbook-home-library-generated-by-ai.jpg')",
         // height: "800px"  Adjust the height value as needed
       }}
     >
-      <div className="mx-auto hero-overlay bg-opacity-60 pb-5 md:pb-36 pt-16 md:pt-56">
-        <div className="items-center justify-center flex">
-          <div className="md:w-3/4 text-center md:mt-0 mt-12 mx-auto">
+      <div className="mx-auto hero-overlay bg-opacity-60 pb-5 md:pb-36 mt-16 md:pt-56">
+        <div className="flex">
+          <div className="w-3/4 text-center md:mt-0 mt-12 mx-auto">
             <div className="md:leading-10">
-              <div className="flex flex-col items-center justify-center">
+              <div className="items-center justify-center">
+                <h1 className="md:text-5xl text-2xl  font-bold text-[#ffffff] md:mt-10 mt-16">
+                  Search Your Favorite Article Here!
+                </h1>
+                <p className="text-white md:text-2xl">Engage customers with the best Article.</p>
+              </div>
+              <div className="mt-5 join">
+                <div>
+                  <div>
+                    <input className="input input-bordered join-item" placeholder="Search" />
+                  </div>
+                </div>
                 <div className="">
-                  <div className="">
-                    <h1 className="md:text-5xl text-2xl font-bold text-[#ffffff] md:mt-10 mt-10">
-                      Search Your Favorite Article Here!
-                    </h1>
-                    <p className="text-white md:text-2xl">Engage customers with the best Article.</p>
-                  </div>
-                  <div className="mt-5 w-3/4 mx-auto z-0">
-                    <div className="input-box">
-                      <input type="text" placeholder="Search here..." className="uil uil-search"></input>
-                      <button className="button">Search</button>
-                    </div>
-                  </div>
+                  <button className="btn bg-error text-white join-item">Search</button>
                 </div>
               </div>
 
               {/* Carusel  */}
 
-              <div className="md:hidden mt-5 pb-6 w-72 mx-auto px-14">
+              <div className="md:hidden mt-5 w-5/6 md:w-1/6 pb-6  mx-auto px-14">
                 <div ref={sliderRef} className="keen-slider text-white">
                   <div className="keen-slider__slide number-slide1 flex items-center justify-center ">
                     <span className="mr-1"><FontAwesomeIcon icon={faMicrochip} /></span>
@@ -109,7 +108,7 @@ const Banner = () => {
             {/* Categories list   */}
 
             <div className="hidden lg:flex">
-              <div className="grid md:grid-cols-6 grid-cols-3 mt-16 md:w-3/5 mx-auto gap-6 md:gap-5 text-start text-white">
+              <div className="grid md:grid-cols-6 grid-cols-3 mt-32 md:w-3/5 mx-auto gap-6 md:gap-5 text-start text-white">
                 <div className="flex items-center">
                   <span className="mr-1"><FontAwesomeIcon icon={faMicrochip} /></span>
                   <h1>Technology</h1>
