@@ -2,9 +2,12 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBitcoinSign, faBriefcase, faChartSimple, faHeart, faLandmarkDome, faMicrochip, faMosque, faPencil, faPeopleArrows, faPersonDigging, faThumbsUp, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
+import './Banner.css'
+import { useState } from "react"
 
 const animation = { duration: 10000, easing: (t) => t }
 const Banner = () => {
+  const [searchText, setSearchText] = useState("");
   const [sliderRef] = useKeenSlider({
     loop: true,
     renderMode: "performance",
@@ -19,6 +22,16 @@ const Banner = () => {
       s.moveToIdx(s.track.details.abs + 5, true, animation)
     },
   })
+
+  const handleSearch = () => {
+    // fetch(`https://toy-marketplace-server-hazel.vercel.app/getToyByText/${searchText}`)
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log(data);
+    //      setAllToys(data);
+    //   });
+  };
+
   return (
     <div
       className="bg-cover -mt-32 bg-center"
