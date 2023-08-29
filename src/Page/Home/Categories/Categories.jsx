@@ -204,7 +204,7 @@ export default function Categories() {
           </div>
         </Box>
       </section>
-      <PerPage postPerPage={postPerPage} totalPosts={article.length} paginate={paginate}></PerPage></>
+      <PerPage  postPerPage={postPerPage} totalPosts={article.length} paginate={paginate}></PerPage></>
   );
 }
 
