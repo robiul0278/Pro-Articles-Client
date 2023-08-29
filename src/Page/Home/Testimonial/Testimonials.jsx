@@ -73,24 +73,24 @@ const Testimonials = () => {
                             >
                                 {
                                     reviews.map((review) => (
-                                        <div key={review._id}>
+                                        <div key={review?._id}>
                                             <SwiperSlide>
                                                 <div className="items-center justify-center">
                                                     <div className="w-full  p-8 rounded-md  flex flex-col items-center">
 
                                                         <div className="flex items-center mb-4">
-                                                            <img src={review.avatar} alt="User Avatar" className="w-12 h-12 rounded-full mr-4" />
+                                                            <img src={review?.avatar} alt="User Avatar" className="w-12 h-12 rounded-full mr-4" />
 
                                                         </div>
                                                         <div>
-                                                            <h2 className="text-xl font-bold">{review.name}</h2>
+                                                            <h2 className="text-xl font-bold">{review?.name}</h2>
                                                         </div>
                                                         <p className="text-gray-800 text-base mb-4 w-3/4 text-center">
-                                                            {review.description}
+                                                            {review?.description}
                                                         </p>
                                                         <div className="flex">
                                                             <span>Rating: </span>
-                                                            <Rating style={{ maxWidth: 100 }} value={review.rating} readOnly />
+                                                            <Rating style={{ maxWidth: 100 }} value={review?.rating} readOnly />
                                                             <span>{''}</span>
                                                         </div>
 

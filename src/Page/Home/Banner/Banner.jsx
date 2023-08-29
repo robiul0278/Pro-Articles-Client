@@ -10,7 +10,7 @@ const Banner = () => {
   const [searchText, setSearchText] = useState("");
   const [searchData, setSearchData] = useState([])
   console.log(searchData);
-  
+
   const [sliderRef] = useKeenSlider({
     loop: true,
     renderMode: "performance",
@@ -27,7 +27,7 @@ const Banner = () => {
   })
 
   const handleSearch = () => {
-    fetch(`http://localhost:5000/articleSearch/${searchText}`)
+    fetch(`https://premium-articles-platform-sever.vercel.app/articleSearch/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setSearchData(data);

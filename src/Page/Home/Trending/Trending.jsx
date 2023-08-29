@@ -60,7 +60,6 @@ const Trending = () => {
                                                     className="mr-2"
                                                     icon={faEye}
                                                 />
-                                                {blog?.views}
                                             </h6>
                                         </div>
                                     </div>

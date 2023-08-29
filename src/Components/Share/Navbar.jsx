@@ -42,7 +42,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <Link to="/" className="w-40 text-error font-bold text-3xl"><img src="logo." alt="" /> <h1 >ProWriter</h1></Link>
+        <Link to="/" className="w-40 text-error font-bold text-3xl"><img src="" alt="" /> <h1 >ProWriter</h1></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="flex items-center justify-center gap-4 px-1">
