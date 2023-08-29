@@ -23,8 +23,31 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         const user = result.user;
-        navigate(from, { replace: true })
-        console.log(user)
+        const saveUser = { name: user.displayName, email: user.email, image: user.photoURL }
+        fetch("https://premium-articles-platform-sever.vercel.app/users", {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(saveUser)
+        })
+          .then((response) => response.json())
+          .then(() => {
+            reset();
+            profileUpdate()
+            .then(() => {
+              Swal.fire({
+                title: 'Login Successfully !.',
+                showClass: {
+                  popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                  popup: 'animate__animated animate__fadeOutUp'
+                }
+              });
+            })
+            navigate(from, { replace: true });
+          })
       }).catch((error) => {
         const errorMessage = error.message;
         setError(errorMessage);
@@ -53,21 +76,30 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
-        reset();
-        navigate(from, { replace: true });
-        Swal.fire({
-          title: 'Login Successfully !.',
-          showClass: {
-            popup: 'animate__animated animate__fadeInDown'
+        const saveUser = { name: user.displayName, email: user.email, image: user.photoURL }
+        fetch("https://premium-articles-platform-sever.vercel.app/users", {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
           },
-          hideClass: {
-            popup: 'animate__animated animate__fadeOutUp'
-          }
-        });
+          body: JSON.stringify(saveUser)
+        })
+          .then((response) => response.json())
+          .then(() => {
+            reset();
+            navigate(from, { replace: true });
+          })
         profileUpdate()
           .then(() => {
-            console.log("profile updated");
-            reset();
+            Swal.fire({
+              title: 'Login Successfully !.',
+              showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+              },
+              hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+              }
+            });
           })
           .catch(error => {
             setError(error.message);

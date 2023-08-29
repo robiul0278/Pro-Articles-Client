@@ -11,8 +11,9 @@ import Register from "../FirebaseAuth/Register/Register";
 import WriteArticle from "../Write/WriteArticle";
 import Contact from "../Home/Contact/Contact";
 import About from "../About/About";
+import Membership from "../Membership/Membership";
 import PrivateRoute from "./PrivateRoute";
-import ArticleDetails from "../ArticleDetails/ArticleDetails";
+import Dashboard from "../../Layout/Dashboard";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -49,11 +50,15 @@ const router = createBrowserRouter([
                 element: <About></About>
             },
             {
-                path: '/article/:id',
-                element: <ArticleDetails></ArticleDetails>,
-                loader: ({params}) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
-              },
+                path: '/membership',
+                element: <Membership></Membership>
+            },
+
         ]
     },
+    {
+        path: '/dashboard',
+        element: <Dashboard></Dashboard>
+    }
 ]);
 export default router;

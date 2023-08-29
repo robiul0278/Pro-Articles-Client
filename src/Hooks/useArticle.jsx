@@ -1,27 +1,17 @@
-// import { useQuery } from "@tanstack/react-query";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 
 const useArticle = () => {
-    const [article, setArticle] = useState([]);
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        fetch('https://premium-articles-platform-sever.vercel.app/article')
-            .then(res => res.json())
-            .then(data => {
-                setArticle(data);
-                setLoading(false);
-            });
-    }, [])
+    const { data: article = [], isLoading: loading, refetch } = useQuery({
+        queryKey: ['article'],
+        queryFn: async () => {
+            const res = await fetch('https://premium-articles-platform-sever.vercel.app/article');
+            const data = await res.json();
+            console.log(data)
+            return data;
+        }
+    });
 
-    // const { data: article = [], isLoading: loading, refetch } = useQuery({
-    //     queryKey: ['article'],
-    //     queryFn: async () => {
-    //         const res = await fetch('https://premium-articles-platform-sever.vercel.app/article');
-    //         return res.json();
-    //     }
-    // })
-
-    return [article, loading]
+    return [article, loading, refetch];
 }
 
 export default useArticle;
