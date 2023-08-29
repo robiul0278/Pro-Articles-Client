@@ -4,11 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBitcoinSign, faBriefcase, faChartSimple, faHeart, faLandmarkDome, faMicrochip, faMosque, faPencil, faPeopleArrows, faPersonDigging, faThumbsUp, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
 import './Banner.css'
 import { useState } from "react"
+// import { Link } from "react-router-dom"
 
 const animation = { duration: 10000, easing: (t) => t }
 const Banner = () => {
   const [searchText, setSearchText] = useState("");
   const [searchData, setSearchData] = useState([])
+  const [loading, setLoading] = useState(false);
   console.log(searchData);
 
   const [sliderRef] = useKeenSlider({
@@ -26,11 +28,17 @@ const Banner = () => {
     },
   })
 
+
+
   const handleSearch = () => {
+    setLoading(true);
+
+
     fetch(`https://premium-articles-platform-sever.vercel.app/articleSearch/${searchText}`)
       .then((res) => res.json())
       .then((data) => {
         setSearchData(data);
+        setLoading(false);
       })
   };
 
@@ -64,6 +72,48 @@ const Banner = () => {
                 <div className="">
                   <button onClick={handleSearch} className="btn bg-error text-white join-item">Search</button>
                 </div>
+              </div>
+
+              {/* search here */}
+              <div>
+                {
+                  loading ? (
+                    <div className="text-center text-gray-500">
+                      <p>Loading...</p>
+                    </div>
+                  ) : searchData.length > 0 ? (
+                    <div>
+                      {/* <h2 className="text-lg font-semibold mb-2 text-white text-center">Search Results:</h2> */}
+                      <div className="">
+                        {searchData.map((data) => (
+                          <div key={data._id}>
+                            <div className="">
+                              <h2 className="text-white">{data.title}</h2>
+                            </div>
+                            {/* <div className="card card-compact w-96 h-96 bg-base-100 shadow-xl">
+                              <figure><img src={data.image} alt="Shoes" /></figure>
+                              <div className="card-body">
+                                <h2 className="card-title">{data.name}</h2>
+                                <p> { }</p>
+                                <p> { }</p>
+                                <p>  { }</p>
+                                <div className="card-actions justify-center">
+                                  <Link to={` `} className="btn btn-primary">View Details
+                                  </Link>
+                                </div>
+                              </div>
+                            </div> */}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) :
+                    (
+                      <div className="text-center text-white">
+                        <p>No results found.</p>
+                      </div>
+                    )
+                }
               </div>
 
               {/* Modal  */}
