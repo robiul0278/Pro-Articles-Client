@@ -23,14 +23,32 @@ const Banner = () => {
     },
   })
 
+  // const handleSearch = () => {
+  //   fetch(`http://localhost:5000/article/${searchText}`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       //  setAllToys(data);
+  //     });
+  // };
+
   const handleSearch = () => {
-    // fetch(`https://toy-marketplace-server-hazel.vercel.app/getToyByText/${searchText}`)
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //      setAllToys(data);
-    //   });
+    fetch(`http://localhost:5000/article/${searchText}`)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error(`Response status: ${res.status}`);
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        // setAllToys(data);
+      })
+      .catch((error) => {
+        console.error('Fetch error:', error);
+      });
   };
+
 
   return (
     <div
@@ -53,11 +71,11 @@ const Banner = () => {
               <div className="mt-5 join">
                 <div>
                   <div>
-                    <input className="input input-bordered join-item" placeholder="Search" />
+                    <input onChange={(e) => setSearchText(e.target.value)} className="input input-bordered join-item" placeholder="Search" />
                   </div>
                 </div>
                 <div className="">
-                  <button className="btn bg-error text-white join-item">Search</button>
+                  <button onClick={handleSearch} className="btn bg-error text-white join-item">Search</button>
                 </div>
               </div>
 
