@@ -1,12 +1,13 @@
 
 import { NavLink, Outlet } from "react-router-dom";
-import { FaWallet, FaHome, FaUtensils } from 'react-icons/fa';
+import { FaHome, FaUsers } from 'react-icons/fa';
+import { MdArticle, MdPayment } from "react-icons/md";
 
 
 
 const Dashboard = () => {
     // const [isAdmin] = useAdmin();
-    const isAdmin = false;
+    const isAdmin = true;
 
     return (
         <>
@@ -19,31 +20,21 @@ const Dashboard = () => {
                                     <>
                                         <li>
                                             <NavLink
-                                                to="/dashboard/adminHome"
-
-                                                className="flex items-center space-x-2 "
-                                            >
-                                                <FaHome />
-                                                <span className="font-bold">Admin Home</span>
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                to="/dashboard/manageClasses"
+                                                to="/dashboard"
 
                                                 className="flex items-center space-x-2"
                                             >
-                                                <FaUtensils />
+                                                <MdArticle />
                                                 <span className="font-bold">Manage Articles</span>
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink
-                                                to="/dashboard/manageUsers"
+                                                to="/dashboard"
 
                                                 className="flex items-center space-x-2 "
                                             >
-                                                <FaWallet />
+                                                <FaUsers />
                                                 <span className="font-bold">Manage Users</span>
                                             </NavLink>
                                         </li>
@@ -51,41 +42,21 @@ const Dashboard = () => {
                                     <>
                                         <li>
                                             <NavLink
-                                                to="/dashboard/studentHome"
-
-                                                className="flex items-center space-x-2 "
-                                            >
-                                                <FaHome />
-                                                <span className="font-bold">Student Home</span>
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                to="/dashboard/selectedClasses"
+                                                to="/dashboard"
 
                                                 className="flex items-center space-x-2"
                                             >
-                                                <FaUtensils />
+                                                <MdArticle />
                                                 <span className="font-bold">My Articles</span>
                                             </NavLink>
                                         </li>
                                         <li>
                                             <NavLink
-                                                to="/dashboard/enrolledClasses"
+                                                to="/dashboard"
 
                                                 className="flex items-center space-x-2 "
                                             >
-                                                <FaWallet />
-                                                <span className="font-bold">Update Article</span>
-                                            </NavLink>
-                                        </li>
-                                        <li>
-                                            <NavLink
-                                                to="/dashboard/paymentHistory"
-
-                                                className="flex items-center space-x-2 "
-                                            >
-                                                <FaWallet />
+                                                <MdPayment />
                                                 <span className="font-bold">Payment</span>
                                             </NavLink>
                                         </li>
