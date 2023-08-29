@@ -3,8 +3,8 @@ import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from 'react-hook-form';
 import Swal from "sweetalert2";
-import useAuth from "../../../Hooks/useAuth";
 import { useState } from "react";
+import useAuth from "../../Hooks/useAuth";
 
 
 const Login = () => {

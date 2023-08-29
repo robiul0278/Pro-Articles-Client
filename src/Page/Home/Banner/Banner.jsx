@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBitcoinSign, faBriefcase, faChartSimple, faHeart, faLandmarkDome, faMicrochip, faMosque, faPencil, faPeopleArrows, faPersonDigging, faThumbsUp, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
 import './Banner.css'
 import { useState } from "react"
+import { Link } from "react-router-dom"
 // import { Link } from "react-router-dom"
 
 const animation = { duration: 10000, easing: (t) => t }
@@ -75,45 +76,32 @@ const Banner = () => {
               </div>
 
               {/* search here */}
+              <div className="absolute z-50 items-center justify-center  md:ml-72">
               <div>
-                {
+              {
                   loading ? (
-                    <div className="text-center text-gray-500">
-                      <p>Loading...</p>
+                    <div className="text-center  items-center  md:ml-72 justify-center">
+                      <p >Loading...</p>
                     </div>
                   ) : searchData.length > 0 ? (
                     <div>
                       {/* <h2 className="text-lg font-semibold mb-2 text-white text-center">Search Results:</h2> */}
-                      <div className="">
+                      <div className="items-center justify-center text-center">
                         {searchData.map((data) => (
                           <div key={data._id}>
-                            <div className="">
-                              <h2 className="text-white">{data.title}</h2>
-                            </div>
-                            {/* <div className="card card-compact w-96 h-96 bg-base-100 shadow-xl">
-                              <figure><img src={data.image} alt="Shoes" /></figure>
-                              <div className="card-body">
-                                <h2 className="card-title">{data.name}</h2>
-                                <p> { }</p>
-                                <p> { }</p>
-                                <p>  { }</p>
-                                <div className="card-actions justify-center">
-                                  <Link to={` `} className="btn btn-primary">View Details
-                                  </Link>
-                                </div>
-                              </div>
-                            </div> */}
+                            <Link to={`/article/${data?._id}`}><span className="text-blue-600 hover:underline  p-2 bg-opacity-90 bg-white">{data?.title}</span></Link>
                           </div>
                         ))}
                       </div>
                     </div>
-                  ) :
+                  ) : 
                     (
                       <div className="text-center text-white">
-                        <p>No results found.</p>
+                        {/* <p>No results found.</p> */}
                       </div>
                     )
                 }
+              </div>
               </div>
 
               {/* Modal  */}
@@ -180,7 +168,7 @@ const Banner = () => {
 
             {/* Categories list   */}
 
-            <div className="hidden lg:flex">
+            <div className="hidden lg:flex relative z-30">
               <div className="grid md:grid-cols-6 grid-cols-3 mt-32 md:w-3/5 mx-auto gap-6 md:gap-5 text-start text-white">
                 <div className="flex items-center">
                   <span className="mr-1"><FontAwesomeIcon icon={faMicrochip} /></span>

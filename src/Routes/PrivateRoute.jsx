@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useLocation, useNavigate } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
-import { Bars } from "react-loader-spinner";
+import { Dna } from "react-loader-spinner";
 import Swal from "sweetalert2";
+import useAuth from "../Hooks/useAuth";
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useAuth();
@@ -11,17 +11,16 @@ const PrivateRoute = ({ children }) => {
 
     if (loading) {
         return (
-            <>
-                <Bars
-                    height="80"
-                    width="80"
-                    color="#4fa94d"
-                    ariaLabel="bars-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                    visible={true}
-                />
-            </>
+            <div className="flex items-center bg-white justify-center py-32">
+            <Dna
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="dna-loading"
+                wrapperStyle={{}}
+                wrapperClass="dna-wrapper"
+            />
+        </div>
         );
     }
 

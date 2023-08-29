@@ -4,13 +4,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import './index.css'
-import router from './Page/Routes/Routes';
-import AuthProvider from './Page/FirebaseAuth/Provider/AuthProvider';
 
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import AuthProvider from './FirebaseAuth/Provider/AuthProvider';
+import router from './Routes/Routes';
 
 const queryClient = new QueryClient()
 

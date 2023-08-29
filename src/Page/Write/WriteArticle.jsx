@@ -145,13 +145,6 @@ const WriteArticle = () => {
                                 </label>
                                 <input {...register("date")} type="date" placeholder="read time" className="input w-full input-bordered" />
                             </div>
-                            {/* Post tag  */}
-                            <div className="">
-                                <label className="label">
-                                    <span className="label-text">Add Article #Tag</span>
-                                </label>
-                                <input {...register("tag")} type="text" placeholder="Write #tag" className="input w-full input-bordered" />
-                            </div>
                             {/* image */}
                             <div className="w-full ">
                                 <label className="label">
