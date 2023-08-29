@@ -7,7 +7,7 @@ import { MdArticle, MdPayment } from "react-icons/md";
 
 const Dashboard = () => {
     // const [isAdmin] = useAdmin();
-    const isAdmin = true;
+    const isAdmin = false;
 
     return (
         <>
@@ -20,7 +20,7 @@ const Dashboard = () => {
                                     <>
                                         <li>
                                             <NavLink
-                                                to="/dashboard"
+                                                to="/dashboard/manageArticle"
 
                                                 className="flex items-center space-x-2"
                                             >
@@ -30,7 +30,7 @@ const Dashboard = () => {
                                         </li>
                                         <li>
                                             <NavLink
-                                                to="/dashboard"
+                                                to="/dashboard/manageUsers"
 
                                                 className="flex items-center space-x-2 "
                                             >
@@ -42,7 +42,7 @@ const Dashboard = () => {
                                     <>
                                         <li>
                                             <NavLink
-                                                to="/dashboard"
+                                                to="/dashboard/myArticle"
 
                                                 className="flex items-center space-x-2"
                                             >
@@ -52,7 +52,7 @@ const Dashboard = () => {
                                         </li>
                                         <li>
                                             <NavLink
-                                                to="/dashboard"
+                                                to="/dashboard/payment"
 
                                                 className="flex items-center space-x-2 "
                                             >
