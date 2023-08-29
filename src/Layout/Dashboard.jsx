@@ -3,12 +3,13 @@ import { NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaUsers } from 'react-icons/fa';
 import { MdArticle, MdPayment } from "react-icons/md";
 import { BsPersonSquare } from "react-icons/bs";
+import useAdmin from "../Hooks/useAdmin";
 
 
 
 const Dashboard = () => {
-    // const [isAdmin] = useAdmin();
-    const isAdmin = false;
+    const [isAdmin] = useAdmin();
+    // const isAdmin = true;
 
     return (
         <>
