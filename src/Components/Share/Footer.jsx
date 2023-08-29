@@ -39,7 +39,7 @@ const Footer = () => {
             <div className="border-b-[3px]">
 
             </div>
-            <div className="footer footer-center p-4 bg-[#EFF6FF]  text-base-content">
+            <div className="footer footer-center p-4 bg-white text-base-content">
                 <div>
                     <p>Copyright © 2023 - All right reserved by summer camp</p>
                 </div>
