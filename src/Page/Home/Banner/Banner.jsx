@@ -8,6 +8,9 @@ import { useState } from "react"
 const animation = { duration: 10000, easing: (t) => t }
 const Banner = () => {
   const [searchText, setSearchText] = useState("");
+  const [searchData, setSearchData] = useState([])
+  console.log(searchData);
+  
   const [sliderRef] = useKeenSlider({
     loop: true,
     renderMode: "performance",
@@ -23,30 +26,12 @@ const Banner = () => {
     },
   })
 
-  // const handleSearch = () => {
-  //   fetch(`http://localhost:5000/article/${searchText}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       //  setAllToys(data);
-  //     });
-  // };
-
   const handleSearch = () => {
-    fetch(`http://localhost:5000/article/${searchText}`)
-      .then((res) => {
-        if (!res.ok) {
-          throw new Error(`Response status: ${res.status}`);
-        }
-        return res.json();
-      })
+    fetch(`http://localhost:5000/articleSearch/${searchText}`)
+      .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        // setAllToys(data);
+        setSearchData(data);
       })
-      .catch((error) => {
-        console.error('Fetch error:', error);
-      });
   };
 
 
@@ -71,13 +56,20 @@ const Banner = () => {
               <div className="mt-5 join">
                 <div>
                   <div>
-                    <input onChange={(e) => setSearchText(e.target.value)} className="input input-bordered join-item" placeholder="Search" />
+                    <input onChange={(e) => setSearchText(e.target.value)} className="input input-bordered join-item"
+                      type="text"
+                      placeholder="Search" />
                   </div>
                 </div>
                 <div className="">
                   <button onClick={handleSearch} className="btn bg-error text-white join-item">Search</button>
                 </div>
               </div>
+
+              {/* Modal  */}
+              {/* Open the modal using ID.showModal() method */}
+
+
 
               {/* Carusel  */}
 
