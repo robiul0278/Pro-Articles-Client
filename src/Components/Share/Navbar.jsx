@@ -63,7 +63,7 @@ const Navbar = () => {
           </label>
           <ul tabIndex={0} className="menu-md menu text-black bg-white dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
           <li><Link to='/write'>Write</Link></li>
-          <li><Link to='/dashboard'>Dashboard</Link></li>
+          <li><Link to='/dashboard/'>Dashboard</Link></li>
           <li><NavLink  onClick={handleLogOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign Out</NavLink></li>
             
           </ul>

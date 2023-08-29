@@ -2,6 +2,7 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaHome, FaUsers } from 'react-icons/fa';
 import { MdArticle, MdPayment } from "react-icons/md";
+import { BsPersonSquare } from "react-icons/bs";
 
 
 
@@ -18,6 +19,16 @@ const Dashboard = () => {
                             {
                                 isAdmin ?
                                     <>
+                                        <li>
+                                            <NavLink
+                                                to="/dashboard/adminHome"
+
+                                                className="flex items-center space-x-2"
+                                            >
+                                                <BsPersonSquare />
+                                                <span className="font-bold">Dashboard Profile</span>
+                                            </NavLink>
+                                        </li>
                                         <li>
                                             <NavLink
                                                 to="/dashboard/manageArticle"
@@ -40,6 +51,16 @@ const Dashboard = () => {
                                         </li>
                                     </> :
                                     <>
+                                        <li>
+                                            <NavLink
+                                                to="/dashboard/userHome"
+
+                                                className="flex items-center space-x-2"
+                                            >
+                                                <BsPersonSquare />
+                                                <span className="font-bold">Dashboard Profile</span>
+                                            </NavLink>
+                                        </li>
                                         <li>
                                             <NavLink
                                                 to="/dashboard/myArticle"
@@ -77,7 +98,6 @@ const Dashboard = () => {
                 </div>
                 <div className=" w-3/4 mx-auto bg-white">
                     <Outlet />
-
                 </div>
             </div>
             <br />
