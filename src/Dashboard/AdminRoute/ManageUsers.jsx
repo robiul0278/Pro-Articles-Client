@@ -59,7 +59,10 @@ const ManageUsers = () => {
             <Helmet>
                 <title>ProWriter | Manage Users</title>
             </Helmet>
-            <h3 className="text-3xl font-semibold text-center my-4">MANAGE USERS</h3>
+            <div className="text-center outline outline-offset-2 outline-cyan-500 bg-white p-8 m-5">
+                <h1 className="text-4xl font-bold ">Manage Users</h1>
+                <p className=""> Unlock Your Potential with Engaging Education and Inspiring Knowledge</p>
+            </div>
             <div className="overflow-x-auto">
                 <table className="table table-zebra w-full">
                     {/* head */}

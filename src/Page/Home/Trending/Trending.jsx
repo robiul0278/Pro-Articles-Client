@@ -51,7 +51,7 @@ const Trending = () => {
                                             <Link to="#"><h4 className="text-xs text-gray-400">{blog?.authorName}</h4></Link>
                                         </div>
                                         <div>
-                                            <Link to={`/article/${blog?._id}`} className="my-1 hover:underline font-semibold">{blog?.title}</Link>
+                                            <Link to={`/articleDetails/${blog?._id}`} className="my-1 hover:underline font-semibold">{blog?.title}</Link>
                                         </div>
                                         <div className="flex justify-start gap-3 items-center">
                                             <h6 className="text-xs text-gray-400">9 Aug</h6>

@@ -21,7 +21,7 @@ const ArticleCard = ({ item }) => {
                 <div className="p-3">
                     <div className='flex justify-between '>
                         <div>
-                            <Link to={`/article/${_id}`}>
+                            <Link to={`/articleDetails/${_id}`}>
                                 <h2 className="card-title text-xl  hover:underline ">
                                     {title}
                                 </h2>

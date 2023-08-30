@@ -19,11 +19,12 @@ import ManageUsers from "../Dashboard/AdminRoute/ManageUsers";
 import MyArticle from "../Dashboard/UsersRoute/MyArticle";
 import AdminHome from "../Dashboard/AdminRoute/AdminHome";
 import UserHome from "../Dashboard/UsersRoute/UserHome";
+import ArticleDetails from "../Page/ArticleDetails/ArticleDetails";
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
-        errorElement: <ErrorPage/>,
+        errorElement: <ErrorPage />,
 
         children: [
             {
@@ -32,58 +33,63 @@ const router = createBrowserRouter([
             },
             {
                 path: "review",
-                element: <PrivateRoute><AddReview/></PrivateRoute>,
+                element: <PrivateRoute><AddReview /></PrivateRoute>,
             },
             {
                 path: 'login',
-                element: <Login/>
+                element: <Login />
             },
             {
                 path: 'register',
-                element: <Register/>
+                element: <Register />
             },
             {
                 path: 'write',
-                element: <PrivateRoute><WriteArticle/></PrivateRoute>
+                element: <PrivateRoute><WriteArticle /></PrivateRoute>
             },
             {
                 path: 'contact',
-                element: <Contact/>
+                element: <Contact />
             },
             {
                 path: 'about',
-                element: <About/>
+                element: <About />
             },
             {
                 path: 'membership',
-                element: <Membership/>
+                element: <Membership />
             },
+            {
+                path: '/articleDetails/:id',
+                element: <ArticleDetails></ArticleDetails>,
+                loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
+            }
 
         ]
     },
     {
         path: 'dashboard',
-        element: <Dashboard/>,
+        element: <Dashboard />,
         children: [
             {
-                path:'adminHome',
-                element: <AdminHome/>
+                path: 'adminHome',
+                element: <AdminHome />
             },
             {
-                path:'manageArticle',
-                element: <ManageArticle/>
+                path: 'manageArticle',
+                element: <ManageArticle />
             },
             {
-                path:'manageUsers',
-                element: <ManageUsers/>
+                path: 'manageUsers',
+                element: <ManageUsers />
             },
             {
-                path:'userHome',
-                element: <UserHome/>
+                path: 'userHome',
+                element: <UserHome />
             },
             {
-                path:'myArticle',
-                element: <MyArticle/>,
+                path: 'myArticle',
+                element: <MyArticle />,
             }
         ]
     }
