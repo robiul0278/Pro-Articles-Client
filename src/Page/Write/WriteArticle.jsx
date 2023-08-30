@@ -35,7 +35,7 @@ const WriteArticle = () => {
                     const { title, description, tag, category, readTime, date } = data;
                     const articleDetails = {
                         authorName: user?.displayName,
-                        authorEmail: user?.email,
+                        email: user?.email,
                         description,
                         category,
                         readTime,
@@ -51,7 +51,7 @@ const WriteArticle = () => {
 
                     /********Insert user details in the database********/
 
-                    fetch('https://premium-articles-platform-sever.vercel.app/addarticle', {
+                    fetch('https://premium-articles-platform-sever.vercel.app/addArticle', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json'
