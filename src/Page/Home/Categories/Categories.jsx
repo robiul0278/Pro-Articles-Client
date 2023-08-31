@@ -49,7 +49,7 @@ export default function Categories() {
   // console.log(article)
 
   const [currentPage, setCurrentPage] = useState(1)
-  const [postPerPage] = useState(5)
+  const [postPerPage] = useState(6)
 
   // get current page
   const indexOfLastPost = currentPage * postPerPage;
@@ -59,8 +59,6 @@ export default function Categories() {
 
   // change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
-
-
 
   const technology = currentPost.filter(item => item.category === "Technology");
   const marketing = article.filter(item => item.category === "Marketing");
@@ -204,7 +202,7 @@ export default function Categories() {
           </div>
         </Box>
       </section>
-      <PerPage  postPerPage={postPerPage} totalPosts={article.length} paginate={paginate}></PerPage></>
+      <PerPage postPerPage={postPerPage} totalPosts={article.length} paginate={paginate}></PerPage></>
   );
 }
 

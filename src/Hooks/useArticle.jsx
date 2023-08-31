@@ -6,7 +6,7 @@ const useArticle = () => {
         queryFn: async () => {
             const res = await fetch('https://premium-articles-platform-sever.vercel.app/article');
             const data = await res.json();
-            console.log(data)
+            // console.log(data)
             return data;
         }
     });
