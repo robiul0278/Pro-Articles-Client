@@ -14,7 +14,7 @@ const PerPage = ({ postPerPage, totalPosts, paginate }) => {
         <div className="join ">
             {pagNumbers.map(number => (
                 <>
-                    <button onClick={() => paginate(number)} key={number} className="join-item btn">{number}</button>
+                    <button key={number} onClick={() => paginate(number)} className="join-item btn">{number}</button>
                 </>
             ))}
 
