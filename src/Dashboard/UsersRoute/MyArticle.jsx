@@ -1,15 +1,49 @@
 import useMyArticle from "../../Hooks/useMyArticle";
-import { faBookmark, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import {  faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyArticle = () => {
-    const [myArticle] = useMyArticle();
+    const [myArticle,refetch] = useMyArticle();
     console.log(myArticle);
+
+
+
+
+
+    const handleDelete = article => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`https://premium-articles-platform-sever.vercel.app/deleteArticle/${article._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Article has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
     return (
-        <>
-            <div className="text-center outline outline-offset-2 outline-cyan-500 bg-white p-8 m-5">
+        <section className="bg-gradient-to-r h-screen from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]">
+            <div className="text-center outline outline-offset-2 outline-cyan-500  p-8 m-5">
                 <h1 className="text-4xl font-bold ">My All Articles</h1>
                 <p className=""> Unlock Your Potential with Engaging Education and Inspiring Knowledge</p>
             </div>
@@ -66,7 +100,7 @@ const MyArticle = () => {
 
                                     <div className="flex">
                                         <button className="bg-success text-white btn-sm font-bold">Edit</button>
-                                        <button className="bg-error ml-1 text-white btn-sm font-bold">Delete</button>
+                                        <button onClick={() => handleDelete(article)} className="bg-error ml-1 text-white btn-sm font-bold">Delete</button>
                                     </div>
                                 </div>
 
@@ -77,7 +111,7 @@ const MyArticle = () => {
                     ))
                 }
             </div>
-        </>
+        </section>
 
     );
 

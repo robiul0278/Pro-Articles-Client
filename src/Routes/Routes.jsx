@@ -9,7 +9,6 @@ import WriteArticle from "../Page/Write/WriteArticle";
 import Contact from "../Page/Home/Contact/Contact";
 import About from "../Page/About/About";
 import Membership from "../Page/Membership/Membership";
-import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../Layout/Dashboard";
 import Home from "../Page/Home/Home/Home";
 import Login from "../FirebaseAuth/Login/Login";
@@ -33,7 +32,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "review",
-                element: <PrivateRoute><AddReview /></PrivateRoute>,
+                element: <AddReview />,
             },
             {
                 path: 'login',
@@ -42,10 +41,6 @@ const router = createBrowserRouter([
             {
                 path: 'register',
                 element: <Register />
-            },
-            {
-                path: 'write',
-                element: <PrivateRoute><WriteArticle /></PrivateRoute>
             },
             {
                 path: 'contact',
@@ -90,6 +85,15 @@ const router = createBrowserRouter([
             {
                 path: 'myArticle',
                 element: <MyArticle />,
+            },
+            {
+                path: 'write',
+                element: <WriteArticle/>
+            },
+            {
+                path: '/dashboard/articleDetails/:id',
+                element: <ArticleDetails></ArticleDetails>,
+                loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
             }
         ]
     }

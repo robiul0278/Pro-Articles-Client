@@ -14,7 +14,7 @@ const ManageUsers = () => {
 
 
     const handleMakeAdmin = user => {
-        fetch(`https://premium-articles-platform-sever.vercel.app/users/admin/${user._id}`, {
+        fetch(`https://premium-articles-platform-sever.vercel.app/users/admin/${user?._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -34,7 +34,7 @@ const ManageUsers = () => {
     }
 
     const handleRemoveAdmin = user => {
-        fetch(`https://premium-articles-platform-sever.vercel.app/users/removeAdmin/${user._id}`, {
+        fetch(`https://premium-articles-platform-sever.vercel.app/users/removeAdmin/${user?._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -55,7 +55,7 @@ const ManageUsers = () => {
 
 
     return (
-        <div className="w-full p-5">
+        <div className="w-full">
             <Helmet>
                 <title>ProWriter | Manage Users</title>
             </Helmet>
@@ -63,7 +63,7 @@ const ManageUsers = () => {
                 <h1 className="text-4xl font-bold ">Manage Users</h1>
                 <p className=""> Unlock Your Potential with Engaging Education and Inspiring Knowledge</p>
             </div>
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto mx-4">
                 <table className="table table-zebra w-full">
                     {/* head */}
                     <thead className=" bg-slate-200">
@@ -77,10 +77,10 @@ const ManageUsers = () => {
                     </thead>
                     <tbody>
                         {
-                            users?.map((user, index) => <tr key={user._id}>
+                            users?.map((user, index) => <tr key={user?._id}>
                                 <th>{index + 1}</th>
-                                <td>{user.name}</td>
-                                <td>{user.email}</td>
+                                <td>{user?.name}</td>
+                                <td>{user?.email}</td>
                                 <td>{user?.role === 'admin' ? 'admin' :
                                     <button onClick={() => handleMakeAdmin(user)} className="btn btn-ghost bg-green-500  text-white"><FaUserShield></FaUserShield></button>
                                 }</td>
