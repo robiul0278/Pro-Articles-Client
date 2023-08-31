@@ -4,6 +4,7 @@ import { FaHome, FaUsers } from 'react-icons/fa';
 import { MdArticle, MdPayment } from "react-icons/md";
 import { BsPersonSquare } from "react-icons/bs";
 import useAdmin from "../Hooks/useAdmin";
+import Footer from "../Components/Share/Footer";
 
 
 
@@ -64,6 +65,16 @@ const Dashboard = () => {
                                         </li>
                                         <li>
                                             <NavLink
+                                                to="/dashboard/write"
+
+                                                className="flex items-center space-x-2"
+                                            >
+                                                <MdArticle />
+                                                <span className="font-bold">Write Article</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
                                                 to="/dashboard/myArticle"
 
                                                 className="flex items-center space-x-2"
@@ -102,6 +113,9 @@ const Dashboard = () => {
                 </div>
             </div>
             <br />
+            <div className="max-w-7xl mx-auto -mt-7">
+            <Footer></Footer>
+            </div>
         </>
     );
 };

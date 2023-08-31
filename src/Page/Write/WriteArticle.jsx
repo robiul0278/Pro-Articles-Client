@@ -6,7 +6,6 @@ import useTitle from "../../Hooks/useTitle"
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
 
-
 const WriteArticle = () => {
     const img_hosting_url = `https://api.imgbb.com/1/upload?&key=cf6bb3b03fa4376aa28f506d68c0272c`
     console.log(img_hosting_url, '', img_hosting_token);
@@ -35,12 +34,13 @@ const WriteArticle = () => {
                     const { title, description, tag, category, readTime, date } = data;
                     const articleDetails = {
                         authorName: user?.displayName,
+                        authorImage: user?.photoURL,
                         email: user?.email,
+                        status:"pending",
                         description,
                         category,
                         readTime,
                         date,
-                        authorImage: user?.photoURL,
                         tag,
                         title,
                         image: imgurl
@@ -78,13 +78,13 @@ const WriteArticle = () => {
     // }
     return (
         <section className='bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
-            <div className="px-4 lg:px-0 container mx-auto">
+            <div className="px-4 container mx-auto">
                 <h1 className="text-5xl  text-center font-bold py-10">Write a Article</h1>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 pb-5">
+                <div className="grid grid-cols-1 pb-5">
 
-                    <div className="">
+                    {/* <div className="">
                         <img className='w-[100%] h-auto' src="write1.svg" alt="" data-aos="zoom-in" />
-                    </div>
+                    </div> */}
 
                     <div>
                         <form onSubmit={handleSubmit(onSubmit)} className="w-full mx-auto">

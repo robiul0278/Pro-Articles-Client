@@ -8,7 +8,7 @@ const ArticleDetails = () => {
     return (
 <section>
 
-<div className="max-w-7xl mx-auto ">
+<div className="max-w-7xl mx-auto">
                 <figure className="w-3/4 mx-auto pt-16">
                     <img
                         className=" bg-cover md:h-64 w-full bg-center rounded-xl"
