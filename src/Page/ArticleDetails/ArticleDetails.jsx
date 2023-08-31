@@ -3,12 +3,20 @@ import { Link, useLoaderData } from 'react-router-dom';
 
 
 const ArticleDetails = () => {
-  const article = useLoaderData()
-    const { image, authorImage, authorName, date, description, title,} = article;
-    return (
-<section>
+    const article = useLoaderData()
 
-<div className="max-w-7xl mx-auto ">
+    const handleCancel = () => {
+        console.log(hello)
+    }
+    const handleComment = () => {
+        console.log(hello)
+    }
+
+    const { image, authorImage, authorName, date, description, title, } = article;
+    return (
+        <section>
+
+            <div className="max-w-7xl mx-auto ">
                 <figure className="w-3/4 mx-auto pt-16">
                     <img
                         className=" bg-cover md:h-64 w-full bg-center rounded-xl"
@@ -38,15 +46,22 @@ const ArticleDetails = () => {
 
                     </div>
                     <Link>
-                    <h2 className="card-title text-3xl font-bold hover:underline ">
-                        {title}
-                    </h2>
+                        <h2 className="card-title text-3xl font-bold hover:underline ">
+                            {title}
+                        </h2>
                     </Link>
                     <p className="py-1 text-xl text-justify">{description}</p>
+                    <form action="">
+                        <input type="text" placeholder="Write comment" className="input input-bordered input-primary w-full max-w-xs" />
+                        <div className='mt-4'>
+                            <button onClick={handleCancel} className="btn btn-neutral mr-12">Cancel</button>
+                            <button onClick={handleComment} className="btn btn-secondary">Comment</button>
+                        </div>
+                    </form>
                     <hr />
                 </div>
             </div>
-</section>
+        </section>
     );
 };
 

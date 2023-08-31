@@ -60,8 +60,6 @@ export default function Categories() {
   // change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-
-
   const technology = currentPost.filter(item => item.category === "Technology");
   const marketing = article.filter(item => item.category === "Marketing");
   const social = article.filter(item => item.category === "Social");
@@ -204,7 +202,7 @@ export default function Categories() {
           </div>
         </Box>
       </section>
-      <PerPage  postPerPage={postPerPage} totalPosts={article.length} paginate={paginate}></PerPage></>
+      <PerPage postPerPage={postPerPage} totalPosts={article.length} paginate={paginate}></PerPage></>
   );
 }
 
