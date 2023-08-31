@@ -6,10 +6,10 @@ const ArticleDetails = () => {
     const article = useLoaderData()
 
     const handleCancel = () => {
-        console.log(hello)
+        console.log('cencel')
     }
     const handleComment = () => {
-        console.log(hello)
+        console.log('hello')
     }
 
     const { image, authorImage, authorName, date, description, title, } = article;

@@ -49,7 +49,7 @@ export default function Categories() {
   // console.log(article)
 
   const [currentPage, setCurrentPage] = useState(1)
-  const [postPerPage] = useState(5)
+  const [postPerPage] = useState(6)
 
   // get current page
   const indexOfLastPost = currentPage * postPerPage;
