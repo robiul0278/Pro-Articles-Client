@@ -4,7 +4,7 @@ const Membership = () => {
     return (
         <div className="mx-auto max-w-screen-xl">
             <h1 className="text-center text-5xl mt-8 mb-8 font-bold">Membership</h1>
-            <div className="stats shadow">
+            <div className="stats shadow md:ml-80 my-12">
 
                 <div className="stat">
                     <div className="stat-figure text-secondary">
