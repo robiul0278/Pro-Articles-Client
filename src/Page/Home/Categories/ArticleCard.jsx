@@ -2,10 +2,44 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
+// import axios from 'axios';
+import useAuth from '../../../Hooks/useAuth';
 
 
 const ArticleCard = ({ item }) => {
+    const { user } = useAuth();
     const { image, authorImage, authorName, date, title, _id, description } = item;
+    const book = {
+        articleid: _id,
+        userEmail: user?.email,
+        displayName: user?.displayName,
+    };
+
+    // const handleBookMark = () => {
+    //     axios.post(`/bookarticle`, book
+
+    //     )
+    //         .then(res => res.json)
+
+    // }
+    const handleBookMark = () => {
+        fetch('http://localhost:5000/bookarticle', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(book)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+        // axios.post(`/bookarticle`, book)
+        //     .then(res => res.json()) // Changed res.json to res.data
+        //     .catch(error => {
+        //         console.error("Bookmarking failed:", error);
+        //     });
+    };
+
+    // const { image, authorImage, authorName, date, title, _id, description } = item;
     return (
         <div className="card-compact bg-white mb-3 shadow-md">
             <div className='md:flex'>
@@ -46,7 +80,7 @@ const ArticleCard = ({ item }) => {
                             <span className='mr-1'><FontAwesomeIcon icon={faCalendarDays} /></span>{date}
                         </div>
                         <div className="text-neutral-500 font-mono text-sm mr-5">
-                            <span>
+                            <span onClick={handleBookMark}>
                                 <FontAwesomeIcon
                                     className="hover:text-blue-400 text-slate-600 text-sm"
                                     icon={faBookmark}
