@@ -3,11 +3,13 @@ import { Helmet } from "react-helmet";
 import { FaUserShield } from "react-icons/fa";
 import {MdRemoveModerator} from "react-icons/md";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 const ManageUsers = () => {
+    const [axiosSecure] = useAxiosSecure();
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch("https://premium-articles-platform-sever.vercel.app/users")
-        return res.json()
+        const res = await axiosSecure.get("/users")
+        return res.data
     })
 
     console.log(users)
