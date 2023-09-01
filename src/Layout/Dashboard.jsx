@@ -19,7 +19,7 @@ const Dashboard = () => {
                     <div className="p-5">
                         <ul className="space-y-10">
                             {
-                                isAdmin ?
+                                isAdmin.role === 'admin' ?
                                     <>
                                         <li>
                                             <NavLink

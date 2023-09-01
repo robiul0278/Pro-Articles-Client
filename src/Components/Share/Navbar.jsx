@@ -11,18 +11,19 @@ const Navbar = () => {
   const { user, logOut } = useAuth();
   const [isAdmin] = useAdmin();
   console.log(isAdmin)
+  // const isAdmin = true;
 
   const DashboardLink = () => {
-    if (isAdmin) {
+    if (isAdmin?.role === "admin") {
         return (
             <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
         );
-    } else if (user) {
+    } else {
         return (
             <li><Link to="/dashboard/userHome">Dashboard</Link></li>
         );
     }
-    return null;
+    // return null;
 };
 
 

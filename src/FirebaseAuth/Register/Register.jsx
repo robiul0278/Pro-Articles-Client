@@ -151,13 +151,13 @@ const Register = () => {
                                     <div className="gap-5 grid grid-cols-2 pt-2">
                                         <button
                                             onClick={handleGoogle}
-                                            className="btn md:w-44 bg-blue-500 hover:bg-blue-600  text-white"
+                                            className="btn md:w-44 bg-transparent  hover:bg-slate-100 "
                                         >
                                             <FcGoogle className=""></FcGoogle> Google
                                         </button>
                                         <button
                                             onClick={handleGit}
-                                            className="btn md:w-44 bg-blue-500 hover:bg-blue-600  text-white"
+                                            className="btn md:w-44 bg-transparent  hover:bg-slate-100 "
                                         >
                                             <FaGithub className=""></FaGithub> GitHub
                                         </button>
