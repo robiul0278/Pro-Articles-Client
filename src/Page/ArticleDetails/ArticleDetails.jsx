@@ -58,6 +58,7 @@ const ArticleDetails = () => {
                             <button onClick={handleComment} className="btn btn-secondary">Comment</button>
                         </div>
                     </form>
+
                     <hr />
                 </div>
             </div>
