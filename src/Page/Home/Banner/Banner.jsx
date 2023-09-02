@@ -77,31 +77,31 @@ const Banner = () => {
 
               {/* search here */}
               <div className="absolute z-50 items-center justify-center  md:ml-72">
-              <div>
-              {
-                  loading ? (
-                    <div className="text-center  items-center  md:ml-72 justify-center">
-                      <p >Loading...</p>
-                    </div>
-                  ) : searchData.length > 0 ? (
-                    <div>
-                      {/* <h2 className="text-lg font-semibold mb-2 text-white text-center">Search Results:</h2> */}
-                      <div className="items-center justify-center text-center">
-                        {searchData.map((data) => (
-                          <div key={data._id}>
-                            <Link to={`/article/${data?._id}`}><span className="text-blue-600 hover:underline  p-2 bg-opacity-90 bg-white">{data?.title}</span></Link>
-                          </div>
-                        ))}
+                <div>
+                  {
+                    loading ? (
+                      <div className="text-center  items-center  md:ml-72 justify-center">
+                        <p >Loading...</p>
                       </div>
-                    </div>
-                  ) : 
-                    (
-                      <div className="text-center text-white">
-                        {/* <p>No results found.</p> */}
+                    ) : searchData.length > 0 ? (
+                      <div>
+                        {/* <h2 className="text-lg font-semibold mb-2 text-white text-center">Search Results:</h2> */}
+                        <div className="items-center justify-center text-center">
+                          {searchData.map((data) => (
+                            <div key={data._id}>
+                              <Link to={`/article/${data?._id}`}><span className="text-blue-600 hover:underline  p-2 bg-opacity-90 bg-white">{data?.title}</span></Link>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    )
-                }
-              </div>
+                    ) :
+                      (
+                        <div className="text-center text-white">
+                          {/* <p>No results found.</p> */}
+                        </div>
+                      )
+                  }
+                </div>
               </div>
 
               {/* Modal  */}
