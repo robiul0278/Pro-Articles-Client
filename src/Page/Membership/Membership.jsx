@@ -5,7 +5,7 @@ const Membership = () => {
         <div className="mx-auto max-w-screen-xl">
             <h1 className="text-center text-5xl mt-8 mb-4 font-bold">Plan and Pricing</h1>
             <p className="text-center text-xl">Shopify offers competitive rates and pricing plans to help you find a plan that fits the needs and budget of your business.</p>
-            <div className="grid grid-cols-1 md:grid-cols-3 my-20">
+            <div className="grid grid-cols-1 md:grid-cols-3 my-20 gap-5 mx-auto">
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <div className="card-body">
                         <h2 className="card-title">Basic</h2>
