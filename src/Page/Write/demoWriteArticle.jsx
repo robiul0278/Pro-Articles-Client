@@ -2,21 +2,21 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import useTitle from "../../Hooks/useTitle"
-// import JoditEditor from 'jodit-react';
-// import { useRef, useState } from "react";
+import JoditEditor from 'jodit-react';
+import { useRef, useState } from "react";
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
 
 const WriteArticle = () => {
 
-    // const editor = useRef(null);
-    // const [content, setContent] = useState("")
+    const editor = useRef(null);
+    const [content, setContent] = useState("")
 
     const img_hosting_url = `https://api.imgbb.com/1/upload?&key=cf6bb3b03fa4376aa28f506d68c0272c`
     console.log(img_hosting_url, '', img_hosting_token);
 
-
+    
 
     useTitle("Write");
     const { register, handleSubmit, reset } = useForm();
@@ -42,7 +42,7 @@ const WriteArticle = () => {
                         authorName: user?.displayName,
                         authorImage: user?.photoURL,
                         email: user?.email,
-                        status: "pending",
+                        status:"pending",
                         description,
                         category,
                         readTime,
@@ -164,17 +164,18 @@ const WriteArticle = () => {
                                 <label className="label">
                                     <span className="label-text">Article Description</span>
                                 </label>
-                                <textarea
+                                {/* <textarea
                                     {...register("description")}
                                     placeholder="write...."
                                     required
                                     style={{ width: "100%", height: "300px" }}
-                                    className="input input-bordered" />
-                                {/* <JoditEditor
+                                    className="input input-bordered" /> */}
+                                    <JoditEditor
                                     ref={editor}
+                                    {...register("description")}
                                     value={content}
                                     onChange={newContent => setContent(newContent)} 
-                                    /> */}
+                                    />
                             </div>
 
 
