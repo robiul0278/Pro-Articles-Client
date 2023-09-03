@@ -1,30 +1,13 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightFromBracket, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
-import useAdmin from "../../Hooks/useAdmin";
-
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 
 
 const Navbar = () => {
   const { user, logOut } = useAuth();
-  const [isAdmin] = useAdmin();
-  console.log(isAdmin)
-  // const isAdmin = true;
-
-  const DashboardLink = () => {
-    if (isAdmin?.role === "admin") {
-        return (
-            <li><Link to="/dashboard/adminHome">Dashboard</Link></li>
-        );
-    } else {
-        return (
-            <li><Link to="/dashboard/userHome">Dashboard</Link></li>
-        );
-    }
-    // return null;
-};
+  // console.log(user)
 
 
   const handleLogOut = () => {
@@ -71,28 +54,20 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div className="dropdown dropdown-bottom z-10  dropdown-end">
-            <label tabIndex={0} className=" m-1">
-              <div className="avatar">
-                <div className="w-10 rounded-full ring ring-error  ring-offset-base-100 ring-offset-2">
-                  <img src={user?.photoURL} />
-                </div>
-              </div>
-            </label>
-            <ul tabIndex={0} className="menu-md menu text-black bg-white dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-60">
-                <div className="card-body items-center text-center">
-                  <img src={user?.photoURL} alt="avatar"
-                    className="rounded-full" style={{ width: '90px' }} />
-                    <FontAwesomeIcon icon={faPenToSquare} />
-                  <h5 className="">{user?.displayName}</h5>
-                  <p className="text-muted mb-1">{user?.email}</p>
-                </div>
-                <li><Link to='/bookMark'>BookMark</Link></li>
-                {DashboardLink()}
-              {/* <li><Link to='/dashboard/'>Dashboard</Link></li> */}
-              <li><NavLink onClick={handleLogOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign Out</NavLink></li>
-
-            </ul>
-          </div>
+          <label tabIndex={0} className=" m-1">
+             <div className="avatar">
+               <div className="w-10 rounded-full ring ring-error  ring-offset-base-100 ring-offset-2">
+                 <img src={user?.photoURL} />
+               </div>
+             </div>
+          </label>
+          <ul tabIndex={0} className="menu-md menu text-black bg-white dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
+          <li><Link to='/write'>Write</Link></li>
+          <li><Link to='/dashboard/'>Dashboard</Link></li>
+          <li><NavLink  onClick={handleLogOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign Out</NavLink></li>
+            
+          </ul>
+        </div>
         ) : (
           <div>
             <NavLink to="/login" className="btn btn-error text-white font-bold">

@@ -20,6 +20,7 @@ import AdminHome from "../Dashboard/AdminRoute/AdminHome";
 import UserHome from "../Dashboard/UsersRoute/UserHome";
 import ArticleDetails from "../Page/ArticleDetails/ArticleDetails";
 import EditArticle from "../Page/Write/EditArticle";
+import Bookmark from "../Page/Bookmark/Bookmark";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
                 path: '/articleDetails/:id',
                 element: <ArticleDetails></ArticleDetails>,
                 loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
+            },
+            {
+                path: 'bookMark', 
+                element: <Bookmark></Bookmark>
             }
 
         ]
