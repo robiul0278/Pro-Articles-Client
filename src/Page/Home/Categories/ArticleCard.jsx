@@ -13,6 +13,12 @@ const ArticleCard = ({ item }) => {
         articleid: _id,
         userEmail: user?.email,
         displayName: user?.displayName,
+        image:image,
+        authorImage: authorImage,
+        authorName: authorName,
+        date:date,
+        title:title,
+        description: description
     };
 
     // const handleBookMark = () => {

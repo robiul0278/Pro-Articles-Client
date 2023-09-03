@@ -76,7 +76,7 @@ const ManageArticle = () => {
                             <div className="flex  justify-between w-full">
                                 <div className="ml-5 py-1 w-3/4">
                                     <h4 className="text-xl">{item.title}</h4>
-                                    <p className="text-sm">{item.description.slice(0,150)}...</p>
+                                    <p className="text-sm">{item.description?.slice(0,150)}...</p>
                                     <div className="flex mt-2">
                                     <img className="rounded-full w-6" src={item.authorImage} alt="" />
                                     <p className="font-bold ml-1">{item.authorName}</p>
