@@ -99,8 +99,8 @@ const MyArticle = () => {
                                     </div>
 
                                     <div className="flex">
-                                        <button className="bg-success text-white btn-sm font-bold">Edit</button>
-                                        <button onClick={() => handleDelete(article)} className="bg-error ml-1 text-white btn-sm font-bold">Delete</button>
+                                        <Link  to={`/dashboard/editArticle/${article?._id}`}><button className="bg-success text-white btn-sm font-bold">Edit</button></Link>
+                                        <Link onClick={() => handleDelete(article)} ><button className="bg-error ml-1 text-white btn-sm font-bold">Delete</button></Link>
                                     </div>
                                 </div>
 

@@ -19,11 +19,12 @@ import MyArticle from "../Dashboard/UsersRoute/MyArticle";
 import AdminHome from "../Dashboard/AdminRoute/AdminHome";
 import UserHome from "../Dashboard/UsersRoute/UserHome";
 import ArticleDetails from "../Page/ArticleDetails/ArticleDetails";
+import EditArticle from "../Page/Write/EditArticle";
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
-        // errorElement: <ErrorPage />,
+        errorElement: <ErrorPage />,
 
         children: [
             {
@@ -94,7 +95,12 @@ const router = createBrowserRouter([
                 path: '/dashboard/articleDetails/:id',
                 element: <ArticleDetails></ArticleDetails>,
                 loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
-            }
+            },
+            {
+                path: '/dashboard/editArticle/:id',
+                element: <EditArticle/>,
+                loader: ({params}) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
+              }
         ]
     }
 ]);

@@ -14,9 +14,9 @@ const ArticleDetails = () => {
 
     const { image, authorImage, authorName, date, description, title, } = article;
     return (
-        <section>
+        <section className=''>
 
-            <div className="max-w-7xl mx-auto ">
+            <div className="max-w-7xl mx-auto bg-white">
                 <figure className="w-3/4 mx-auto pt-16">
                     <img
                         className=" bg-cover md:h-64 w-full bg-center rounded-xl"
