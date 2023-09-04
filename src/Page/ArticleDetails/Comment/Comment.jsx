@@ -1,7 +1,10 @@
 import { useState } from "react";
+import useAuth from "../../../Hooks/useAuth";
 
 
 const Comments = () => {
+    const { user } = useAuth();
+    console.log(user.displayName)
     const [comment, setComment] = useState("")
     const [comments, setComments] = useState([])
     const onChangeHandler = (e) => {
@@ -21,7 +24,9 @@ const Comments = () => {
                 </div>
             </div>
             {comments.map((text) => (
-                <><p className="textarea textarea-primary w-80 mt-3">{text}</p></>
+                <><div className="mt-5">
+                    <span className="mt-5">{user.displayName}</span><p className="textarea  bg-slate-50 w-80 scroll-mt-3">{text}</p>
+                </div></>
             ))}
         </div>
     );
