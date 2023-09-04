@@ -1,16 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Link, useLoaderData } from 'react-router-dom';
+import Comments from './Comment/Comment';
 
 
 const ArticleDetails = () => {
     const article = useLoaderData()
-
-    const handleCancel = () => {
-        console.log('cencel')
-    }
-    const handleComment = () => {
-        console.log('hello')
-    }
 
     const { image, authorImage, authorName, date, description, title, } = article;
     return (
@@ -51,14 +45,7 @@ const ArticleDetails = () => {
                         </h2>
                     </Link>
                     <p className="py-1 text-xl text-justify">{description}</p>
-                    <form action="">
-                        <input type="text" placeholder="Write comment" className="input input-bordered input-primary w-full max-w-xs" />
-                        <div className='mt-4'>
-                            <button onClick={handleCancel} className="btn btn-neutral mr-12">Cancel</button>
-                            <button onClick={handleComment} className="btn btn-secondary">Comment</button>
-                        </div>
-                    </form>
-
+                    <Comments></Comments>
                     <hr />
                 </div>
             </div>
