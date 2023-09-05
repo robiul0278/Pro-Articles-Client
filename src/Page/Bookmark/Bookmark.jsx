@@ -14,7 +14,7 @@ const Bookmark = () => {
             .then(data => setBook(data))
     }, [url])
 
-    
+
     return (
         <div>
             <h2 className="text-center">{book.length}</h2>
