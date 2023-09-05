@@ -17,7 +17,7 @@ const Comments = () => {
         //     },
         //     body: JSON.stringify(comments)
         // })
-        console.log(comment)
+        console.log(comments)
 
         setComments((comments) => [...comments, comment])
     }
