@@ -28,7 +28,7 @@ const MarkItem = ({ mark }) => {
                                         {title}
                                     </h2>
                                 </Link>
-                                <p className='text-justify'>{description?.slice(0,150)}...</p></div>
+                                <p className='text-justify'>{description?.slice(0, 150)}...</p></div>
                         </div>
                         <div className="flex card-actions mt-5 bottom-0">
                             <div>
