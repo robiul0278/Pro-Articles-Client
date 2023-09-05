@@ -1,42 +1,72 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+
 
 
 const Comments = () => {
     const { user } = useAuth();
-    const [comment, setComment] = useState("")
     const [comments, setComments] = useState([])
-    const onChangeHandler = (e) => {
-        setComment(e.target.value)
-    }
-    const handleComment = () => {
-        // fetch('http://localhost:5000/addComment', {
-        //     method: "POST",
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(comments)
-        // })
-        console.log(comments)
+    console.log(comments.length, user);
 
-        setComments((comments) => [...comments, comment])
+    useEffect(() => {
+        fetch("http://localhost:5000/addComment")
+            .then((res) => res.json())
+            .then((data) => setComments(data));
+    }, []);
+
+    const { register, handleSubmit, reset } = useForm();
+
+    const onSubmit = (data) => {
+        console.log(data)
+        fetch('http://localhost:5000/addComment', {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                reset()
+                console.log(data)
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Comment Add successfully',
+                })
+            });
+
+
+
     }
+
     return (
         <div>
             <div>
                 <h1>Comment</h1>
-                <textarea className="textarea textarea-primary textarea-sm w-full max-w-xs" value={comment} onChange={onChangeHandler} placeholder="Comment..."></textarea>
-                <div className='mt-3'>
-                    <button onClick={handleComment} className="btn btn-secondary">Comment</button>
-                </div>
+                <form onSubmit={handleSubmit(onSubmit)} action="">
+                    <textarea className="textarea textarea-primary textarea-sm w-full max-w-xs" {...register("comment")} placeholder="Comment..."></textarea>
+                    <div className='mt-3'>
+                        <button type="submit" className="btn btn-secondary">Comment</button>
+                    </div>
+                </form>
             </div>
-            {comments.map((text) => (
-                <><div className="mt-5">
-                    <span className="mt-5">{user.displayName}</span><p className="textarea  bg-slate-50 w-80 scroll-mt-3">{text}</p>
-                </div></>
-            ))}
+            {
+                comments.map(text =>
+                    <><div className="mt-5">
+                        <span className="mt-5">{user.displayName}</span><p className="textarea  bg-slate-50 w-80 scroll-mt-3" key={text._id}>{text.comment}</p>
+                    </div></>
+                )
+            }
         </div>
     );
 };
 
 export default Comments;
+
+
+{/* <><div className="mt-5">
+                    <span className="mt-5">{user.displayName}</span><p className="textarea  bg-slate-50 w-80 scroll-mt-3">{text}</p>
+                </div></> */}

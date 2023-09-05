@@ -2,19 +2,19 @@ import { FaTwitter, FaFacebook, FaLinkedin } from 'react-icons/fa';
 
 const SocialShare = () => {
     const handleFacebookShare = () => {
-        const facebookShareURL = `https://developers.facebook.com/docs/plugins/`;
+        const facebookShareURL = `https://www.facebook.com/sharer.php/u=Github%3A%3A%20http%3A%2F%2Fgithub.com`;
 
         window.open(facebookShareURL, "popup")
 
     }
     const handleLinkedinShare = () => {
-        const linkedinShareURL = `https://example.com/page-to-share`;
+        const linkedinShareURL = `https://www.linkedin.com/sharing/share-offsite/?url=http%3A%2Fgithub.com`;
 
         window.open(linkedinShareURL, "popup")
 
     }
     const handleTwitterShare = () => {
-        const twitterShareURL = `https://example.com/page-to-share`;
+        const twitterShareURL = `https://twitter.com/share?url=https://github.com/gias-uddin-swe`;
 
         window.open(twitterShareURL, "popup")
 
