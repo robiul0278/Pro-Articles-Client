@@ -7,7 +7,8 @@ import SocialShare from './SocalShare/SocialShare';
 const ArticleDetails = () => {
     const article = useLoaderData()
 
-    const { image, authorImage, authorName, date, description, title, } = article;
+    const { image, authorImage, authorName, date, description, title, _id } = article;
+    console.log(_id);
     return (
         <section className=''>
 

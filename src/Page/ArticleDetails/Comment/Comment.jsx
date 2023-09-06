@@ -73,6 +73,3 @@ const Comments = () => {
 export default Comments;
 
 
-{/* <><div className="mt-5">
-                    <span className="mt-5">{user.displayName}</span><p className="textarea  bg-slate-50 w-80 scroll-mt-3">{text}</p>
-                </div></> */}
