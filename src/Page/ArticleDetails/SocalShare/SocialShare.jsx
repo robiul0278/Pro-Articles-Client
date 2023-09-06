@@ -17,7 +17,6 @@ const SocialShare = () => {
         const twitterShareURL = `https://twitter.com/share?url=https://github.com/gias-uddin-swe`;
 
         window.open(twitterShareURL, "popup")
-
     }
     return (
         <div>
