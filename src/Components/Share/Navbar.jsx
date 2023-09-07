@@ -84,7 +84,6 @@ const Navbar = () => {
                     className="rounded-full" style={{ width: '90px' }} />
                     <FontAwesomeIcon icon={faPenToSquare} />
                   <h5 className="">{user?.displayName}</h5>
-                  <p className="text-muted mb-1">{user?.email}</p>
                 </div>
                 <li><Link to='/bookMark'>BookMark</Link></li>
                 {DashboardLink()}

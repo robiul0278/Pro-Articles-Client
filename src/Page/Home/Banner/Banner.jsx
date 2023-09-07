@@ -2,7 +2,6 @@ import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBitcoinSign, faBriefcase, faChartSimple, faHeart, faLandmarkDome, faMicrochip, faMosque, faPencil, faPeopleArrows, faPersonDigging, faThumbsUp, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
-import './Banner.css'
 import { useState } from "react"
 import { Link } from "react-router-dom"
 // import { Link } from "react-router-dom"
@@ -62,16 +61,14 @@ const Banner = () => {
                 </h1>
                 <p className="text-white md:text-2xl">Engage customers with the best Article.</p>
               </div>
-              <div className="mt-5 join">
-                <div>
-                  <div>
-                    <input onChange={(e) => setSearchText(e.target.value)} className="input input-bordered join-item"
+              <div className="mt-5 flex justify-center items-center">
+                  <div className="">
+                    <input onChange={(e) => setSearchText(e.target.value)} className="input input-bordered rounded-r-none max-w-md text-black w-full pr-16"
                       type="text"
                       placeholder="Search" />
                   </div>
-                </div>
                 <div className="">
-                  <button onClick={handleSearch} className="btn bg-error text-white join-item">Search</button>
+                  <button onClick={handleSearch} className="btn text-white btn-error top-0 right-0 rounded-l-none">Search</button>
                 </div>
               </div>
 
