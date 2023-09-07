@@ -201,8 +201,9 @@ export default function Categories() {
             </TabPanel>
           </div>
         </Box>
+        <PerPage postPerPage={postPerPage} totalPosts={article.length} paginate={paginate}></PerPage>
       </section>
-      <PerPage postPerPage={postPerPage} totalPosts={article.length} paginate={paginate}></PerPage></>
+</>
   );
 }
 
