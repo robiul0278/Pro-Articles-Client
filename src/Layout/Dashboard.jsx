@@ -4,7 +4,6 @@ import { FaHome, FaUsers } from 'react-icons/fa';
 import { MdArticle, MdPayment } from "react-icons/md";
 import { BsPersonSquare } from "react-icons/bs";
 import useAdmin from "../Hooks/useAdmin";
-import Footer from "../Components/Share/Footer";
 
 
 
@@ -114,7 +113,6 @@ const Dashboard = () => {
             </div>
             <br />
             <div className="max-w-7xl mx-auto -mt-7">
-            <Footer></Footer>
             </div>
         </>
     );
