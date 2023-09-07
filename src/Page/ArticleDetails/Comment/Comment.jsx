@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-
+import { useLoaderData } from "react-router-dom";
 
 
 const Comments = () => {
     const { user } = useAuth();
     const [comments, setComments] = useState([])
+    const article = useLoaderData()
+    console.log(article);
 
     useEffect(() => {
         fetch("http://localhost:5000/addComment")
@@ -18,7 +20,7 @@ const Comments = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data)
+
         fetch('http://localhost:5000/addComment', {
             method: "POST",
             headers: {
@@ -65,6 +67,7 @@ const Comments = () => {
                     </>
                 )
             }
+
 
         </div>
     );
