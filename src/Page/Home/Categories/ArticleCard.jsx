@@ -29,7 +29,7 @@ const ArticleCard = ({ item }) => {
 
     // }
     const handleBookMark = () => {
-        fetch('http://localhost:5000/bookarticle', {
+        fetch('https://premium-articles-platform-sever.vercel.app/bookarticle', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'
