@@ -52,6 +52,7 @@ const Membership = () => {
                                     <li className=""> <input type="checkbox" className="checkbox checkbox-primary" /><span className=" ml-5">Realtime resporting</span></li>
                                     <li className=""> <input type="checkbox" className="checkbox checkbox-primary" /><span className=" ml-5">Chat Support</span></li>
                                     <li className=""> <input type="checkbox" className="checkbox checkbox-primary" /><span className=" ml-5">Read and write</span></li>
+                                    
                                 </ul>
                             </div>
                         </div>
