@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { faBookmark, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDays, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 
@@ -50,9 +50,10 @@ const MarkItem = ({ mark }) => {
                             </div>
                             <div className="text-neutral-500 font-mono text-sm mr-5">
                                 <span >
+
                                     <FontAwesomeIcon
                                         className="hover:text-blue-400 text-slate-600 text-sm"
-                                        icon={faBookmark}
+                                        icon={faTrashCan}
                                     />
                                 </span>
                             </div>
