@@ -4,6 +4,7 @@ import { faBookmark, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import useAuth from '../../../Hooks/useAuth';
+import Swal from 'sweetalert2';
 
 
 const ArticleCard = ({ item }) => {
@@ -13,11 +14,11 @@ const ArticleCard = ({ item }) => {
         articleid: _id,
         userEmail: user?.email,
         displayName: user?.displayName,
-        image:image,
+        image: image,
         authorImage: authorImage,
         authorName: authorName,
-        date:date,
-        title:title,
+        date: date,
+        title: title,
         description: description
     };
 
@@ -37,12 +38,17 @@ const ArticleCard = ({ item }) => {
             body: JSON.stringify(book)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
-        // axios.post(`/bookarticle`, book)
-        //     .then(res => res.json()) // Changed res.json to res.data
-        //     .catch(error => {
-        //         console.error("Bookmarking failed:", error);
-        //     });
+            .then(data => {
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Bookmark add',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                console.log(data)
+            })
+
     };
 
     // const { image, authorImage, authorName, date, title, _id, description } = item;
