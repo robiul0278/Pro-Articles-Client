@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-
+import { useLoaderData } from "react-router-dom";
 
 
 const Comments = () => {
     const { user } = useAuth();
     const [comments, setComments] = useState([])
-    console.log(comments.length, user);
+    const article = useLoaderData()
+    console.log(article);
 
     useEffect(() => {
         fetch("http://localhost:5000/addComment")
@@ -19,7 +20,7 @@ const Comments = () => {
     const { register, handleSubmit, reset } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data)
+
         fetch('http://localhost:5000/addComment', {
             method: "POST",
             headers: {
@@ -56,10 +57,18 @@ const Comments = () => {
             {
                 comments.map(text =>
                     <><div className="mt-5">
-                        <span className="mt-5">{user.displayName}</span><p className="textarea  bg-slate-50 w-80 scroll-mt-3" key={text._id}>{text.comment}</p>
-                    </div></>
+                        <span className="mt-5">{user?.displayName}</span><p className="textarea  bg-slate-50 w-80 scroll-mt-3" key={text._id}>{text.comment}</p>
+                        <div className="mt-3">
+                            <button className="mr-3">Replay</button>
+                            <button className="mr-3">Edit</button>
+                            <button className="mr-3"> Delete</button>
+                        </div>
+                    </div>
+                    </>
                 )
             }
+
+
         </div>
     );
 };
@@ -67,6 +76,3 @@ const Comments = () => {
 export default Comments;
 
 
-{/* <><div className="mt-5">
-                    <span className="mt-5">{user.displayName}</span><p className="textarea  bg-slate-50 w-80 scroll-mt-3">{text}</p>
-                </div></> */}

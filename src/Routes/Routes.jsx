@@ -4,7 +4,6 @@ import {
 
 import Main from "../Layout/Main";
 import ErrorPage from "../Page/ErrorPage/ErrorPage";
-import AddReview from "../Page/Home/Review/AddReview";
 import WriteArticle from "../Page/Write/WriteArticle";
 import Contact from "../Page/Home/Contact/Contact";
 import About from "../Page/About/About";
@@ -31,10 +30,6 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Home />
-            },
-            {
-                path: "review",
-                element: <AddReview />,
             },
             {
                 path: 'login',

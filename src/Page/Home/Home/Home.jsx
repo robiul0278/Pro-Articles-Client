@@ -1,9 +1,11 @@
 import Banner from "../Banner/Banner";
 import Categories from "../Categories/Categories";
-import Testimonials from "../Testimonial/Testimonials";
 import Trending from "../Trending/Trending";
 import useTitle from "../../../Hooks/useTitle"
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import Accordions from "../Accordion/Accordions";
+import ConnectUs from "../ConnectUs/ConnectUs";
+import WriteRole from "../WriteRole/WriteRole";
 
 const Home = () => {
   useTitle("Home");
@@ -14,7 +16,9 @@ const Home = () => {
       <div className="max-w-7xl mx-auto">
         <Trending />
         <Categories></Categories>
-        <Testimonials></Testimonials>
+        <WriteRole/>
+        <Accordions></Accordions>
+        <ConnectUs/>
       </div>
       <MessengerCustomerChat
         pageId="104012685668307"

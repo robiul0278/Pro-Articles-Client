@@ -59,7 +59,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <Link to="/" className="w-40 text-error font-bold text-3xl"><img src="" alt="" /> <h1 >ProWriter</h1></Link>
+        <Link to="/" className="w-44 text-error font-bold text-3xl"><img src="logo.png" alt="" /></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="flex items-center justify-center gap-4 px-1">
@@ -84,7 +84,6 @@ const Navbar = () => {
                     className="rounded-full" style={{ width: '90px' }} />
                     <FontAwesomeIcon icon={faPenToSquare} />
                   <h5 className="">{user?.displayName}</h5>
-                  <p className="text-muted mb-1">{user?.email}</p>
                 </div>
                 <li><Link to='/bookMark'>BookMark</Link></li>
                 {DashboardLink()}

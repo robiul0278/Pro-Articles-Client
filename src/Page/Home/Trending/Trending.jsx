@@ -20,7 +20,7 @@ const Trending = () => {
     }, []);
     // console.log(blogs);
     return (
-        <section className="my-5 bg-white p-5">
+        <section className=" bg-white p-5">
             <h1 className="font-bold text-2xl md:text-4xl py-4">Recent Posts</h1>
             {
                 loading ?
@@ -68,7 +68,6 @@ const Trending = () => {
 
                             )
                         }
-                     <hr />
                     </div>
                
             }
