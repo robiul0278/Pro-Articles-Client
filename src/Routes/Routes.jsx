@@ -57,7 +57,7 @@ const router = createBrowserRouter([
                 loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
             },
             {
-                path: 'bookMark', 
+                path: 'bookMark',
                 element: <Bookmark></Bookmark>
             }
 
@@ -89,7 +89,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'write',
-                element: <WriteArticle/>
+                element: <WriteArticle />
             },
             {
                 path: '/dashboard/articleDetails/:id',
@@ -98,9 +98,9 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/editArticle/:id',
-                element: <EditArticle/>,
-                loader: ({params}) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
-              }
+                element: <EditArticle />,
+                loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
+            }
         ]
     }
 ]);
