@@ -12,7 +12,7 @@ const useMyBookMark = () => {
             const res = await fetch(`http://localhost:5000/bookarticle?email=${user?.email}`)
             // console.log('res from axios', res)
             const data = await res.json();
-            return  data;
+            return data;
         },
     })
 

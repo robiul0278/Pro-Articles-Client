@@ -4,11 +4,11 @@ import Comments from './Comment/Comment';
 import SocialShare from './SocalShare/SocialShare';
 
 
+
 const ArticleDetails = () => {
     const article = useLoaderData()
-
     const { image, authorImage, authorName, date, description, title, _id } = article;
-    console.log(_id);
+    // console.log(_id);
     return (
         <section className='max-w-7xl mx-auto bg-white'>
 
@@ -51,7 +51,7 @@ const ArticleDetails = () => {
                         </h2>
                     </Link>
                     <p className="py-1 text-xl text-justify">{description}</p>
-                    <Comments></Comments>
+                    <Comments id={_id}></Comments>
                     <hr />
                 </div>
             </div>
