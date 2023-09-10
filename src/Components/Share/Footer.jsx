@@ -6,7 +6,7 @@ const Footer = () => {
             <div>
                 <footer className="footer py-5 max-w-7xl mx-auto flex flex-col lg:flex-row md:flex-row">
                     <aside className="basis-2/5">
-                        <h1 className="text-3xl font-semibold">About Us</h1>
+                        <h1 className="font-bold text-2xl md:text-4xl">About Us</h1>
 
                         <Link to="/" className="w-52 text-error my-2 font-bold text-3xl"><img src="https://i.ibb.co/cD4K19h/FLogo.png" alt="" /></Link>
                         <p>ProWriter is a article writing platform. <br /> Its aim is to spread the light of the knowledge among all.</p>
@@ -44,15 +44,15 @@ const Footer = () => {
                 </footer>
             </div>
             <hr />
-            <section className="footer pt-3 max-w-7xl mx-auto flex flex-col md:flex-row lg:flex-row justify-between">
+            <section className="footer pt-3 max-w-7xl mx-auto flex flex-col md:flex-row lg:flex-row md:justify-between lg:justify-between justify-center items-center">
                 <div className="flex space-x-1">
-                    <img className="w-5" src="https://i.ibb.co/4gz4FK0/facebook-733547.png" alt="facebook" />
-                    <img className="w-5" src="https://i.ibb.co/PFXXH0W/twitter-3256013.png" alt="twitter" />
-                    <img className="w-5" src="https://i.ibb.co/gDbPffB/pinterest-3536558.png" alt="" />
-                    <img className="w-5" src="https://i.ibb.co/mvY6sRb/youtube-3838026.png" alt="youtube" />
-                    <img className="w-5" src="https://i.ibb.co/17BrLWg/link.png" alt="link" />
+                    <img className="w-4" src="https://i.ibb.co/4gz4FK0/facebook-733547.png" alt="facebook" />
+                    <img className="w-4" src="https://i.ibb.co/PFXXH0W/twitter-3256013.png" alt="twitter" />
+                    <img className="w-4" src="https://i.ibb.co/gDbPffB/pinterest-3536558.png" alt="" />
+                    <img className="w-4" src="https://i.ibb.co/mvY6sRb/youtube-3838026.png" alt="youtube" />
+                    <img className="w-4" src="https://i.ibb.co/17BrLWg/link.png" alt="link" />
                 </div>
-                <div className="flex md:space-x-14">
+                <div className="flex  md:space-x-14">
                     <h1>Terms of use</h1>
                     <h1>Privacy policy</h1>
                     <h1>Cookie policy</h1>

@@ -61,6 +61,7 @@ const ArticleCard = ({ item }) => {
                             className="bg-cover bg-center"
                             src={image}
                             alt="image"
+                            loading='lazy'
                         />
                     </figure>
                 </div>

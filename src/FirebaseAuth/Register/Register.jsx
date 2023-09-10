@@ -9,7 +9,7 @@ import useAuth from "../../Hooks/useAuth";
 
 const Register = () => {
     const [error, setError] = useState('')
-    const { Register, profileUpdate, googleSignIn, gitHubSignIn } = useAuth();
+    const { Register, profileUpdate, googleSignIn, gitHubSignIn, } = useAuth();
     const { register, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
     const location = useLocation();
@@ -51,23 +51,25 @@ const Register = () => {
                 const user = userCredential.user;
                 console.log(user)
                 setError('')
-                Swal.fire({
-                    title: 'Registration Successfully !',
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
-                });
                 profileUpdate()
-                    .then(() => {
-                        console.log("profile updated");
-                        reset();
+                .then(() => {
+                    console.log("profile updated");
+                    reset();
+                    Swal.fire({
+                        title: 'Registration Successfully !',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
                     })
-                    .catch(error => {
-                        setError(error.message);
-                    })
+                })
+                .catch(error => {
+                    setError(error.message);
+                })
+
+       
 
             })
             .catch((error) => {

@@ -4,7 +4,7 @@ const ConnectUs = () => {
         <section className="bg-white p-5">
             <div className="flex justify-center items-center p-5 bg-opacity-20 rounded-md bg-[#f77272]">
                 <div className="text-center">
-                    <h1 className="text-3xl font-semibold">Connect with us virtually</h1>
+                    <h1 className="font-bold text-2xl md:text-4xl">Connect with us virtually</h1>
                     <p className="text-xl my-2">Stay connected with ProWriter from anywhere in the world</p>
                     <div className="flex justify-center items-center space-x-4">
                         <img className="w-8" src="https://i.ibb.co/4gz4FK0/facebook-733547.png" alt="facebook" />

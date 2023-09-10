@@ -90,9 +90,9 @@ export default function Categories() {
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <div className="text-center mb-5">
               <div className="pt-16">
-                <h1 className="font-bold text-4xl px-4">Discover Trending Topics and Engaging Content</h1>
+                <h1 className="font-bold text-2xl md:text-4xl">Discover Trending Topics and Engaging Content</h1>
               </div>
-              <h4 className="text-xl">Find Inspiration in Our Communitys Favorites</h4>
+              <h4 className="md:text-xl">Find Inspiration in Our Communitys Favorites</h4>
             </div>
             <div className="text-center">
               <Tabs
