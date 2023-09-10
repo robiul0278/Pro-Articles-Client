@@ -12,7 +12,7 @@ const Comments = () => {
     console.log(article);
 
     useEffect(() => {
-        fetch("http://localhost:5000/addComment")
+        fetch("https://summer-camp-server-seven-pink.vercel.app/addComment")
             .then((res) => res.json())
             .then((data) => setComments(data));
     }, []);
@@ -21,7 +21,7 @@ const Comments = () => {
 
     const onSubmit = (data) => {
 
-        fetch('http://localhost:5000/addComment', {
+        fetch('https://summer-camp-server-seven-pink.vercel.app/addComment', {
             method: "POST",
             headers: {
                 'content-type': 'application/json'

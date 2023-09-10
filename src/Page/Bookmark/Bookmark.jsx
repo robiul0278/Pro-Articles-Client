@@ -17,13 +17,11 @@ const Bookmark = () => {
 
 
     return (
-        <div className="max-w-7xl">
-            {/* <h2 className="text-center">{book.length}</h2> */}
+        <div className="max-w-7xl mx-auto bg-white h-screen">
             <div className="text-center mb-5">
                 <div className="pt-16">
                     <h1 className="font-bold text-4xl px-4">Bookmark Article here..</h1>
                 </div>
-                {/* <h4 className="text-xl">Find Inspiration in Our Communitys Favorites</h4> */}
             </div>
             {
                 book.map(mark => <MarkItem key={mark._id} mark={mark}></MarkItem>)
