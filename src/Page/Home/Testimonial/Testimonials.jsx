@@ -16,8 +16,8 @@ import { Link } from 'react-router-dom';
 
 
 
-const Testimonials = () => {
 
+const Testimonials = () => {
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -34,7 +34,7 @@ const Testimonials = () => {
 
 
     return (
-        <section className='my-5'>
+        <section className='my-5' >
             <div className="text-center  bg-white p-10">
                 <h1 className="text-4xl font-bold ">Users Says About Us</h1>
                 <p className=" text-center my-2 text-sm">AN EXTENSION FOR FEED THEM SOCIAL</p>

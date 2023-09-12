@@ -1,7 +1,10 @@
+import { useContext } from "react";
+import { ThemContext } from "../../../Routes/ThemProvider";
 
 const ConnectUs = () => {
+    const [{ theme }] = useContext(ThemContext)
     return (
-        <section className="bg-white p-5">
+        <section className="bg-white p-5" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
             <div className="flex justify-center items-center p-5 bg-opacity-20 rounded-md bg-[#f77272]">
                 <div className="text-center">
                     <h1 className="text-3xl font-semibold">Connect with us virtually</h1>

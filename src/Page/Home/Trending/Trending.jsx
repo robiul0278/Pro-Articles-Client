@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { Dna } from "react-loader-spinner";
+import { ThemContext } from "../../../Routes/ThemProvider";
 
 
 
 const Trending = () => {
+    const [{ theme }] = useContext(ThemContext)
     const [blogs, setBlog] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -20,7 +22,7 @@ const Trending = () => {
     }, []);
     // console.log(blogs);
     return (
-        <section className=" bg-white p-5">
+        <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className=" bg-white p-5" >
             <h1 className="font-bold text-2xl md:text-4xl py-4">Recent Posts</h1>
             {
                 loading ?
@@ -37,7 +39,7 @@ const Trending = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                         {
-                            blogs.slice(0,6).map((blog, index) =>
+                            blogs.slice(0, 6).map((blog, index) =>
 
                                 <div key={blog._id} className="flex items-center justify-center gap-3">
                                     <div className="">
@@ -69,7 +71,7 @@ const Trending = () => {
                             )
                         }
                     </div>
-               
+
             }
         </section>
     );

@@ -8,6 +8,7 @@ import useArticle from "../../../Hooks/useArticle";
 import ArticleTabs from "./ArticleTabs";
 import { useState } from "react";
 import PerPage from "./PerPage";
+import { ThemContext } from "../../../Routes/ThemProvider";
 
 
 
@@ -81,12 +82,12 @@ export default function Categories() {
     console.log("Event:", event);
     setValue(newValue);
   };
-
+  const [{ theme }] = React.useContext(ThemContext)
 
   return (
     <>
-      <section className="bg-white">
-        <Box sx={{ width: "100%" }}>
+      <section className="bg-white" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+        <Box sx={{ width: "100%" }} >
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
             <div className="text-center mb-5">
               <div className="pt-16">
@@ -94,8 +95,9 @@ export default function Categories() {
               </div>
               <h4 className="text-xl">Find Inspiration in Our Communitys Favorites</h4>
             </div>
-            <div className="text-center">
+            <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="text-center">
               <Tabs
+                style={{ backgroundColor: theme.backgroundColor, color: theme.color }}
                 className="w-full text-center border-none"
                 value={value}
                 onChange={handleChange}
@@ -104,23 +106,24 @@ export default function Categories() {
                 aria-label="scrollable auto tabs example"
               // aria-label="basic tabs example"
               >
-                <Tab label="Technology" {...a11yProps(0)} />
-                <Tab label=" Marketing" {...a11yProps(1)} />
-                <Tab label="Social Media" {...a11yProps(2)} />
-                <Tab label="Writing" {...a11yProps(3)} />
-                <Tab label="Business" {...a11yProps(4)} />
-                <Tab label="Travel" {...a11yProps(5)} />
-                <Tab label="Culture" {...a11yProps(6)} />
-                <Tab label="Society" {...a11yProps(7)} />
-                <Tab label="Life" {...a11yProps(8)} />
-                <Tab label="History" {...a11yProps(9)} />
-                <Tab label="Religion" {...a11yProps(10)} />
-                <Tab label="Cryptocurrency" {...a11yProps(11)} />
-                <Tab label="Education" {...a11yProps(12)} />
+
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Technology" {...a11yProps(0)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label=" Marketing" {...a11yProps(1)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Social Media" {...a11yProps(2)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Writing" {...a11yProps(3)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Business" {...a11yProps(4)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Travel" {...a11yProps(5)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Culture" {...a11yProps(6)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Society" {...a11yProps(7)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Life" {...a11yProps(8)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="History" {...a11yProps(9)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Religion" {...a11yProps(10)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Cryptocurrency" {...a11yProps(11)} />
+                <Tab style={{ backgroundColor: theme.backgroundColor, color: theme.color }} label="Education" {...a11yProps(12)} />
               </Tabs>
             </div>
           </Box>
-          <div className=" bg-white">
+          <div className="bg-white" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
             <TabPanel value={value} index={0}>
               <ArticleTabs
                 items={technology}
@@ -203,7 +206,7 @@ export default function Categories() {
         </Box>
         <PerPage postPerPage={postPerPage} totalPosts={article.length} paginate={paginate}></PerPage>
       </section>
-</>
+    </>
   );
 }
 
