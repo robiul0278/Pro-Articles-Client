@@ -2,12 +2,50 @@
 import { faCalendarDays, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 // eslint-disable-next-line react/prop-types
 const MarkItem = ({ mark }) => {
+
+    // https://premium-articles-platform-sever.vercel.app/deleteArticle/${article._id}
+    // https://toy-marketplace-server-hazel.vercel.app/deleteToys/${_id}
+
     // eslint-disable-next-line react/prop-types
-    const { image, authorImage, authorName, date, title, articleid, description } = mark;
+    const { _id, image, authorImage, authorName, date, title, articleid, description } = mark;
+
+    const handleDelete = _id => {
+        console.log(_id);
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                console.log('delete confirm');
+                fetch(`http://localhost:5000/bookarticle/${_id}`, {
+                    method: 'DELETE',
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                        if (data.deletedCount > 0) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your  Bookmark article has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
+
+
     return (
         <div>
             <div className="card-compact bg-white mb-3 shadow-md">
@@ -52,6 +90,7 @@ const MarkItem = ({ mark }) => {
                                 <span >
 
                                     <FontAwesomeIcon
+                                        onClick={() => handleDelete(_id)}
                                         className="hover:text-blue-400 text-slate-600 text-sm"
                                         icon={faTrashCan}
                                     />

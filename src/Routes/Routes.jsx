@@ -20,6 +20,7 @@ import UserHome from "../Dashboard/UsersRoute/UserHome";
 import ArticleDetails from "../Page/ArticleDetails/ArticleDetails";
 import EditArticle from "../Page/Write/EditArticle";
 import Bookmark from "../Page/Bookmark/Bookmark";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -89,7 +90,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'write',
-                element: <WriteArticle />
+                element: <PrivateRoute><WriteArticle/></PrivateRoute>
             },
             {
                 path: '/dashboard/articleDetails/:id',

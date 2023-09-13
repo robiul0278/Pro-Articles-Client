@@ -70,12 +70,12 @@ const MyArticle = () => {
                             <div className="p-3">
                                 <div className='flex justify-between '>
                                     <div>
-                                        <Link to={`/article/${article._id}`}>
+                                        <Link to={`/article/${article?._id}`}>
                                             <h2 className="card-title text-xl  hover:underline ">
                                                 {article.title}
                                             </h2>
                                         </Link>
-                                        <p className='text-justify'>{article.description.slice(0, 130)}...</p>
+                                        <p className='text-justify'>{article.description?.slice(0, 130)}...</p>
                                     </div>
                                 </div>
                                 <div className="flex card-actions mt-3 bottom-0 justify-between">
@@ -83,18 +83,18 @@ const MyArticle = () => {
                                         <div>
                                             <img
                                                 className="rounded-full w-5"
-                                                src={article.authorImage}
+                                                src={article?.authorImage}
                                                 alt="author"
                                             />
                                         </div>
                                         <div className="mr-3">
                                             <p className="text-neutral-500 text-sm font-mono">
-                                                {article.authorName}
+                                                {article?.authorName}
                                             </p>
 
                                         </div>
                                         <div className="text-neutral-500 font-mono text-sm mr-3">
-                                            <span className='mr-1 btn-sm'><FontAwesomeIcon icon={faCalendarDays} /></span>{article.date}
+                                            <span className='mr-1 btn-sm'><FontAwesomeIcon icon={faCalendarDays} /></span>{article?.date}
                                         </div>
                                     </div>
 

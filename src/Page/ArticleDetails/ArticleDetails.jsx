@@ -10,9 +10,9 @@ const ArticleDetails = () => {
     const { image, authorImage, authorName, date, description, title, _id } = article;
     // console.log(_id);
     return (
-        <section className=''>
+        <section className='max-w-7xl mx-auto bg-white'>
 
-            <div className="max-w-7xl mx-auto bg-white">
+            <div className="md:px-36">
                 <div>
                     <figure className="w-3/4 mx-auto pt-16">
                         <img
