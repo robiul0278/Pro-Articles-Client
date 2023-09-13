@@ -16,7 +16,7 @@ const Comments = ({ id }) => {
 
         // console.log(article._id);
 
-        fetch(`http://localhost:5000/addComment?id=${postComment[0]?._id}`, {
+        fetch(`http://localhost:5000/addComment?id=${id}`, {
             method: "PATCH",
             headers: {
                 'content-type': 'application/json'

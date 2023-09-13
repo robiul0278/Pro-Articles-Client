@@ -5,9 +5,12 @@ import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
+import { useContext } from 'react';
+import { ThemContext } from '../../../Routes/ThemProvider';
 
 
 const ArticleCard = ({ item }) => {
+    const [{ theme }] = useContext(ThemContext)
     const { user } = useAuth();
     const { image, authorImage, authorName, date, title, _id, description } = item;
     const book = {
@@ -53,7 +56,7 @@ const ArticleCard = ({ item }) => {
 
     // const { image, authorImage, authorName, date, title, _id, description } = item;
     return (
-        <div className="card-compact bg-white mb-3 shadow-md">
+        <div className="card-compact bg-white mb-3 shadow-md" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
             <div className='md:flex'>
                 <div>
                     <figure className="md:w-60 bg-cover w-full p-3">

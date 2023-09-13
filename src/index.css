@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@500;600&display=swap');
-body{
-  background-color: #efefef;
-  /* background-color: #f0f8fb; */
+
+body {
+  background-color: #fafeff;
+  background-color: #f0f8fb;
   font-family: 'Hind Siliguri', sans-serif;
 }
