@@ -1,7 +1,11 @@
 import { HiXMark, HiOutlineCheck } from "react-icons/hi2";
 import StripePayment from "../Payment/StripePayment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 const Membership = () => {
+    // import.meta.env.VITE_Payment_Gateway_Pk
+    const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_Pk);
     return (
         <div className="mb-10">
             <h1 className="text-center text-5xl mt-8 mb-4 font-bold">Plan and Pricing</h1>
@@ -53,8 +57,9 @@ const Membership = () => {
                     <h3 className="font-bold text-lg text-center">Payment Here...</h3>
                     {/* <p className="py-4">Press ESC key or click the button below to close</p> */}
                     <div className="py-4">
-
-                    <StripePayment></StripePayment>
+                        <Elements stripe={stripePromise}>
+                            <StripePayment></StripePayment>
+                        </Elements>
                     </div>
                     <div className="modal-action">
                         <form method="dialog">
