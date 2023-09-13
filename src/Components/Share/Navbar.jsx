@@ -7,9 +7,12 @@ import useAdmin from "../../Hooks/useAdmin";
 
 
 
-const Navbar = () => {
+
+// eslint-disable-next-line react/prop-types
+const Navbar = ({ dark, toggle }) => {
   const { user, logOut } = useAuth();
   const [isAdmin] = useAdmin();
+
   // console.log(isAdmin)
   // const isAdmin = true;
 
@@ -69,6 +72,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <button className="mr-5" onClick={toggle}>{dark ? "Dark" : "light"}</button>
+
         {user ? (
           <div className="dropdown dropdown-bottom z-10  dropdown-end">
             <label tabIndex={0} className=" m-1">

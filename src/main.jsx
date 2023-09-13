@@ -11,6 +11,8 @@ import {
 } from '@tanstack/react-query'
 import AuthProvider from './FirebaseAuth/Provider/AuthProvider';
 import router from './Routes/Routes';
+import { ThemProvider } from './Routes/ThemProvider';
+
 
 const queryClient = new QueryClient()
 
@@ -18,7 +20,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
+        <ThemProvider>
+          <RouterProvider router={router} />
+        </ThemProvider>
       </QueryClientProvider>
     </AuthProvider>
   </React.StrictMode>,
