@@ -17,7 +17,7 @@ const Bookmark = () => {
 
 
     return (
-        <div className="max-w-7xl mx-auto bg-white h-screen">
+        <div className="max-w-7xl mx-auto bg-white  ">
             <div className="text-center mb-5">
                 <div className="pt-16">
                     <h1 className="font-bold text-4xl px-4">Bookmark Article here..</h1>

@@ -2,8 +2,12 @@ import { useContext } from "react";
 import { HiXMark, HiOutlineCheck } from "react-icons/hi2";
 import { ThemContext } from "../../Routes/ThemProvider";
 import StripePayment from "../Payment/StripePayment";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 const Membership = () => {
+    // import.meta.env.VITE_Payment_Gateway_Pk
+    const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_Pk);
     const [{ theme }] = useContext(ThemContext)
     return (
         <div className="mb-10">
@@ -56,8 +60,11 @@ const Membership = () => {
                     <h3 className="font-bold text-lg text-center">Payment Here...</h3>
                     {/* <p className="py-4">Press ESC key or click the button below to close</p> */}
                     <div className="py-4">
+                        <Elements stripe={stripePromise}>
+                            <StripePayment></StripePayment>
+                        </Elements>
 
-                        <StripePayment></StripePayment>
+                        {/* <StripePayment></StripePayment> */}
                     </div>
                     <div className="modal-action">
                         <form method="dialog">
