@@ -27,7 +27,7 @@ const MarkItem = ({ mark }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log('delete confirm');
-                fetch(`http://localhost:5000/bookarticle/${_id}`, {
+                fetch(`https://premium-articles-platform-sever.vercel.app/bookarticle/${_id}`, {
                     method: 'DELETE',
                 })
                     .then(res => res.json())

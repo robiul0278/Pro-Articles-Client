@@ -84,7 +84,7 @@ const Dashboard = () => {
                                         </li>
                                         <li>
                                             <NavLink
-                                                to="/dashboard/payment"
+                                                to="/dashboard/paymentHistory"
 
                                                 className="flex items-center space-x-2 "
                                             >

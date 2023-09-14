@@ -1,29 +1,38 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
-import useAxiosSecure from "../../Hooks/useAxiosSecure";
+// import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 
 const StripePayment = () => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
-    const [axiosSecure] = useAxiosSecure()
+    // const [axiosSecure] = useAxiosSecure()
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const price = 100;
     const { user } = useAuth();
 
+    // useEffect(() => {
+    //     if (price > 0) {
+    //         axiosSecure.post('/create-payment-intent', { price })
+    //             .then(res => {
+    //                 console.log(res.data.clientSecret)
+    //                 setClientSecret(res.data.clientSecret);
+    //             })
+    //     }
+    // }, [price, axiosSecure])
+
     useEffect(() => {
-        if (price > 0) {
-            axiosSecure.post('/create-payment-intent', { price })
-                .then(res => {
-                    console.log(res.data.clientSecret)
-                    setClientSecret(res.data.clientSecret);
-                })
-        }
-    }, [price, axiosSecure])
+        axios.post('http://localhost:5000/create-payment-intent',{
+            price:price
+        }).then(res=>setClientSecret(res.data.clientSecret))
+     }, [price])
+    
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -77,20 +86,47 @@ const StripePayment = () => {
             // save payment information to the server
             const payment = {
                 email: user?.email,
+                name: user?.displayName,
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
-                status: 'service pending',
+                payment: 'paid',
             }
+            console.log(payment);
 
-            axiosSecure.post('/payments', payment)
-            .then(res => {
-                console.log(res.data);
-                if (res.data.result.insertedId) {
-                    // display confirm
-                }
+            fetch('http://localhost:5000/payments', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(payment)
             })
+            // axiosSecure.post('/payments', payment)
+                // .then(res => {
+                //     console.log(res.data);
+                //     if (res.data.insertedId) {
+                //         Swal.fire({
+                //             position: 'top-end',
+                //             icon: 'success',
+                //             title: 'Payment Successful',
+                //             showConfirmButton: false,
+                //             timer: 1500
+                //           })
+                //     }
+                // })
+                .then(res => res.json())
+                        .then(data => {
 
+                            // reset()
+                            console.log(data)
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Payment Successful',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                        });
         }
       
     }
