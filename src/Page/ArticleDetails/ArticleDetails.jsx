@@ -8,9 +8,9 @@ import SocialShare from './SocalShare/SocialShare';
 const ArticleDetails = () => {
     const article = useLoaderData()
     const { image, authorImage, authorName, date, description, title, _id } = article;
-    // console.log(_id);
     return (
         <section className='max-w-7xl flex flex-row mx-auto bg-white'>
+            <h1>Article details here</h1>
             <div className="basis-3/4 ">
                 <div>
                     <figure className="w-3/4 mx-auto pt-16">
