@@ -21,6 +21,7 @@ import ArticleDetails from "../Page/ArticleDetails/ArticleDetails";
 import EditArticle from "../Page/Write/EditArticle";
 import Bookmark from "../Page/Bookmark/Bookmark";
 import PrivateRoute from "./PrivateRoute";
+import PaymentHistory from "../Dashboard/UsersRoute/PaymentHistory";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -91,6 +92,10 @@ const router = createBrowserRouter([
             {
                 path: 'write',
                 element: <PrivateRoute><WriteArticle/></PrivateRoute>
+            },
+            {
+                path:'paymentHistory',
+                element: <PaymentHistory/>
             },
             {
                 path: '/dashboard/articleDetails/:id',
