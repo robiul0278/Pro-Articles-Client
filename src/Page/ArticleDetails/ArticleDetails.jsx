@@ -10,19 +10,18 @@ const ArticleDetails = () => {
     const { image, authorImage, authorName, date, description, title, _id } = article;
     // console.log(_id);
     return (
-        <section className='max-w-7xl mx-auto bg-white'>
-
-            <div className="md:px-36">
+        <section className='max-w-7xl flex flex-row mx-auto bg-white'>
+            <div className="basis-3/4 ">
                 <div>
                     <figure className="w-3/4 mx-auto pt-16">
                         <img
-                            className=" bg-cover md:h-64 w-full bg-center rounded-xl"
+                            className=" bg-cover md:h-96 w-full bg-center rounded-xl"
                             src={image}
                             alt="image"
                         />
                     </figure>
                 </div>
-                <div className="card-body">
+                <div className="card-body border-r-4">
                     <div className="flex justify-between pb-3">
                         <div className="flex items-center">
                             <div>
@@ -54,6 +53,10 @@ const ArticleDetails = () => {
                     <Comments id={_id}></Comments>
                     <hr />
                 </div>
+            </div>
+
+            <div className='basis-1/4'>
+
             </div>
         </section>
     );

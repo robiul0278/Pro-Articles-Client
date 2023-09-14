@@ -2,19 +2,24 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import useTitle from "../../Hooks/useTitle"
-// import JoditEditor from 'jodit-react';
-// import { useRef, useState } from "react";
+import JoditEditor from "jodit-react";
+import { useRef, useState } from "react";
 
+// eslint-disable-next-line no-unused-vars
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
 
 const WriteArticle = () => {
 
-    // const editor = useRef(null);
-    // const [content, setContent] = useState("")
+    const editor = useRef(null);
+    const [description, setContent] = useState("")
+    // console.log(content)
+
+
+
 
     const img_hosting_url = `https://api.imgbb.com/1/upload?&key=cf6bb3b03fa4376aa28f506d68c0272c`
-    console.log(img_hosting_url, '', img_hosting_token);
+    // console.log(img_hosting_url, '', img_hosting_token);
 
 
 
@@ -26,9 +31,9 @@ const WriteArticle = () => {
 
     const onSubmit = (data) => {
         const formData = new FormData();
-        console.log(data);
+        // console.log(data);
         formData.append('image', data.image[0]);
-        console.log(formData);
+        // console.log(formData);
         fetch(img_hosting_url, {
             method: "POST",
             body: formData
@@ -37,7 +42,7 @@ const WriteArticle = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const imgurl = imgResponse.data.display_url;
-                    const { title, description, tag, category, readTime, date } = data;
+                    const { title,  tag, category, readTime, date } = data;
                     const articleDetails = {
                         authorName: user?.displayName,
                         authorImage: user?.photoURL,
@@ -160,7 +165,7 @@ const WriteArticle = () => {
                                 <input {...register("image")} type="file" placeholder="Title" required className="file-input file-input-bordered w-full max-w-xs" />
                             </div>
                             {/* content */}
-                            <div className="w-full">
+                            {/* <div className="w-full">
                                 <label className="label">
                                     <span className="label-text">Article Description</span>
                                 </label>
@@ -170,12 +175,17 @@ const WriteArticle = () => {
                                     required
                                     style={{ width: "100%", height: "300px" }}
                                     className="input input-bordered" />
-                                {/* <JoditEditor
-                                    ref={editor}
-                                    value={content}
-                                    onChange={newContent => setContent(newContent)} 
-                                    /> */}
-                            </div>
+                  
+                            </div> */}
+
+                            {/* editor  */}
+
+                            <JoditEditor
+                                ref={editor}
+                                value={description}
+                                tabIndex={1} // tabIndex of textarea
+                                onChange={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+                            />
 
 
                             {/* post */}
