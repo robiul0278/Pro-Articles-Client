@@ -13,6 +13,7 @@ const ArticleCard = ({ item }) => {
     const [{ theme }] = useContext(ThemContext)
     const { user } = useAuth();
     const { image, authorImage, authorName, date, title, _id, description } = item;
+    console.log(description);
     const book = {
         articleid: _id,
         userEmail: user?.email,
@@ -53,7 +54,7 @@ const ArticleCard = ({ item }) => {
             })
 
     };
-
+    // const slicedDescription = description.slice(0, 150);
     // const { image, authorImage, authorName, date, title, _id, description } = item;
     return (
         <div className="card-compact bg-white mb-3 shadow-md" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
@@ -76,7 +77,17 @@ const ArticleCard = ({ item }) => {
                                     {title}
                                 </h2>
                             </Link>
-                            <p className='text-justify'>{description.slice(0, 130)}...</p></div>
+
+                            <div className="my-2" dangerouslySetInnerHTML={{ __html: description.length > 150 ? description.substring(0, 150) + ' ...' : description }}></div>
+
+
+                            {/* <p dangerouslySetInnerHTML={{__html:description.substring(0,150)}}/>  */}
+                            {/* <div>
+                                <p className='text-justify' dangerouslySetInnerHTML={{ __html: description?.slice(0, 130) }} />
+                            </div> */}
+
+                            {/* <p className='text-justify'>{description.slice(0, 130)}...</p> */}
+                        </div>
                     </div>
                     <div className="flex card-actions mt-5 bottom-0">
                         <div>
