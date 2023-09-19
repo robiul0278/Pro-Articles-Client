@@ -87,7 +87,7 @@ const ArticleDetails = () => {
                                         {description}
                                     </> :
                                     <>
-                                        {description.slice(0, 200)}
+                                        <p dangerouslySetInnerHTML={{__html:description}}/>
                                         <Link onClick={handlePayment}><span className='cursor-pointer font-mono'> read more...</span></Link>
                                     </>
                             }
