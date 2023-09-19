@@ -39,7 +39,7 @@ const Comments = ({ id }) => {
                 <form onSubmit={handleSubmit(onSubmit)} action="">
                     <textarea className="textarea textarea-primary textarea-sm w-full max-w-xs" {...register("comment")} placeholder="Comment..."></textarea>
                     <div className='mt-3'>
-                        <button type="submit" className="btn btn-secondary">Comment</button>
+                        <button type="submit" className="btn btn-error">Comment</button>
                     </div>
                 </form>
             </div>

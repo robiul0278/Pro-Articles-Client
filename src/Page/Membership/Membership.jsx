@@ -10,11 +10,11 @@ const Membership = () => {
     const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_Pk);
     const [{ theme }] = useContext(ThemContext)
     return (
-        <div className="mb-10">
+        <div className="my-10">
             <h1 className="text-center text-5xl mt-8 mb-4 font-bold">Plan and Pricing</h1>
             <p className="text-center text-xl">Shopify offers competitive rates and pricing plans to help you find a plan that fits the needs and budget of your business.</p>
-            <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-10 gap-10 md:px-40 lg:px-40">
-
+            <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-4 mt-32 gap-10 md:px-40 lg:px-40">
+                <div></div>
                 <div className="card  bg-base-100 shadow-xl" style={{ backgroundColor: theme.backgroundColor, color: theme.color }} >
                     {/* <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure> */}
                     <div className="card-body">
@@ -51,6 +51,7 @@ const Membership = () => {
                         <button onClick={() => document.getElementById('my_modal_1').showModal()} className="btn btn-outline btn-success">Pay</button>
                     </div>
                 </div>
+                <div></div>
 
             </div>
 

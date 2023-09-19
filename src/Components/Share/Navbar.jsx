@@ -3,6 +3,8 @@ import useAuth from "../../Hooks/useAuth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import useAdmin from "../../Hooks/useAdmin";
+import { useContext } from "react";
+import { ThemContext } from "../../Routes/ThemProvider";
 
 
 
@@ -12,6 +14,7 @@ import useAdmin from "../../Hooks/useAdmin";
 const Navbar = ({ dark, toggle }) => {
   const { user, logOut } = useAuth();
   const [isAdmin] = useAdmin();
+  const [{ theme }] = useContext(ThemContext)
 
   // console.log(isAdmin)
   // const isAdmin = true;
@@ -48,7 +51,7 @@ const Navbar = ({ dark, toggle }) => {
             hover:duration-500" to="/contact">Contact Us</NavLink></li>
     </>
   return (
-    <div className="navbar bg-white text-black   font-semibold md:px-10 shadow-xl
+    <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="navbar bg-white text-black   font-semibold md:px-10 shadow-xl
         top-0  w-full z-50 transition-transform transform scroll duration-300">
       <div className="navbar-start">
         <div className="dropdown">
@@ -62,7 +65,7 @@ const Navbar = ({ dark, toggle }) => {
           </ul>
         </div>
 
-        <Link to="/" className="w-44 text-error font-bold text-3xl"><img src="logo.png" alt="" /></Link>
+        <Link to="/" className="w-44 font-bold text-3xl"><img src="logo.png" alt="" /></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="flex items-center justify-center gap-4 px-1">

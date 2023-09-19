@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'membership',
-                element: <Membership />
+                element:<Membership />
             },
             {
                 path: '/articleDetails/:id',

@@ -4,7 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { ThemContext } from '../../../Routes/ThemProvider';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import useAuth from '../../../Hooks/useAuth';
 const WriteRole = () => {
+    const {user} = useAuth()
+    const navigate = useNavigate()
+    const location = useLocation()
     const [{ theme }] = useContext(ThemContext)
     const defaultOptions = {
         loop: true,
@@ -14,6 +20,30 @@ const WriteRole = () => {
             preserveAspectRatio: "xMidYMid slice"
         }
     };
+
+
+    const handleLogin = () => {
+        if(user){
+            navigate('/dashboard/write')
+        }
+        else{
+            Swal.fire({
+                title: 'Please Login?',
+                text: "You need to Login for write article!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Subscribe!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location }, replace: true })
+                }
+            })
+        }
+    }
+
+
     return (
         <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 bg-white justify-center items-center">
             <div className='pl-16'>
@@ -27,7 +57,7 @@ const WriteRole = () => {
                     <p><FontAwesomeIcon className='mr-1' icon={faCircleXmark} style={{ color: "#ef3f3f", }} />Copy posts are not acceptable</p>
                     <p><FontAwesomeIcon className='mr-1' icon={faCircleXmark} style={{ color: "#ef3f3f", }} />Spelling mistakes are not acceptable</p>
                 </div>
-                <button className="btn-sm btn-error mt-5 text-white font-semibold rounded">Write Article</button>
+                <Link onClick={handleLogin} className="btn-sm btn btn-error mt-5 text-white font-semibold rounded">Write Article</Link>
             </div>
             <div>
                 <Lottie

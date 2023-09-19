@@ -37,9 +37,9 @@ const Contact = () => {
     };
 
     return (
-        <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className='bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
-            <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className='px-4 lg:px-0 max-w-7xl mx-auto '>
-                <h1 style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="text-5xl  text-center font-bold py-10">Contact Us</h1>
+        <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }}  className='bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
+            <div  className='px-4 lg:px-0 max-w-7xl mx-auto '>
+                <h1 className="text-5xl  text-center font-bold py-10">Contact Us</h1>
                 {/* gap-5 */}
                 <div className='grid grid-cols-1 md:grid-cols-2  '>
 
