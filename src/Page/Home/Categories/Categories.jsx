@@ -47,7 +47,7 @@ function a11yProps(index) {
 export default function Categories() {
   const [value, setValue] = React.useState(0);
   const [article, loading] = useArticle();
-  const subArticle = currentPost.filter(item => item.status === "approve");
+  const subArticle = article.filter(item => item.status === "approved");
   // console.log(article)
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -62,7 +62,7 @@ export default function Categories() {
   // change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
-  const technology = currentPost.filter(item => item.category === "Technology");
+  const technology = currentPost?.filter(item => item.category === "Technology");
   const marketing = subArticle.filter(item => item.category === "Marketing");
   const social = subArticle.filter(item => item.category === "Social");
   const writing = subArticle.filter(item => item.category === "Writing");
