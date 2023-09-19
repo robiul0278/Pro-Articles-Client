@@ -4,13 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { ThemContext } from '../../../Routes/ThemProvider';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useAdmin from '../../../Hooks/useAdmin';
 import useAuth from '../../../Hooks/useAuth';
 const WriteRole = () => {
-    const {user} = useAuth()
+    const [isAdmin] = useAdmin();
+    const { user } = useAuth()
     const navigate = useNavigate()
-    const location = useLocation()
     const [{ theme }] = useContext(ThemContext)
     const defaultOptions = {
         loop: true,
@@ -22,26 +23,18 @@ const WriteRole = () => {
     };
 
 
-    const handleLogin = () => {
-        if(user){
-            navigate('/dashboard/write')
+    const writeLink = () => {
+        if (isAdmin?.role && user === "admin") {
+            return (
+                <li><Link to="/dashboard/write">Write Article</Link></li>
+            );
+        } else {
+            return (
+                <li><Link to="/dashboard/write">Write Article</Link></li>
+            );
         }
-        else{
-            Swal.fire({
-                title: 'Please Login?',
-                text: "You need to Login for write article!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, Subscribe!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    navigate('/login', { state: { from: location }, replace: true })
-                }
-            })
-        }
-    }
+        // return null;
+    };
 
 
     return (
@@ -57,7 +50,7 @@ const WriteRole = () => {
                     <p><FontAwesomeIcon className='mr-1' icon={faCircleXmark} style={{ color: "#ef3f3f", }} />Copy posts are not acceptable</p>
                     <p><FontAwesomeIcon className='mr-1' icon={faCircleXmark} style={{ color: "#ef3f3f", }} />Spelling mistakes are not acceptable</p>
                 </div>
-                <Link onClick={handleLogin} className="btn-sm btn btn-error mt-5 text-white font-semibold rounded">Write Article</Link>
+                <Link className="btn-sm btn btn-error mt-5 text-white font-semibold rounded">{writeLink()}</Link>
             </div>
             <div>
                 <Lottie

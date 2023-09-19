@@ -13,7 +13,7 @@ const ArticleCard = ({ item }) => {
     const [{ theme }] = useContext(ThemContext)
     const { user } = useAuth();
     const { image, authorImage, authorName, date, title, _id, description } = item;
-    console.log(description);
+    // console.log(description);
     const book = {
         articleid: _id,
         userEmail: user?.email,
