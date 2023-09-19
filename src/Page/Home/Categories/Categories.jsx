@@ -47,6 +47,7 @@ function a11yProps(index) {
 export default function Categories() {
   const [value, setValue] = React.useState(0);
   const [article, loading] = useArticle();
+  const subArticle = currentPost.filter(item => item.status === "approve");
   // console.log(article)
 
   const [currentPage, setCurrentPage] = useState(1)
@@ -55,25 +56,25 @@ export default function Categories() {
   // get current page
   const indexOfLastPost = currentPage * postPerPage;
   const indexOfFirstPost = indexOfLastPost - postPerPage;
-  const currentPost = article.slice(indexOfFirstPost, indexOfLastPost)
+  const currentPost = subArticle.slice(indexOfFirstPost, indexOfLastPost)
 
 
   // change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber)
 
   const technology = currentPost.filter(item => item.category === "Technology");
-  const marketing = article.filter(item => item.category === "Marketing");
-  const social = article.filter(item => item.category === "Social");
-  const writing = article.filter(item => item.category === "Writing");
-  const business = article.filter(item => item.category === "Business");
-  const travel = article.filter(item => item.category === "Travel");
-  const culture = article.filter(item => item.category === "Culture");
-  const society = article.filter(item => item.category === "Society");
-  const life = article.filter(item => item.category === "Life");
-  const history = article.filter(item => item.category === "History");
-  const religion = article.filter(item => item.category === "Religion");
-  const cryptocurrency = article.filter(item => item.category === "Cryptocurrency");
-  const education = article.filter(item => item.category === "Education");
+  const marketing = subArticle.filter(item => item.category === "Marketing");
+  const social = subArticle.filter(item => item.category === "Social");
+  const writing = subArticle.filter(item => item.category === "Writing");
+  const business = subArticle.filter(item => item.category === "Business");
+  const travel = subArticle.filter(item => item.category === "Travel");
+  const culture = subArticle.filter(item => item.category === "Culture");
+  const society = subArticle.filter(item => item.category === "Society");
+  const life = subArticle.filter(item => item.category === "Life");
+  const history = subArticle.filter(item => item.category === "History");
+  const religion = subArticle.filter(item => item.category === "Religion");
+  const cryptocurrency = subArticle.filter(item => item.category === "Cryptocurrency");
+  const education = subArticle.filter(item => item.category === "Education");
 
 
 

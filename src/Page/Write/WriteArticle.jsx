@@ -42,7 +42,7 @@ const WriteArticle = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const imgurl = imgResponse.data.display_url;
-                    const { title,  tag, category, readTime, date } = data;
+                    const { title,description,  tag, category, readTime, date } = data;
                     const articleDetails = {
                         authorName: user?.displayName,
                         authorImage: user?.photoURL,
@@ -165,7 +165,7 @@ const WriteArticle = () => {
                                 <input {...register("image")} type="file" placeholder="Title" required className="file-input file-input-bordered w-full max-w-xs" />
                             </div>
                             {/* content */}
-                            {/* <div className="w-full">
+                            <div className="w-full">
                                 <label className="label">
                                     <span className="label-text">Article Description</span>
                                 </label>
@@ -176,7 +176,7 @@ const WriteArticle = () => {
                                     style={{ width: "100%", height: "300px" }}
                                     className="input input-bordered" />
                   
-                            </div> */}
+                            </div>
 
                             {/* editor  */}
 
