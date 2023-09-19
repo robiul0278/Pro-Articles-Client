@@ -11,7 +11,7 @@ const Banner = () => {
   const [searchText, setSearchText] = useState("");
   const [searchData, setSearchData] = useState([])
   const [loading, setLoading] = useState(false);
-  console.log(searchData);
+  // console.log(searchData);
 
   const [sliderRef] = useKeenSlider({
     loop: true,

@@ -8,7 +8,7 @@ import { ThemContext } from "../Routes/ThemProvider";
 
 const Main = () => {
     const [{ theme, isDark }, toggleTheme] = useContext(ThemContext)
-    console.log('theme', theme)
+    // console.log('theme', theme)
     return (
         <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
             <Navbar theme={theme} dark={isDark} toggle={toggleTheme} />

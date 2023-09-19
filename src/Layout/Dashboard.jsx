@@ -20,6 +20,8 @@ const Dashboard = () => {
                             {
                                 isAdmin?.role === 'admin' ?
                                     <>
+                                        <li><h1 className="text-center text-2xl font-semibold">Admin Dashboard</h1></li>
+                                        <hr />
                                         <li>
                                             <NavLink
                                                 to="/dashboard/adminHome"
@@ -28,6 +30,16 @@ const Dashboard = () => {
                                             >
                                                 <BsPersonSquare />
                                                 <span className="font-bold">Dashboard Profile</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to="/dashboard/write"
+
+                                                className="flex items-center space-x-2"
+                                            >
+                                                <MdArticle />
+                                                <span className="font-bold">Write Article</span>
                                             </NavLink>
                                         </li>
                                         <li>
@@ -52,6 +64,8 @@ const Dashboard = () => {
                                         </li>
                                     </> :
                                     <>
+                                        <li><h1 className="text-center text-2xl font-semibold">User Dashboard</h1></li>
+                                        <hr />
                                         <li>
                                             <NavLink
                                                 to="/dashboard/userHome"
