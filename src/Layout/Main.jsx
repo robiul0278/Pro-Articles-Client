@@ -12,7 +12,7 @@ const Main = () => {
     return (
         <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
             <Navbar theme={theme} dark={isDark} toggle={toggleTheme} />
-            <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="">
+            <div  className="">
                 <Outlet />
             </div>
             <Footer />

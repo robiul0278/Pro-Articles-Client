@@ -22,7 +22,7 @@ const Trending = () => {
     }, []);
     // console.log(blogs);
     return (
-        <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className=" bg-white p-5" >
+        <section  style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className=" bg-white p-5" >
             <h1 className="font-bold text-2xl md:text-4xl py-4">Recent Posts</h1>
             {
                 loading ?

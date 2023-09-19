@@ -3,17 +3,16 @@ import { createContext, useEffect, useState } from "react";
 
 const themes = {
     dark: {
-        backgroundColor: 'black',
+        backgroundColor: '#292929',
         color: "white",
     },
     light: {
-        backgroundColor: "white",
+        backgroundColor: "#f0f8fb",
         color: "black"
     }
 }
 
 export const ThemContext = createContext()
-
 // eslint-disable-next-line react/prop-types
 export const ThemProvider = ({ children }) => {
     const [isDark, setIsDark] = useState(false)

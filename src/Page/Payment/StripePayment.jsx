@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useLocation, useNavigate } from "react-router-dom";
 
 
 const StripePayment = () => {
+    const navigate = useNavigate()
+    const location = useLocation()
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -16,6 +19,7 @@ const StripePayment = () => {
     const [transactionId, setTransactionId] = useState('');
     const price = 100;
     const { user } = useAuth();
+    let from = location.state?.from?.pathname || "/";
 
     // useEffect(() => {
     //     if (price > 0) {
@@ -28,7 +32,7 @@ const StripePayment = () => {
     // }, [price, axiosSecure])
 
     useEffect(() => {
-        axios.post('http://localhost:5000/create-payment-intent',{
+        axios.post('https://premium-articles-platform-sever.vercel.app/create-payment-intent',{
             price:price
         }).then(res=>setClientSecret(res.data.clientSecret))
      }, [price])
@@ -94,7 +98,7 @@ const StripePayment = () => {
             }
             console.log(payment);
 
-            fetch('http://localhost:5000/payments', {
+            fetch('https://premium-articles-platform-sever.vercel.app/payments', {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json'
@@ -126,6 +130,7 @@ const StripePayment = () => {
                             showConfirmButton: false,
                             timer: 1500
                           })
+                          navigate(from, { replace: true });
                         });
         }
       

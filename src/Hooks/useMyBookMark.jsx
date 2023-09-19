@@ -9,7 +9,7 @@ const useMyBookMark = () => {
         queryKey: ['bookarticle', user?.email],
         enabled: !loading,
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/bookarticle?email=${user?.email}`)
+            const res = await fetch(`https://premium-articles-platform-sever.vercel.app/bookarticle?email=${user?.email}`)
             // console.log('res from axios', res)
             const data = await res.json();
             return data;
