@@ -16,7 +16,7 @@ const useMyBookMark = () => {
         },
     })
 
-    return [bookarticle, refetch]
+    return {bookarticle, refetch}
 };
 
 export default useMyBookMark;

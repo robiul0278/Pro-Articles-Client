@@ -3,7 +3,6 @@ import { faCalendarDays, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
-import useMyBookMark from "../../Hooks/useMyBookMark";
 
 
 // eslint-disable-next-line react/prop-types
@@ -14,8 +13,6 @@ const MarkItem = ({ mark }) => {
 
     // eslint-disable-next-line react/prop-types
     const { _id, image, authorImage, authorName, date, title, articleid, description } = mark;
-
-    const {refetch} = useMyBookMark();
 
     const handleDelete = _id => {
         console.log(_id);
@@ -37,7 +34,6 @@ const MarkItem = ({ mark }) => {
                     .then(data => {
                         console.log(data);
                         if (data.deletedCount > 0) {
-                            refetch();
                             Swal.fire(
                                 'Deleted!',
                                 'Your  Bookmark article has been deleted.',

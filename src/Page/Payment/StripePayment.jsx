@@ -137,7 +137,7 @@ const StripePayment = () => {
     }
     return (
         <div>
-            <p >Stripe payment here..</p>
+            <p >Stripe payment here...</p>
             <form onSubmit={handleSubmit} >
                 <CardElement
                     options={{
