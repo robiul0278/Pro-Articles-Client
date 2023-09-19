@@ -118,7 +118,7 @@ const WriteArticle = () => {
                                 <label className="label">
                                     <span className="label-text">Post Category</span>
                                 </label>
-                                <select {...register("category")} defaultValue="Pick One" className="select select-bordered w-full">
+                                <select {...register("category")} defaultValue="Pick One" className="select select-bordered w-full" required>
                                     <option disabled>Pick One</option>
                                     <option>Technology</option>
                                     <option>Marketing</option>

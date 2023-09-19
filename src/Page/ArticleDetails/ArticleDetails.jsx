@@ -49,7 +49,9 @@ const ArticleDetails = () => {
                             {title}
                         </h2>
                     </Link>
-                    <p className="py-1 text-xl text-justify">{description}</p>
+                    <p dangerouslySetInnerHTML={{__html:description}}/> 
+                   
+                    {/* <p className="py-1 text-xl text-justify">{description}</p> */}
                     <Comments id={_id}></Comments>
                     <hr />
                 </div>
