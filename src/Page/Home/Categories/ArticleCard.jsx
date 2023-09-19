@@ -7,11 +7,13 @@ import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { ThemContext } from '../../../Routes/ThemProvider';
+import { useNavigate } from 'react-router-dom';
 
 
 const ArticleCard = ({ item }) => {
     const [{ theme }] = useContext(ThemContext)
     const { user } = useAuth();
+    const navigate = useNavigate();
     const { image, authorImage, authorName, date, title, _id, description } = item;
     // console.log(description);
     const book = {
@@ -34,24 +36,61 @@ const ArticleCard = ({ item }) => {
 
     // }
     const handleBookMark = () => {
-        fetch('https://premium-articles-platform-sever.vercel.app/bookarticle', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(book)
-        })
-            .then(res => res.json())
-            .then(data => {
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'Bookmark add',
-                    showConfirmButton: false,
-                    timer: 1500
-                })
-                console.log(data)
+        if (user) {
+            fetch('https://premium-articles-platform-sever.vercel.app/bookarticle', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(book)
             })
+                .then(res => res.json())
+                .then(data => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Bookmark add',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    console.log(data)
+                })
+        }else{
+            Swal.fire({
+                title: 'Please Login',
+                text: "Login first then access this route!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Login!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location }, replace: true })
+                }
+                else {
+                    navigate('/');
+                }
+            })
+        }
+        // fetch('https://premium-articles-platform-sever.vercel.app/bookarticle', {
+        //     method: "POST",
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(book)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         Swal.fire({
+        //             position: 'top-end',
+        //             icon: 'success',
+        //             title: 'Bookmark add',
+        //             showConfirmButton: false,
+        //             timer: 1500
+        //         })
+        //         console.log(data)
+        //     })
 
     };
     // const slicedDescription = description.slice(0, 150);
