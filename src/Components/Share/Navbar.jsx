@@ -68,6 +68,7 @@ const Navbar = ({ dark, toggle }) => {
       <li>
         <div className="flex items-center gap-2">
           <FaLanguage className="text-4xl" /><select
+            style={{ backgroundColor: theme.backgroundColor, color: theme.color }}
             className="bg-white font-bold"
             value={localStorage.getItem("i18nextLng")}
             onChange={handleLanguageChange}
@@ -103,7 +104,7 @@ const Navbar = ({ dark, toggle }) => {
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="mr-5" onClick={toggle}>{dark ? "Dark" : "light"}</button>
+        <button className="mr-5" onClick={toggle}>{dark ? "Dark" : "Light"}</button>
 
         {user ? (
           <div className="dropdown dropdown-bottom z-10  dropdown-end">
