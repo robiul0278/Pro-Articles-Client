@@ -35,17 +35,17 @@ const Login = () => {
           .then(() => {
             reset();
             profileUpdate()
-            .then(() => {
-              Swal.fire({
-                title: 'Login Successfully !.',
-                showClass: {
-                  popup: 'animate__animated animate__fadeInDown'
-                },
-                hideClass: {
-                  popup: 'animate__animated animate__fadeOutUp'
-                }
-              });
-            })
+              .then(() => {
+                Swal.fire({
+                  title: 'Login Successfully !.',
+                  showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                  },
+                  hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                  }
+                });
+              })
             navigate(from, { replace: true });
           })
       }).catch((error) => {
@@ -112,7 +112,7 @@ const Login = () => {
       });
   };
   return (
-    <section className="bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]">
+    <section>
       <div className="px-4 lg:px-0 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center items-center">
           <div className='hidden lg:flex'>

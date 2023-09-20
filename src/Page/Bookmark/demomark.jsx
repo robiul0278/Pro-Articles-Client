@@ -1,13 +1,15 @@
 /* eslint-disable react/prop-types */
 import { faCalendarDays, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { ThemContext } from "../../Routes/ThemProvider";
 
 
 // eslint-disable-next-line react/prop-types
 const MarkItem = ({ mark }) => {
-
+    const [{ theme }] = useContext(ThemContext)
     // https://premium-articles-platform-sever.vercel.app/deleteArticle/${article._id}
     // https://toy-marketplace-server-hazel.vercel.app/deleteToys/${_id}
 
@@ -48,7 +50,7 @@ const MarkItem = ({ mark }) => {
 
     return (
         <div>
-            <div className="card-compact bg-white mb-3 shadow-md">
+            <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="card-compact bg-white mb-3 shadow-md">
                 <div className='md:flex'>
                     <div>
                         <figure className="md:w-60 bg-cover w-full p-3">
@@ -59,9 +61,9 @@ const MarkItem = ({ mark }) => {
                             />
                         </figure>
                     </div>
-                    <div className="p-3">
-                        <div className='flex justify-between '>
-                            <div>
+                    <div className="p-3" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+                        <div className='flex justify-between' >
+                            <div className="p-3">
                                 <Link to={`/articleDetails/${articleid}`}>
                                     <h2 className="card-title text-xl  hover:underline ">
                                         {title}
