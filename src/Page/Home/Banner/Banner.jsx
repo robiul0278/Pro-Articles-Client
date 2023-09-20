@@ -13,6 +13,8 @@ const Banner = () => {
   const [loading, setLoading] = useState(false);
   console.log(searchData);
 
+
+
   const [sliderRef] = useKeenSlider({
     loop: true,
     renderMode: "performance",
@@ -62,11 +64,11 @@ const Banner = () => {
                 <p className="text-white md:text-2xl">Engage customers with the best Article.</p>
               </div>
               <div className="mt-5 flex justify-center items-center">
-                  <div className="">
-                    <input onChange={(e) => setSearchText(e.target.value)} className="input input-bordered rounded-r-none max-w-md text-black w-full pr-16"
-                      type="text"
-                      placeholder="Search" />
-                  </div>
+                <div className="">
+                  <input onChange={(e) => setSearchText(e.target.value)} className="input input-bordered rounded-r-none max-w-md text-black w-full pr-16"
+                    type="text"
+                    placeholder="Search" />
+                </div>
                 <div className="">
                   <button onClick={handleSearch} className="btn text-white btn-error top-0 right-0 rounded-l-none">Search</button>
                 </div>

@@ -3,8 +3,11 @@ import useAuth from "../../Hooks/useAuth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import useAdmin from "../../Hooks/useAdmin";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ThemContext } from "../../Routes/ThemProvider";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
+import { FaLanguage } from 'react-icons/fa';
 
 
 
@@ -12,10 +15,23 @@ import { ThemContext } from "../../Routes/ThemProvider";
 
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ dark, toggle }) => {
+  const { t, i18n } = useTranslation(["navbar"]);
   const { user, logOut } = useAuth();
   const [isAdmin] = useAdmin();
   const [{ theme }] = useContext(ThemContext)
 
+
+  useEffect(() => {
+    if (localStorage.getItem("i18nextLng")?.length > 2) {
+      i18next.changeLanguage("en");
+    }
+  }, []);
+
+  const handleLanguageChange = (e) => {
+    const selectedLanguage = e.target.value;
+    console.log(selectedLanguage);
+    i18n.changeLanguage(selectedLanguage);
+  };
   // console.log(isAdmin)
   // const isAdmin = true;
 
@@ -40,15 +56,27 @@ const Navbar = ({ dark, toggle }) => {
   const navItem =
     <>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/">Home</NavLink></li>
+            hover:duration-500" to="/">{t("Home")}</NavLink></li>
       {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/write">Write</NavLink></li> */}
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/membership">Membership</NavLink></li>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/about">About Us</NavLink></li>
+            hover:duration-500" to="/about">{t("About Us")}</NavLink></li>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/contact">Contact Us</NavLink></li>
+      <li>
+        <div className="flex items-center gap-2">
+          <FaLanguage className="text-4xl" /><select
+            className="bg-white font-bold"
+            value={localStorage.getItem("i18nextLng")}
+            onChange={handleLanguageChange}
+          >
+            <option value="en">English</option>
+            <option value="es">Español</option>
+          </select>
+        </div>
+      </li>
     </>
   return (
     <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="navbar bg-white text-black   font-semibold md:px-10 shadow-xl
