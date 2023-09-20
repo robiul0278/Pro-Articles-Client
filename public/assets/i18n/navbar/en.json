@@ -1,4 +1,8 @@
 {
     "home": "Home",
-    "about": "About us"
+    "membership": "Membership",
+    "about Us": "About Us",
+    "contact Us": "Contact Us",
+    "login": "Login",
+    "dark": "Dark"
 }

@@ -12,6 +12,7 @@ import {
 import AuthProvider from './FirebaseAuth/Provider/AuthProvider';
 import router from './Routes/Routes';
 import { ThemProvider } from './Routes/ThemProvider';
+import './i18n'
 
 
 const queryClient = new QueryClient()

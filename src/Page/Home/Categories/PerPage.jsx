@@ -13,9 +13,9 @@ const PerPage = ({ postPerPage, totalPosts, paginate }) => {
     return (
         <div className="join flex justify-center items-center">
             {pagNumbers.map(number => (
-                <>
-                    <button key={number} onClick={() => paginate(number)} className="join-item btn">{number}</button>
-                </>
+
+                <button key={number} onClick={() => paginate(number)} className="join-item btn">{number}</button>
+
             ))}
 
 
