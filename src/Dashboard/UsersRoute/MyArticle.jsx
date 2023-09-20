@@ -1,12 +1,13 @@
 import useMyArticle from "../../Hooks/useMyArticle";
-import {  faCalendarDays } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 
+
 const MyArticle = () => {
-    const [myArticle,refetch] = useMyArticle();
+    const [myArticle, refetch] = useMyArticle();
     console.log(myArticle);
 
 
@@ -43,7 +44,7 @@ const MyArticle = () => {
     }
     return (
         <section className="bg-gradient-to-r h-screen from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]">
-            <div className="text-center outline outline-offset-2 outline-cyan-500  p-8 m-5">
+            <div className="text-center outline outline-offset-2 outline-cyan-500  p-8 m-5" >
                 <h1 className="text-4xl font-bold ">My All Articles</h1>
                 <p className=""> Unlock Your Potential with Engaging Education and Inspiring Knowledge</p>
             </div>
@@ -99,7 +100,7 @@ const MyArticle = () => {
                                     </div>
 
                                     <div className="flex">
-                                        <Link  to={`/dashboard/editArticle/${article?._id}`}><button className="bg-success text-white btn-sm font-bold">Edit</button></Link>
+                                        <Link to={`/dashboard/editArticle/${article?._id}`}><button className="bg-success text-white btn-sm font-bold">Edit</button></Link>
                                         <Link onClick={() => handleDelete(article)} ><button className="bg-error ml-1 text-white btn-sm font-bold">Delete</button></Link>
                                     </div>
                                 </div>

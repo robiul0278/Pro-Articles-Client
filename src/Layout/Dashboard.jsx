@@ -4,18 +4,20 @@ import { FaHome, FaUsers } from 'react-icons/fa';
 import { MdArticle, MdPayment } from "react-icons/md";
 import { BsPersonSquare } from "react-icons/bs";
 import useAdmin from "../Hooks/useAdmin";
+import { useContext } from "react";
+import { ThemContext } from "../Routes/ThemProvider";
 
 
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
     // const isAdmin = true;
-
+    const [{ theme }] = useContext(ThemContext)
     return (
         <>
             <div className="flex min-h-screen max-w-7xl mx-auto">
                 <div className="w-1/4 bg-white border-2">
-                    <div className="p-5">
+                    <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="p-5">
                         <ul className="space-y-10">
                             {
                                 isAdmin?.role === 'admin' ?

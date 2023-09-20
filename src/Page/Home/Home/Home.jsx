@@ -9,7 +9,6 @@ import WriteRole from "../WriteRole/WriteRole";
 
 const Home = () => {
   useTitle("Home");
-
   return (
     <div>
       <Banner></Banner>
