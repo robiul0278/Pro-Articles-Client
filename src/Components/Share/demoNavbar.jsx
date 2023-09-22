@@ -1,84 +1,47 @@
-import { Link, NavLink } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
+<section className="bg-gray-200">
+  <div className="container my-5 py-5">
+    <div className="flex justify-center">
+      <div className="w-full sm:w-10/12 md:w-8/12 lg:w-8/12">
+        <div className="bg-white shadow-lg">
 
-
-
-const Navbar = () => {
-  const { user, logOut } = useAuth();
-  // console.log(user)
-
-
-  const handleLogOut = () => {
-    logOut();
-  }
-  // const user: boolean = false;
-  const navItem =
-    <>
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/">Home</NavLink></li>
-      {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/write">Write</NavLink></li> */}
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/membership">Membership</NavLink></li>
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/about">About Us</NavLink></li>
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/contact">Contact Us</NavLink></li>
-    </>
-  return (
-    <div className="navbar bg-white text-black   font-semibold md:px-10 shadow-xl
-        top-0  w-full z-50 transition-transform transform scroll duration-300">
-      <div className="navbar-start">
-        <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-          </label>
-          <ul tabIndex={0} className="menu menu-sm text-black bg-white dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
-            {
-              navItem
-            }
-          </ul>
-        </div>
-
-        <Link to="/" className="w-40 text-error font-bold text-3xl"><img src="" alt="" /> <h1 >ProWriter</h1></Link>
-      </div>
-      <div className="navbar-center hidden lg:flex">
-        <ul className="flex items-center justify-center gap-4 px-1">
-          {
-            navItem
-          }
-        </ul>
-      </div>
-      <div className="navbar-end">
-        {user ? (
-          <div className="dropdown dropdown-bottom z-10  dropdown-end">
-          <label tabIndex={0} className=" m-1">
-             <div className="avatar">
-               <div className="w-10 rounded-full ring ring-error  ring-offset-base-100 ring-offset-2">
-                 <img src={user?.photoURL} />
-               </div>
-             </div>
-          </label>
-          <ul tabIndex={0} className="menu-md menu text-black bg-white dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
-          <li><Link to='/write'>Write</Link></li>
-          <li><Link to='/dashboard/'>Dashboard</Link></li>
-          <li><NavLink  onClick={handleLogOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign Out</NavLink></li>
-            
-          </ul>
-        </div>
-        ) : (
-          <div>
-            <NavLink to="/login" className="btn btn-error text-white font-bold">
-              Login
-            </NavLink>
+          <div className="bg-gray-100 p-3">
+            <div className="flex items-start w-full">
+              <img
+                className="w-10 h-10 rounded-full shadow-md mr-3"
+                src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp"
+                alt="avatar"
+              />
+              <div className="w-full">
+                <textarea
+                  className="w-full h-20 bg-white border p-2 rounded-md shadow-md"
+                  id="textAreaExample"
+                  rows="4"
+                ></textarea>
+                <label
+                  className="block text-gray-600 text-sm mt-2"
+                  htmlFor="textAreaExample"
+                >
+                  Message
+                </label>
+              </div>
+            </div>
+            <div className="flex justify-end mt-2 pt-1">
+              <button
+                type="button"
+                className="bg-primary text-white px-3 py-2 rounded-md mr-2 text-sm"
+              >
+                Post comment
+              </button>
+              <button
+                type="button"
+                className="border-primary border px-3 py-2 rounded-md text-primary text-sm"
+              >
+                Cancel
+              </button>
+            </div>
           </div>
-        )}
+        </div>
       </div>
-
     </div>
-  );
-};
-
-export default Navbar;
+  </div>
+</section>
