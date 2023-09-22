@@ -88,7 +88,7 @@ const Banner = () => {
                         <div className="items-center justify-center text-center">
                           {searchData.map((data) => (
                             <div key={data._id}>
-                              <Link to={`/article/${data?._id}`}><span className="text-blue-600 hover:underline  p-2 bg-opacity-90 bg-white">{data?.title}</span></Link>
+                              <Link to={`/articleDetails/${data?._id}`}><span className="text-blue-600 hover:underline  p-2 bg-opacity-90 bg-white">{data?.title}</span></Link>
                             </div>
                           ))}
                         </div>

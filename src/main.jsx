@@ -12,13 +12,15 @@ import {
 import AuthProvider from './FirebaseAuth/Provider/AuthProvider';
 import router from './Routes/Routes';
 import { ThemProvider } from './Routes/ThemProvider';
-import './i18n'
+import { Provider } from 'react-redux';
+import { store } from './Redux/store/store';
 
 
 const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <Provider store={store}>
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
         <ThemProvider>
@@ -26,5 +28,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </ThemProvider>
       </QueryClientProvider>
     </AuthProvider>
-  </React.StrictMode>,
+    </Provider>
+  </React.StrictMode>
 )

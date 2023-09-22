@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import useAuth from "../../Hooks/useAuth";
+// import useAuth from "../../Hooks/useAuth";
 import useTitle from "../../Hooks/useTitle"
 import { useLoaderData } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
@@ -13,7 +14,8 @@ const EditArticle = () => {
     console.log(edit);
     const img_hosting_url = `https://api.imgbb.com/1/upload?&key=cf6bb3b03fa4376aa28f506d68c0272c`
     console.log(img_hosting_url, '', img_hosting_token);
-    const { user } = useAuth();
+    // const { user } = useAuth();
+    const {user} = useSelector((state) => state.auth)
 
 
     useTitle("Write");

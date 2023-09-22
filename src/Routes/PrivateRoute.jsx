@@ -3,9 +3,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { Dna } from "react-loader-spinner";
 import Swal from "sweetalert2";
 import useAuth from "../Hooks/useAuth";
+import { useSelector } from "react-redux";
 
 const PrivateRoute = ({ children }) => {
-    const { user, loading } = useAuth();
+    const { loading } = useAuth();
+    const {user} = useSelector(state=> state.auth)
     const location = useLocation();
     const navigate = useNavigate();
 

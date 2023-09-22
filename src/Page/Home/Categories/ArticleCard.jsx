@@ -3,16 +3,18 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBookmark, faCalendarDays } from "@fortawesome/free-solid-svg-icons";
 import { Link } from 'react-router-dom';
 // import axios from 'axios';
-import useAuth from '../../../Hooks/useAuth';
+// import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { useContext } from 'react';
 import { ThemContext } from '../../../Routes/ThemProvider';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 
 const ArticleCard = ({ item }) => {
     const [{ theme }] = useContext(ThemContext)
-    const { user } = useAuth();
+    // const { user } = useAuth();
+    const {user} = useSelector((state) => state.auth)
     const navigate = useNavigate();
     const { image, authorImage, authorName, date, title, _id, description } = item;
     // console.log(description);

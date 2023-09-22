@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "./useAuth";
+import { useSelector } from "react-redux";
 
 
 const useAdmin = () => {
-    const { user, loading } = useAuth();
+    const { loading } = useAuth();
+    const {user} = useSelector((state) => state.auth)
     const { data: isAdmin, isLoading: isAdminLoading } = useQuery({
         queryKey: ['isAdmin', user?.email],
         enabled: !loading,

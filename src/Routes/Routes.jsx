@@ -26,7 +26,7 @@ const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
-        errorElement: <ErrorPage />,
+        // errorElement: <ErrorPage />,
 
         children: [
             {
@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'membership',
-                element:<Membership />
+                element:<PrivateRoute><Membership /></PrivateRoute>
             },
             {
                 path: '/articleDetails/:id',

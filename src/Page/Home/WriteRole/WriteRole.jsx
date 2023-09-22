@@ -4,14 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';
 import { ThemContext } from '../../../Routes/ThemProvider';
-import { Link, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import { Link,} from 'react-router-dom';
+// import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
-import useAuth from '../../../Hooks/useAuth';
+import { useSelector } from 'react-redux';
 const WriteRole = () => {
     const [isAdmin] = useAdmin();
-    const { user } = useAuth()
-    const navigate = useNavigate()
+    const {user} = useSelector((state) => state.auth)
     const [{ theme }] = useContext(ThemContext)
     const defaultOptions = {
         loop: true,
@@ -38,8 +37,8 @@ const WriteRole = () => {
 
 
     return (
-        <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 bg-white justify-center items-center">
-            <div className='pl-16'>
+        <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 bg-white justify-center p-5 items-center">
+            <div className='md:pl-16'>
                 <h1 className='text-3xl font-semibold'>You can also write in ProWriter</h1>
                 <h4 className='text-xl my-4'>Write quality content and earn from ProWriter! </h4>
                 <div className='flex space-x-4'>
