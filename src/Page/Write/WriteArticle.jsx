@@ -27,7 +27,7 @@ const WriteArticle = () => {
     useTitle("Write");
     const { register, handleSubmit, reset } = useForm();
     // const { user } = useAuth();
-    const {user} = useSelector((state) => state.auth)
+    const { user } = useSelector((state) => state.auth)
     console.log(user)
 
 
@@ -44,7 +44,7 @@ const WriteArticle = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const imgurl = imgResponse.data.display_url;
-                    const { title, description, tag, category, readTime, date } = data;
+                    const { title,category, readTime, date } = data;
                     const articleDetails = {
                         authorName: user?.displayName,
                         authorImage: user?.photoURL,
@@ -54,7 +54,6 @@ const WriteArticle = () => {
                         category,
                         readTime,
                         date,
-                        tag,
                         title,
                         image: imgurl
                     }
@@ -190,8 +189,6 @@ const WriteArticle = () => {
                                     onChange={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
                                 />
                             </div>
-
-
                             {/* post */}
                             <div className="flex justify-center">
                                 <input className="btn btn-error w-full text-white font-semibold  mt-4" type="submit" value="Publish" />
@@ -204,3 +201,4 @@ const WriteArticle = () => {
     );
 };
 export default WriteArticle;
+

@@ -18,6 +18,19 @@ const ArticleDetails = () => {
     const [article] = useArticle()
     const { image, authorImage, authorName, date, description, title, _id, category } = singleArticle;
 
+    // Use a temporary DOM element to parse and manipulate the HTML safely
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = description;
+    // Get the text content of the parsed HTML
+    const textContent = tempDiv.textContent || tempDiv.innerText || "";
+    // Trim the text to the first 150 characters
+    const truncatedText = textContent.slice(0, 300);
+    // Create a new <p> element with the truncated text
+    const truncatedDescription = `<p>${truncatedText}</p>`;
+    // Render the truncated HTML using dangerouslySetInnerHTML
+    const details = <div dangerouslySetInnerHTML={{ __html: truncatedDescription }} />;
+
+
     const relatedArticle = article.filter(item => item.category == category)
     console.log(relatedArticle)
 
@@ -53,7 +66,7 @@ const ArticleDetails = () => {
                 <div className="md:basis-3/4 ">
 
                     <div className="card-body border-r-4">
-                        <hr className='border'/>
+                        <hr className='border' />
                         <div className="flex justify-between items-center">
                             <div className="flex items-center">
                                 <div>
@@ -86,15 +99,16 @@ const ArticleDetails = () => {
                             {
                                 payment[0]?.payment === 'paid' ?
                                     <>
-                                        {description}
+                                        <p dangerouslySetInnerHTML={{ __html: description }} />
+
                                     </> :
                                     <>
-                                        <p dangerouslySetInnerHTML={{__html:description}}/>
-                                        <Link onClick={handlePayment}><span className='cursor-pointer font-mono'> read more...</span></Link>
+                                        {details}
+                                        <Link onClick={handlePayment}><span className='cursor-pointer text-slate-500 font-mono'> Read more...</span></Link>
                                     </>
                             }
                         </p>
-
+ 
                         <Comments id={_id}></Comments>
                         <hr />
                     </div>
