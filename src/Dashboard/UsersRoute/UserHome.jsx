@@ -1,7 +1,10 @@
-import useAuth from "../../Hooks/useAuth";
+// import useAuth from "../../Hooks/useAuth";
+
+import { useSelector } from "react-redux";
 
 const UserHome = () => {
-    const {user} = useAuth();
+    // const {user} = useAuth();
+    const {user} = useSelector((state) => state.auth)
     return (
 <section className="bg-gradient-to-r h-screen from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]">
   <div className="container py-5 h-full">

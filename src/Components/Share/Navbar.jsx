@@ -8,6 +8,7 @@ import { ThemContext } from "../../Routes/ThemProvider";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import { FaLanguage } from 'react-icons/fa';
+import { useSelector } from "react-redux";
 
 
 
@@ -16,7 +17,8 @@ import { FaLanguage } from 'react-icons/fa';
 // eslint-disable-next-line react/prop-types
 const Navbar = ({ dark, toggle }) => {
   const { t, i18n } = useTranslation(["navbar"]);
-  const { user, logOut } = useAuth();
+  const {logOut } = useAuth();
+  const {user} = useSelector((state) => state.auth)
   const [isAdmin] = useAdmin();
   const [{ theme }] = useContext(ThemContext)
 

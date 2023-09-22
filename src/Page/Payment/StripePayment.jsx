@@ -1,10 +1,11 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 // import useAxiosSecure from "../../Hooks/useAxiosSecure";
-import useAuth from "../../Hooks/useAuth";
+// import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 const StripePayment = () => {
@@ -18,7 +19,8 @@ const StripePayment = () => {
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
     const price = 100;
-    const { user } = useAuth();
+    // const { user } = useAuth();
+    const {user} = useSelector((state) => state.auth)
     let from = location.state?.from?.pathname || "/";
 
     // useEffect(() => {

@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import useAuth from './useAuth';
+import { useSelector } from 'react-redux';
 // import useAxiosSecure from './useAxiosSecure';
 
 const useMyBookMark = () => {
-    const { user, loading } = useAuth();
+    const { loading } = useAuth();
+    const {user} = useSelector((state) => state.auth)
     // const [axiosSecure] = useAxiosSecure();
     const { refetch, data: bookarticle = [] } = useQuery({
         queryKey: ['bookarticle', user?.email],

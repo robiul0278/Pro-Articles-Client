@@ -13,6 +13,8 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { GithubAuthProvider } from "firebase/auth";
 import app from "../firebase/firebase.config";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addUser } from "../../Redux/Feature/authSlice";
 
 
 
@@ -26,8 +28,9 @@ const gitHubProvider = new GithubAuthProvider();
 
 
 const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch()
 
   // CREATE NEW USER
   const Register = (email, password) => {
@@ -70,7 +73,9 @@ const AuthProvider = ({ children }) => {
   // CURRENTLY ACTIVE SIGN-IN USER
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
-        setUser(loggedUser);
+        // setUser(loggedUser);
+        // console.log(loggedUser)
+        dispatch(addUser(loggedUser));
         setLoading(false);
                     // get and set token
                     if (loggedUser) {
@@ -89,10 +94,10 @@ const AuthProvider = ({ children }) => {
       return() => {
         unsubscribe();
       }
-}, [])
+}, [dispatch])
 
   const authInfo = {
-    user,
+    // user,
     loading,
     Register,
     Login,

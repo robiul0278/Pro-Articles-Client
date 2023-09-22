@@ -1,9 +1,10 @@
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import useAuth from "../../Hooks/useAuth";
+// import useAuth from "../../Hooks/useAuth";
 import useTitle from "../../Hooks/useTitle"
 import JoditEditor from 'jodit-react';
 import { useRef, useState } from "react";
+import { useSelector } from "react-redux";
 
 const img_hosting_token = import.meta.env.VITE_IMAGE_UPLOAD_TOKEN;
 
@@ -20,7 +21,8 @@ const WriteArticle = () => {
 
     useTitle("Write");
     const { register, handleSubmit, reset } = useForm();
-    const { user } = useAuth();
+    // const { user } = useAuth();
+    const {user} = useSelector((state) => state.auth)
 
 
 

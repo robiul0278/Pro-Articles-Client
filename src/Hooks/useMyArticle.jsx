@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import useAuth from './useAuth';
 import useAxiosSecure from './useAxiosSecure';
+import { useSelector } from 'react-redux';
 
 const useMyArticle = () => {
-    const { user, loading } = useAuth();
+    const { loading } = useAuth();
+    const {user} = useSelector((state) => state.auth)
     const [axiosSecure] = useAxiosSecure();
 
 

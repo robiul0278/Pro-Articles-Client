@@ -1,9 +1,11 @@
 import { useQuery } from '@tanstack/react-query'
 import useAxiosSecure from './useAxiosSecure';
 import useAuth from './useAuth';
+import { useSelector } from 'react-redux';
 
 const usePayment = () => {
-    const { user, loading } = useAuth();
+    const {loading } = useAuth();
+    const {user} = useSelector((state) => state.auth)
     const [axiosSecure] = useAxiosSecure();
     
     const { refetch, data: payment = [] } = useQuery({
