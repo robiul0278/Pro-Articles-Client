@@ -9,16 +9,15 @@ import WriteRole from "../WriteRole/WriteRole";
 
 const Home = () => {
   useTitle("Home");
-
   return (
     <div>
       <Banner></Banner>
       <div className="max-w-7xl mx-auto">
         <Trending />
         <Categories></Categories>
-        <WriteRole/>
+        <WriteRole />
         <Accordions></Accordions>
-        <ConnectUs/>
+        <ConnectUs />
       </div>
       <MessengerCustomerChat
         pageId="104012685668307"

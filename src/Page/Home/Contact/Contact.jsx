@@ -1,13 +1,13 @@
 
 import emailjs from '@emailjs/browser';
-import { useContext, useRef } from 'react';
+import { useRef } from 'react';
 import Swal from 'sweetalert2';
-import { ThemContext } from '../../../Routes/ThemProvider';
+
 
 const Contact = () => {
     const form = useRef();
 
-    const [{ theme }] = useContext(ThemContext)
+
     //import.meta.env.VITE_SERVICE_ID
     const ServiceId = import.meta.env.VITE_SERVICE_ID
     const TemplateId = import.meta.env.VITE_TEMPLATE_ID
@@ -37,8 +37,8 @@ const Contact = () => {
     };
 
     return (
-        <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }}  className='bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
-            <div  className='px-4 lg:px-0 max-w-7xl mx-auto '>
+        <div >
+            <div className='px-4 lg:px-0 max-w-7xl mx-auto'>
                 <h1 className="text-5xl  text-center font-bold py-10">Contact Us</h1>
                 {/* gap-5 */}
                 <div className='grid grid-cols-1 md:grid-cols-2  '>
@@ -100,7 +100,7 @@ const Contact = () => {
                 </div>
             </div>
 
-        </section>
+        </div>
     );
 };
 

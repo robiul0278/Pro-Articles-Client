@@ -58,24 +58,25 @@ const Navbar = ({ dark, toggle }) => {
   const navItem =
     <>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/">{t("Home")}</NavLink></li>
+            hover:duration-500" to="/">{t("home")}</NavLink></li>
       {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/write">Write</NavLink></li> */}
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/membership">Membership</NavLink></li>
+            hover:duration-500" to="/membership">{t("membership")}</NavLink></li>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/about">{t("About Us")}</NavLink></li>
+            hover:duration-500" to="/about">{t("about Us")}</NavLink></li>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/contact">Contact Us</NavLink></li>
+            hover:duration-500" to="/contact">{t("contact Us")}</NavLink></li>
       <li>
         <div className="flex items-center gap-2">
           <FaLanguage className="text-4xl" /><select
+            style={{ backgroundColor: theme.backgroundColor, color: theme.color }}
             className="bg-white font-bold"
             value={localStorage.getItem("i18nextLng")}
             onChange={handleLanguageChange}
           >
             <option value="en">English</option>
-            <option value="es">Español</option>
+            <option value="bn">Bangla</option>
           </select>
         </div>
       </li>
@@ -105,7 +106,7 @@ const Navbar = ({ dark, toggle }) => {
         </ul>
       </div>
       <div className="navbar-end">
-        <button className="mr-5" onClick={toggle}>{dark ? "Dark" : "light"}</button>
+        <button className="mr-5" onClick={toggle}>{dark ? "Light" : "Dark"}</button>
 
         {user ? (
           <div className="dropdown dropdown-bottom z-10  dropdown-end">
@@ -133,7 +134,7 @@ const Navbar = ({ dark, toggle }) => {
         ) : (
           <div>
             <NavLink to="/login" className="btn btn-error text-white font-bold">
-              Login
+              {t("login")}
             </NavLink>
           </div>
         )}
