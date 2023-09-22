@@ -30,7 +30,7 @@ const Footer = () => {
                         <form>
                             <header className="footer-title">subscribe</header>
                             <a className="link link-hover">Subscribe to get new posts and important  updates from ProWriter in your email.</a>
-                            <fieldset className="form-control w-80">
+                            {/* <fieldset className="form-control w-80">
                                 <label className="label">
                                     <span className="label-text text-white">Enter your email address</span>
                                 </label>
@@ -38,7 +38,7 @@ const Footer = () => {
                                     <input  type="text" placeholder="username@site.com" className="input input-bordered text-black w-full pr-16" />
                                     <button className="btn text-white btn-error absolute top-0 right-0 rounded-l-none">Subscribe</button>
                                 </div>
-                            </fieldset>
+                            </fieldset> */}
                         </form>
                     </nav>
                 </footer>

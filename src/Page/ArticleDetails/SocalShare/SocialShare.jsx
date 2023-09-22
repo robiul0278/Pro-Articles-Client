@@ -19,7 +19,7 @@ const SocialShare = () => {
         window.open(twitterShareURL, "popup")
     }
     return (
-        <div>
+        <div className=''>
             <button onClick={() => handleTwitterShare()} className="share-button text-2xl mr-6"><FaTwitter></FaTwitter></button>
             <button onClick={() => handleFacebookShare()} className="share-button text-2xl mr-6"><FaFacebook></FaFacebook></button>
             <button onClick={() => handleLinkedinShare()} className="share-button text-2xl mr-6"><FaLinkedin></FaLinkedin></button>

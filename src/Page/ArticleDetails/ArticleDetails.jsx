@@ -49,21 +49,22 @@ const ArticleDetails = () => {
                     />
                 </figure>
             </div>
-            <div className=' flex flex-row'>
-                <div className="basis-3/4 ">
+            <div className='md:flex'>
+                <div className="md:basis-3/4 ">
 
                     <div className="card-body border-r-4">
-                        <div className="flex justify-between pb-3">
+                        <hr className='border'/>
+                        <div className="flex justify-between items-center">
                             <div className="flex items-center">
                                 <div>
                                     <img
-                                        className="rounded-full w-14"
+                                        className="rounded-full w-10"
                                         src={authorImage}
                                         alt="author"
                                     />
 
                                 </div>
-                                <div className=" px-3 leading-6">
+                                <div className=" px-3">
                                     <p className="font-bold">
                                         {authorName}
                                     </p>
@@ -72,11 +73,12 @@ const ArticleDetails = () => {
                                     </p>
                                 </div>
                             </div>
-                            <SocialShare></SocialShare>
+                            <div><SocialShare></SocialShare></div>
 
                         </div>
+                        <hr className='border' />
                         <Link>
-                            <h2 className="card-title text-3xl font-bold hover:underline ">
+                            <h2 className="card-title mt-5 text-3xl font-bold hover:underline ">
                                 {title}
                             </h2>
                         </Link>
@@ -98,7 +100,7 @@ const ArticleDetails = () => {
                     </div>
                 </div>
 
-                <div className='basis-1/4'>
+                <div className='md:basis-1/4 mt-4'>
                     <div className='p-3'>
                         <h1 className='text-xl font-semibold'>Most Related Post :</h1>
                     </div>

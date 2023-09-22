@@ -150,7 +150,7 @@ const ArticleCard = ({ item }) => {
                         <div className="text-neutral-500 font-mono text-sm mr-5">
                             <span onClick={handleBookMark}>
                                 <FontAwesomeIcon
-                                    className="hover:text-blue-400 text-slate-600 text-sm"
+                                    className="hover:text-blue-400 cursor-pointer text-slate-600 text-sm"
                                     icon={faBookmark}
                                 />
                             </span>
