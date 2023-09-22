@@ -49,7 +49,7 @@ const Banner = () => {
     <div
       className="bg-cover -mt-32 bg-center"
       style={{
-        backgroundImage: "url('https://i.ibb.co/mTFDk0d/young-woman-reading-textbook-home-library-generated-by-ai-1.jpg')",
+        backgroundImage: "url('https://i.ibb.co/HgMLQhY/young-woman-reading-textbook-home-library-generated-by-ai-1-1-1.jpg')",
         // height: "800px"  Adjust the height value as needed
       }}
     >
