@@ -6,7 +6,6 @@ import Main from "../Layout/Main";
 import WriteArticle from "../Page/Write/WriteArticle";
 import Contact from "../Page/Home/Contact/Contact";
 import About from "../Page/About/About";
-import Membership from "../Page/Membership/Membership";
 import Dashboard from "../Layout/Dashboard";
 import Home from "../Page/Home/Home/Home";
 import Login from "../FirebaseAuth/Login/Login";
@@ -22,6 +21,7 @@ import Bookmark from "../Page/Bookmark/Bookmark";
 import PrivateRoute from "./PrivateRoute";
 import PaymentHistory from "../Dashboard/UsersRoute/PaymentHistory";
 import ErrorPage from "../Page/ErrorPage/ErrorPage";
+import Subscribe from "../Page/Membership/Subscribe";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -50,8 +50,8 @@ const router = createBrowserRouter([
                 element: <About />
             },
             {
-                path: 'membership',
-                element:<PrivateRoute><Membership /></PrivateRoute>
+                path: 'subscribe',
+                element: <Subscribe/>
             },
             {
                 path: '/articleDetails/:id',
