@@ -56,7 +56,7 @@ const ArticleDetails = () => {
     return (
         <section className='max-w-7xl  mx-auto bg-white'>
             <div>
-                <figure className="w-3/4 mx-auto py-16">
+                <figure className="w-3/4 mx-auto py-10">
                     <img
                         className=" bg-cover md:h-96 w-full bg-center rounded-"
                         src={image}
@@ -93,7 +93,7 @@ const ArticleDetails = () => {
                         </div>
                         <hr className='border' />
                         <Link>
-                            <h2 className="card-title mt-5 text-3xl font-bold hover:underline ">
+                            <h2 className="card-title mt-5 text-3xl font-bold">
                                 {title}
                             </h2>
                         </Link>
@@ -108,7 +108,7 @@ const ArticleDetails = () => {
                                         {details}
                                         {/* <Link onClick={handlePayment}><span className='text-blue-500 font-mono'> Read more...</span></Link> */}
                                       
-                                        <div className='pt-56 px-5 -mt-16 text-slate-500 font-mono bg-gradient-to-b from-slate-100 '>You have read your last complimentary article.<Link to='/membership' className='text-blue-500 underline cursor-pointer'>subscribed now!.</Link> if you are already a subscriber <Link to='/login' className='text-blue-500 underline cursor-pointer'>sign in.</Link></div>
+                                        <div className='pt-56 px-5 -mt-16 text-slate-500 font-serif text-sm md:text-xl bg-gradient-to-b from-slate-100 '>You have read your last complimentary article.<Link to='/membership' className='text-blue-500 underline cursor-pointer'>subscribed now!.</Link> if you are already a subscriber <Link to='/login' className='text-blue-500 underline cursor-pointer'>sign in.</Link></div>
                                     </>
                             }
                         </p>
