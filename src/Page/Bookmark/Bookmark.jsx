@@ -25,7 +25,7 @@ const Bookmark = () => {
 
 
     return (
-        <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="max-w-7xl mx-auto bg-white ">
+        <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="max-w-7xl mx-auto bg-white mt-20">
             <div className="text-center mb-5">
                 <div className="pt-16">
                     <h1 className="font-bold text-4xl px-4">Bookmark Article here..</h1>

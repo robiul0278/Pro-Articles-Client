@@ -19,7 +19,7 @@ const Subscribe = () => {
         }
     };
     return (
-        <section className="card lg:card-side p-5  max-w-7xl mx-auto md:my-12">
+        <section className="card lg:card-side p-5  max-w-7xl mx-auto my-12">
             <div className="grid md:grid-cols-2 grid-cols-1">
             <div className="hidden md:flex md:py-32">
                 <Lottie
@@ -34,7 +34,7 @@ const Subscribe = () => {
                     Subscribe for Unlimited Article Read Access - </h2>
                 <p className="my-3"><del className="text-3xl">$29.99</del><span className="text-3xl"> $10</span><sub className="font-bold">for life time</sub></p> 
                 <p className="font-bold text-xl">Your Subscription Includes:</p>
-                <ul className="text-xl font-sans">
+                <ul className="md:text-xl font-sans">
                     <li><FontAwesomeIcon icon={faCheck}/> Life time access!</li>
                     <li><FontAwesomeIcon icon={faCheck}/> Unlimited access to prowriter.com</li>
                     <li><FontAwesomeIcon icon={faCheck}/> Premium article access anywhere in our website!</li>

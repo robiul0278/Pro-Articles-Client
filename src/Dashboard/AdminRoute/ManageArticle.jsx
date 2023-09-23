@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const ManageArticle = () => {
 
- const [article, refetch] = useArticle()
+ const {article, refetch} = useArticle()
 
 
     const pendingArticle = article.filter(item => item.status === "pending");

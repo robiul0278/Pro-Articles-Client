@@ -51,7 +51,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'subscribe',
-                element: <Subscribe/>
+                element: <PrivateRoute><Subscribe/></PrivateRoute>
             },
             {
                 path: '/articleDetails/:id',

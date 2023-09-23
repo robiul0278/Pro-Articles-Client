@@ -158,29 +158,13 @@ const WriteArticle = () => {
                                 <input {...register("date")} type="date" placeholder="read time" className="input w-full input-bordered" />
                             </div>
                             {/* image */}
-                            <div className="w-full ">
+                            <div className="w-full mb-3">
                                 <label className="label">
                                     <span className="label-text">Article Image*</span>
                                 </label>
                                 {/* <input type="file" className="file-input file-input-bordered  " /> */}
                                 <input {...register("image")} type="file" placeholder="Title" required className="file-input file-input-bordered w-full max-w-xs" />
                             </div>
-                            {/* content */}
-                            {/* <div className="w-full">
-                                <label className="label">
-                                    <span className="label-text">Article Description</span>
-                                </label>
-                                <textarea
-                                    {...register("description")}
-                                    placeholder="write...."
-                                    required
-                                    style={{ width: "100%", height: "300px" }}
-                                    className="input input-bordered" />
-                  
-                            </div> */}
-
-                            {/* editor  */}
-
                             <div>
                                 <JoditEditor
                                     ref={editor}

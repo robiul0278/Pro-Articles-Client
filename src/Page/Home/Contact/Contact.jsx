@@ -37,7 +37,7 @@ const Contact = () => {
     };
 
     return (
-        <div >
+        <div className='mt-20'>
             <div className='px-4 lg:px-0 max-w-7xl mx-auto'>
                 <h1 className="text-5xl  text-center font-bold py-10">Contact Us</h1>
                 {/* gap-5 */}

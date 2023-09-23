@@ -11,7 +11,7 @@ const useArticle = () => {
         }
     });
 
-    return [article, loading, refetch];
+    return {article, loading, refetch};
 }
 
 export default useArticle;
