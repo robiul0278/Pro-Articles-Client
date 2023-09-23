@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 
-
 const ErrorPage = () => {
   return (
     <div>
@@ -37,7 +36,7 @@ const ErrorPage = () => {
             <span className='sr-only'>Error</span>404
           </h2>
           <p className='text-2xl font-semibold md:text-3xl mb-8'>
-            Sorry, we could not find this page.
+            Sorry, we couldnt find this page.
           </p>
           <Link
             to='/'

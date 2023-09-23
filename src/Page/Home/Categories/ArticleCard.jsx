@@ -104,7 +104,7 @@ const ArticleCard = ({ item }) => {
                                     {title}
                                 </h2>
                             </Link>
-                            <p>{details}...</p>
+                            <p>{details}</p>
                         </div>
                     </div>
                     <div className="flex card-actions mt-5 bottom-0">

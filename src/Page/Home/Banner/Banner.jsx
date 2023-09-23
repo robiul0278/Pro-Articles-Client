@@ -34,6 +34,7 @@ const Banner = () => {
 
   const handleSearch = () => {
     setLoading(true);
+    <button className="btn" onClick={()=>document.getElementById('my_modal_3').showModal()}>open modal</button>
 
 
     fetch(`https://premium-articles-platform-sever.vercel.app/articleSearch/${searchText}`)
@@ -56,9 +57,9 @@ const Banner = () => {
       <div className="mx-auto hero-overlay bg-opacity-60 pb-5 md:pb-36 mt-16 md:pt-56">
         <div className="flex">
           <div className="w-3/4 text-center md:mt-0 mt-12 mx-auto">
-            <div className="md:leading-10">
+            <div className="md:leading-10 flex flex-col items-center justify-center md:mt-10 mt-16">
               <div className="items-center justify-center">
-                <h1 className="md:text-5xl text-2xl  font-bold text-[#ffffff] md:mt-10 mt-16">
+                <h1 className="md:text-5xl text-2xl font-bold text-[#ffffff] mb-2 text-center">
                   Search Your Favorite Article Here!
                 </h1>
                 <p className="text-white md:text-2xl">Engage customers with the best Article.</p>
@@ -69,30 +70,31 @@ const Banner = () => {
                     type="text"
                     placeholder="Search" />
                 </div>
-                <div className="">
+                <div>
                   <button onClick={handleSearch} className="btn text-white btn-error top-0 right-0 rounded-l-none">Search</button>
                 </div>
               </div>
 
               {/* search here */}
-              <div className="absolute z-50 items-center justify-center  md:ml-72">
-                <div>
+              <div className="absolute flex items-center justify-center mt-[264px] px-5">
+                <div className="">
                   {
                     loading ? (
-                      <div className="text-center  items-center  md:ml-72 justify-center">
-                        <p >Loading...</p>
+                      <div className="text-center  items-center justify-center">
+                        <p className="text-center">Loading...</p>
                       </div>
                     ) : searchData.length > 0 ? (
-                      <div>
-                        {/* <h2 className="text-lg font-semibold mb-2 text-white text-center">Search Results:</h2> */}
                         <div className="items-center justify-center text-center">
                           {searchData.map((data) => (
                             <div key={data._id}>
-                              <Link to={`/articleDetails/${data?._id}`}><span className="text-blue-600 hover:underline  p-2 bg-opacity-90 bg-white">{data?.title}</span></Link>
+
+                              <ul className="menu bg-white w-full text-blue-600 hover:underline">
+                                <li><Link to={`/articleDetails/${data?._id}`}>{data?.title}</Link></li>
+                              </ul>
+                              <hr />
                             </div>
                           ))}
                         </div>
-                      </div>
                     ) :
                       (
                         <div className="text-center text-white">
@@ -110,7 +112,7 @@ const Banner = () => {
 
               {/* Carusel  */}
 
-              <div className="md:hidden mt-5 w-5/6 md:w-1/6 pb-6  mx-auto px-14">
+              <div className="md:hidden z-10 mt-5 w-5/6 md:w-1/6 pb-6  mx-auto px-14">
                 <div ref={sliderRef} className="keen-slider text-white">
                   <div className="keen-slider__slide number-slide1 flex items-center justify-center ">
                     <span className="mr-1"><FontAwesomeIcon icon={faMicrochip} /></span>
@@ -167,7 +169,7 @@ const Banner = () => {
 
             {/* Categories list   */}
 
-            <div className="hidden lg:flex relative z-30">
+            <div className="hidden lg:flex relative">
               <div className="grid md:grid-cols-6 grid-cols-3 mt-32 md:w-3/5 mx-auto gap-6 md:gap-5 text-start text-white">
                 <div className="flex items-center">
                   <span className="mr-1"><FontAwesomeIcon icon={faMicrochip} /></span>
