@@ -139,9 +139,9 @@ const StripePayment = () => {
     }
     return (
         <div>
-            <p >Stripe payment here...</p>
             <form onSubmit={handleSubmit} >
-                <CardElement
+        <div className="border-dashed border-2 p-3" >
+        <CardElement
                     options={{
                         style: {
                             base: {
@@ -157,8 +157,9 @@ const StripePayment = () => {
                         },
                     }}
                 />
+        </div>
                 <div className="text-center">
-                    <button className="btn btn-outline btn-success  mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
+                    <button className="btn btn-primary w-full  mt-4" type="submit" disabled={!stripe || !clientSecret || processing}>
                         Pay
                     </button>
                 </div>

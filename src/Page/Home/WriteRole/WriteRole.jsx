@@ -51,11 +51,11 @@ const WriteRole = () => {
                 </div>
                 <Link className="btn-sm btn btn-error mt-5 text-white font-semibold rounded">{writeLink()}</Link>
             </div>
-            <div>
+            <div className=''>
                 <Lottie
                     options={defaultOptions}
                     height={400}
-                    width={400}
+                    width={350}
                 />
             </div>
         </section>

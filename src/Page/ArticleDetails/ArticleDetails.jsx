@@ -108,7 +108,7 @@ const ArticleDetails = () => {
                                         {details}
                                         {/* <Link onClick={handlePayment}><span className='text-blue-500 font-mono'> Read more...</span></Link> */}
                                       
-                                        <div className='pt-56 px-5 -mt-16 text-slate-500 font-serif text-sm md:text-xl bg-gradient-to-b from-slate-100 '>You have read your last complimentary article.<Link to='/membership' className='text-blue-500 underline cursor-pointer'>subscribed now!.</Link> if you are already a subscriber <Link to='/login' className='text-blue-500 underline cursor-pointer'>sign in.</Link></div>
+                                        <div className='pt-56 px-5 -mt-16 text-slate-500 font-serif text-sm md:text-xl bg-gradient-to-b from-slate-100 '>You have read your last complimentary article <Link to='/subscribe' className='text-blue-500 underline cursor-pointer'>subscribed now!.</Link> if you are already a subscriber <Link to='/login' className='text-blue-500 underline cursor-pointer'>sign in.</Link></div>
                                     </>
                             }
                         </p>

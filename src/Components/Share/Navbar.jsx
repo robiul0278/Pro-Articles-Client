@@ -61,8 +61,10 @@ const Navbar = ({ dark, toggle }) => {
             hover:duration-500" to="/">{t("Home")}</NavLink></li>
       {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/write">Write</NavLink></li> */}
+      {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+            hover:duration-500" to="/membership">{t("Membership")}</NavLink></li> */}
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/membership">{t("Membership")}</NavLink></li>
+            hover:duration-500" to="/subscribe">{t("Membership")}</NavLink></li>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
             hover:duration-500" to="/about">{t("About Us")}</NavLink></li>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
@@ -91,7 +93,7 @@ const Navbar = ({ dark, toggle }) => {
       {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
         hover:duration-500" to="/write">Write</NavLink></li> */}
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-        hover:duration-500" to="/membership">{t("Membership")}</NavLink></li>
+        hover:duration-500" to="/subscribe">{t("Membership")}</NavLink></li>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
         hover:duration-500" to="/about">{t("About Us")}</NavLink></li>
       <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
@@ -169,8 +171,8 @@ const Navbar = ({ dark, toggle }) => {
           </div>
         ) : (
           <div>
-            <NavLink to="/login" className="btn btn-error text-white font-bold">
-              {t("login")}
+            <NavLink to="/login" className="btn btn-sm btn-error text-white font-bold">
+              {t("Sign In")}
             </NavLink>
           </div>
         )}
