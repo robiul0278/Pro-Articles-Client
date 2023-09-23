@@ -83,7 +83,7 @@ const Navbar = ({ dark, toggle }) => {
     </>
   return (
     <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="navbar bg-white text-black   font-semibold md:px-10 shadow-xl
-        top-0  w-full z-50 transition-transform transform scroll duration-300">
+        top-0  w-full  transition-transform transform scroll duration-300">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -109,7 +109,7 @@ const Navbar = ({ dark, toggle }) => {
         <button className="mr-5" onClick={toggle}>{dark ? <input type="checkbox" className="toggle toggle-error" /> : <input type="checkbox" className="toggle toggle-error" />}</button>
 
         {user ? (
-          <div className="dropdown dropdown-bottom z-10  dropdown-end">
+          <div className="dropdown dropdown-bottom dropdown-end ">
             <label tabIndex={0} className=" m-1">
               <div className="avatar">
                 <div className="w-10 rounded-full ring ring-error  ring-offset-base-100 ring-offset-2">
@@ -117,14 +117,14 @@ const Navbar = ({ dark, toggle }) => {
                 </div>
               </div>
             </label>
-            <ul tabIndex={0} className="menu-md menu text-black bg-white dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-60">
+            <ul tabIndex={0} className="menu-md menu z-50 text-black bg-white dropdown-content mt-3 p-2 shadow rounded-box w-60">
               <div className="card-body items-center text-center">
                 <img src={user?.photoURL} alt="avatar"
                   className="rounded-full" style={{ width: '90px' }} />
                 <FontAwesomeIcon icon={faPenToSquare} />
                 <h5 className="">{user?.displayName}</h5>
               </div>
-              <li><Link to='/bookMark'>BookMark</Link></li>
+              <li><Link to='/bookMark'>Bookmark</Link></li>
               {DashboardLink()}
               {/* <li><Link to='/dashboard/'>Dashboard</Link></li> */}
               <li><NavLink onClick={handleLogOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign Out</NavLink></li>

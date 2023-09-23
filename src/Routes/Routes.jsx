@@ -3,7 +3,6 @@ import {
 } from "react-router-dom";
 
 import Main from "../Layout/Main";
-import ErrorPage from "../Page/ErrorPage/ErrorPage";
 import WriteArticle from "../Page/Write/WriteArticle";
 import Contact from "../Page/Home/Contact/Contact";
 import About from "../Page/About/About";
@@ -22,11 +21,12 @@ import EditArticle from "../Page/Write/EditArticle";
 import Bookmark from "../Page/Bookmark/Bookmark";
 import PrivateRoute from "./PrivateRoute";
 import PaymentHistory from "../Dashboard/UsersRoute/PaymentHistory";
+import ErrorPage from "../Page/ErrorPage/ErrorPage";
 const router = createBrowserRouter([
     {
         path: "/",
         element: <Main />,
-        // errorElement: <ErrorPage />,
+        errorElement: <ErrorPage />,
 
         children: [
             {

@@ -25,11 +25,11 @@ const WriteRole = () => {
     const writeLink = () => {
         if (isAdmin?.role && user === "admin") {
             return (
-                <li><Link to="/dashboard/write">Write Article</Link></li>
+                <Link to="/dashboard/write">Write Article</Link>
             );
         } else {
             return (
-                <li><Link to="/dashboard/write">Write Article</Link></li>
+                <Link to="/dashboard/write">Write Article</Link>
             );
         }
         // return null;

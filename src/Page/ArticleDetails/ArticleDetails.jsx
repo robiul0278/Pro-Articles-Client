@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Link, useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Comments from './Comment/Comment';
 import SocialShare from './SocalShare/SocialShare';
 import usePayment from '../../Hooks/usePayment';
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import useArticle from '../../Hooks/useArticle';
 import { faBookmark, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -12,11 +12,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ArticleDetails = () => {
     const [payment] = usePayment();
-    const navigate = useNavigate()
-    const location = useLocation()
+    // const navigate = useNavigate()
+    // const location = useLocation()
     const singleArticle = useLoaderData()
     const [article] = useArticle()
     const { image, authorImage, authorName, date, description, title, _id, category } = singleArticle;
+
+    const relatedArticle = article.filter(item => item.category == category)
+    console.log(relatedArticle)
 
     // Use a temporary DOM element to parse and manipulate the HTML safely
     const tempDiv = document.createElement("div");
@@ -31,32 +34,31 @@ const ArticleDetails = () => {
     const details = <div dangerouslySetInnerHTML={{ __html: truncatedDescription }} />;
 
 
-    const relatedArticle = article.filter(item => item.category == category)
-    console.log(relatedArticle)
 
-    const handlePayment = () => {
 
-        Swal.fire({
-            title: 'Please Subscribe?',
-            text: "You need to buy subscription for read full article!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, Subscribe!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                navigate('/membership', { state: { from: location }, replace: true })
-            }
-        })
-    }
+    // const handlePayment = () => {
+
+    //     Swal.fire({
+    //         title: 'Please Subscribe?',
+    //         text: "You need to buy subscription for read full article!",
+    //         icon: 'warning',
+    //         showCancelButton: true,
+    //         confirmButtonColor: '#3085d6',
+    //         cancelButtonColor: '#d33',
+    //         confirmButtonText: 'Yes, Subscribe!'
+    //     }).then((result) => {
+    //         if (result.isConfirmed) {
+    //             navigate('/membership', { state: { from: location }, replace: true })
+    //         }
+    //     })
+    // }
 
     return (
         <section className='max-w-7xl  mx-auto bg-white'>
             <div>
                 <figure className="w-3/4 mx-auto py-16">
                     <img
-                        className=" bg-cover md:h-96 w-full bg-center rounded-xl"
+                        className=" bg-cover md:h-96 w-full bg-center rounded-"
                         src={image}
                         alt="image"
                     />
@@ -104,7 +106,9 @@ const ArticleDetails = () => {
                                     </> :
                                     <>
                                         {details}
-                                        <Link onClick={handlePayment}><span className='cursor-pointer text-slate-500 font-mono'> Read more...</span></Link>
+                                        {/* <Link onClick={handlePayment}><span className='text-blue-500 font-mono'> Read more...</span></Link> */}
+                                      
+                                        <div className='pt-56 px-5 -mt-16 text-slate-500 font-mono bg-gradient-to-b from-slate-100 '>You have read your last complimentary article.<Link to='/membership' className='text-blue-500 underline cursor-pointer'>subscribed now!.</Link> if you are already a subscriber <Link to='/login' className='text-blue-500 underline cursor-pointer'>sign in.</Link></div>
                                     </>
                             }
                         </p>
@@ -140,7 +144,7 @@ const ArticleDetails = () => {
                                                         {title}
                                                     </h2>
                                                 </Link>
-                                                <p className='text-justify'>{related.description.slice(0, 100)}...</p></div>
+                                                </div>
                                         </div>
                                         <div className="flex card-actions mt-5 bottom-0">
                                             <div>
