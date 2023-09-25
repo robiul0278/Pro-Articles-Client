@@ -50,10 +50,20 @@ const MarkItem = ({ mark }) => {
             }
         })
     }
-
+    // Use a temporary DOM element to parse and manipulate the HTML safely
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = description;
+    // Get the text content of the parsed HTML
+    const textContent = tempDiv.textContent || tempDiv.innerText || "";
+    // Trim the text to the first 150 characters
+    const truncatedText = textContent.slice(0, 150);
+    // Create a new <p> element with the truncated text
+    const truncatedDescription = `<p>${truncatedText}</p>`;
+    // Render the truncated HTML using dangerouslySetInnerHTML
+    const details = <div dangerouslySetInnerHTML={{ __html: truncatedDescription }} />;
 
     return (
-        <div>
+        <div className="mx-w-7xl mx-auto">
             <div className="card-compact bg-white mb-3 shadow-md" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
                 <div className='md:flex'>
                     <div>
@@ -73,7 +83,7 @@ const MarkItem = ({ mark }) => {
                                         {title}
                                     </h2>
                                 </Link>
-                                <p className='text-justify'>{description?.slice(0, 150)}...</p></div>
+                                <p className='text-justify'>{details}</p></div>
                         </div>
                         <div className="flex card-actions mt-5 bottom-0">
                             <div>

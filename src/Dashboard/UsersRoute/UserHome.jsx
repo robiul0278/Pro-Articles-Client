@@ -24,8 +24,7 @@ const UserHome = () => {
                 <div className="flex items-center rounded-md p-2 mb-2"
                   style={{ backgroundColor: '#efefef' }}>
                   <div className="mr-3">
-                    <p className="small text-muted mb-1">Articles</p>
-                    <p className="mb-0">41</p>
+                    <p className="small text-muted mb-1">WELCOME</p>
                   </div>
                 </div>
               </div>

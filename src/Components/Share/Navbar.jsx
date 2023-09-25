@@ -1,7 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRightFromBracket, faPenToSquare } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket, } from "@fortawesome/free-solid-svg-icons";
 import useAdmin from "../../Hooks/useAdmin";
 import { useContext, useEffect } from "react";
 import { ThemContext } from "../../Routes/ThemProvider";
@@ -57,20 +57,16 @@ const Navbar = ({ dark, toggle }) => {
   // const user: boolean = false;
   const navItem =
     <ul className="flex items-center">
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+      <li><NavLink className="hover:text-info rounded-md hover:transition-colors
             hover:duration-500" to="/">{t("Home")}</NavLink></li>
-      {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/write">Write</NavLink></li> */}
-      {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-            hover:duration-500" to="/membership">{t("Membership")}</NavLink></li> */}
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+      <li><NavLink className="hover:text-info  rounded-md hover:transition-colors
             hover:duration-500" to="/subscribe">{t("Membership")}</NavLink></li>
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+      <li><NavLink className="hover:text-info  rounded-md hover:transition-colors
             hover:duration-500" to="/about">{t("About Us")}</NavLink></li>
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+      <li><NavLink className="hover:text-info rounded-md hover:transition-colors
             hover:duration-500" to="/contact">{t("Contact Us")}</NavLink></li>
       <li>
-        <div className="flex items-center gap-2">
+        <div className=" hidden items-center gap-2">
           <FaLanguage className="text-4xl" /><select
             style={{ backgroundColor: theme.backgroundColor, color: theme.color }}
             className="bg-white font-bold"
@@ -88,18 +84,16 @@ const Navbar = ({ dark, toggle }) => {
 
   const navDrop =
     <ul className="">
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+      <li><NavLink className="hover:text-info rounded-md hover:transition-colors
         hover:duration-500" to="/">{t("Home")}</NavLink></li>
-      {/* <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
-        hover:duration-500" to="/write">Write</NavLink></li> */}
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+      <li><NavLink className="hover:text-info  rounded-md hover:transition-colors
         hover:duration-500" to="/subscribe">{t("Membership")}</NavLink></li>
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+      <li><NavLink className="hover:text-info  rounded-md hover:transition-colors
         hover:duration-500" to="/about">{t("About Us")}</NavLink></li>
-      <li><NavLink className="hover:text-info px-2 py-1 rounded-md hover:transition-colors
+      <li><NavLink className="hover:text-info  rounded-md hover:transition-colors
         hover:duration-500" to="/contact">{t("Contact Us")}</NavLink></li>
       <li>
-        <div className="flex items-center gap-2">
+        <div hidden className="flex items-center gap-2">
           <FaLanguage className="text-4xl" /><select
             style={{ backgroundColor: theme.backgroundColor, color: theme.color }}
             className="bg-white font-bold"
@@ -113,24 +107,24 @@ const Navbar = ({ dark, toggle }) => {
       </li>
     </ul>
   return (
-    <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="navbar bg-white text-black z-50  font-semibold md:px-10 shadow-xl
+    <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="navbar bg-white text-black z-50  font-semibold md:px-10 shadow
         top-0 fixed  w-full  transition-transform transform scroll duration-300">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
           </label>
-          <ul tabIndex={0} className="menu menu-sm text-black bg-white dropdown-content mt-3 z-[1] p-2 shadow rounded-box w-52">
+          <ul tabIndex={0} className="menu menu-sm text-black bg-white dropdown-content mt-3 z-[1] shadow rounded-box w-52">
             {
               navDrop
             }
           </ul>
         </div>
 
-        <Link to="/" className="w-44 font-bold text-3xl"><img src="logo.png" alt="" /></Link>
+        <Link to="/" className="w-40"><img src="https://i.ibb.co/27Y4X6s/logo.png" alt="" /></Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <div className="flex menu items-center justify-center gap-4 px-1">
+        <div className="flex items-center justify-center gap-4 menu-sm">
           {
             navItem
           }
@@ -155,16 +149,14 @@ const Navbar = ({ dark, toggle }) => {
                 </div>
               </div>
             </label>
-            <ul tabIndex={0} className="menu-md menu z-[1]  text-black bg-white dropdown-content mt-3 p-2 shadow rounded-box w-60">
+            <ul tabIndex={0} className="menu-sm menu z-[1]  text-black bg-white dropdown-content mt-3 shadow rounded-box w-52">
               <div className="card-body items-center text-center">
                 <img src={user?.photoURL} alt="avatar"
-                  className="rounded-full" style={{ width: '90px' }} />
-                <FontAwesomeIcon icon={faPenToSquare} />
+                  className="rounded-full" style={{ width: '70px' }} />
                 <h5 className="">{user?.displayName}</h5>
               </div>
               <li><NavLink to='/bookMark'>Bookmark</NavLink></li>
               {DashboardLink()}
-              {/* <li><Link to='/dashboard/'>Dashboard</Link></li> */}
               <li><NavLink onClick={handleLogOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign Out</NavLink></li>
 
             </ul>

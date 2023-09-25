@@ -2,9 +2,11 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { FaGithub } from "react-icons/fa";
 import { useForm } from 'react-hook-form';
-import Swal from "sweetalert2";
 import { useState } from "react";
 import useAuth from "../../Hooks/useAuth";
+import { toast } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Login = () => {
@@ -36,15 +38,11 @@ const Login = () => {
             reset();
             profileUpdate()
               .then(() => {
-                Swal.fire({
-                  title: 'Login Successfully !.',
-                  showClass: {
-                    popup: 'animate__animated animate__fadeInDown'
-                  },
-                  hideClass: {
-                    popup: 'animate__animated animate__fadeOutUp'
-                  }
-                });
+                toast.success("Login successful!",{
+                  position: "top-center",
+                  theme: "light",
+                  autoClose: 3000,
+                })
               })
             navigate(from, { replace: true });
           })
@@ -60,6 +58,11 @@ const Login = () => {
   const handleGit = () => {
     gitHubSignIn()
       .then((result) => {
+        toast.success("Login successful!",{
+          position: "top-center",
+          theme: "light",
+          autoClose: 3000,
+        })
         navigate(from, { replace: true })
         const user = result.user;
         console.log(user)
@@ -87,19 +90,19 @@ const Login = () => {
           .then((response) => response.json())
           .then(() => {
             reset();
+            toast.success("Login successful!",{
+              position: "top-center",
+              theme: "light",
+              autoClose: 3000,
+            })
             navigate(from, { replace: true });
           })
         profileUpdate()
           .then(() => {
-            Swal.fire({
-              title: 'Login Successfully !.',
-              showClass: {
-                popup: 'animate__animated animate__fadeInDown'
-              },
-              hideClass: {
-                popup: 'animate__animated animate__fadeOutUp'
-              }
-            });
+            toast.success("Login successful!",{
+              theme: "light",
+              autoClose: 3000,
+            })
           })
           .catch(error => {
             setError(error.message);
@@ -112,7 +115,7 @@ const Login = () => {
       });
   };
   return (
-    <section>
+    <section className="pt-20">
       <div className="px-4 lg:px-0 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center items-center">
           <div className='hidden lg:flex'>

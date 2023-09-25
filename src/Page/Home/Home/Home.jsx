@@ -6,6 +6,7 @@ import MessengerCustomerChat from 'react-messenger-customer-chat';
 import Accordions from "../Accordion/Accordions";
 import ConnectUs from "../ConnectUs/ConnectUs";
 import WriteRole from "../WriteRole/WriteRole";
+import { ToastContainer } from "react-toastify";
 
 const Home = () => {
   useTitle("Home");
@@ -24,6 +25,8 @@ const Home = () => {
         appId="987751052491814"
       // htmlRef="<REF_STRING>"
       />
+      <ToastContainer />
+
     </div>
   );
 };

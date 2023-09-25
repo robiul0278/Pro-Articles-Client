@@ -32,7 +32,7 @@ const PrivateRoute = ({ children }) => {
     }
     const handleNavigate = () => {
         Swal.fire({
-            title: 'Please Login',
+            title: 'Please Login!',
             text: "Login first then access this route!",
             icon: 'warning',
             showCancelButton: true,

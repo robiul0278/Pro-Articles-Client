@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet";
 
 const About = () => {
     return (
-        <div className="mx-auto max-w-screen-xl mt-20">
+        <div className="mx-auto max-w-screen-xl pt-20">
+                    <Helmet>
+            <title>ProWriter | About Us</title>
+            </Helmet>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5 mt-8'>
                 <div className='mb-10' data-aos="fade-right">
                     <h1 className="text-5xl font-bold mt-20 p-3">Everyone has a story to tell and write own story.</h1>

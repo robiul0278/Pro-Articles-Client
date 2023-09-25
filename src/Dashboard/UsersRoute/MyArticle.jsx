@@ -76,7 +76,7 @@ const MyArticle = () => {
                                                 {article.title}
                                             </h2>
                                         </Link>
-                                        <p className='text-justify'>{article.description?.slice(0, 130)}...</p>
+                                        {/* <p className='text-justify'>{article.description?.slice(0, 130)}...</p> */}
                                     </div>
                                 </div>
                                 <div className="flex card-actions mt-3 bottom-0 justify-between">

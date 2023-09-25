@@ -6,6 +6,7 @@ const themes = {
         backgroundColor: '#1d232a',
         color: "white",
     },
+
     light: {
         backgroundColor: "#f0f8fb",
         color: "black"
