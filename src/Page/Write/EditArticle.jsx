@@ -11,7 +11,7 @@ import { useRef, useState } from "react";
 
 const EditArticle = () => {
     const edit = useLoaderData();
-    const { category, title, date, readTime, description, _id } = edit;
+    const { category, title, description, _id } = edit;
 
     const editor = useRef(null);
     // const { user } = useAuth();
@@ -23,15 +23,13 @@ const EditArticle = () => {
     const [descriptions, setContent] = useState({ description });
 
     const onSubmit = (data) => {
-        const { title, category, readTime, date } = data;
+        const { title, category} = data;
         const updateArt = {
             authorName: user?.displayName,
             authorImage: user?.photoURL,
             email: user?.email,
             description: descriptions,
             category,
-            readTime,
-            date,
             title,
         }
         console.log(updateArt);
@@ -109,26 +107,26 @@ return (
                             </select>
                         </div>
                         {/* title */}
-                        <div className="">
+                        <div className="mb-3">
                             <label className="label">
                                 <span className="label-text">Article Title</span>
                             </label>
                             <input {...register("title")} defaultValue={title} type="text" placeholder="Title" className="input w-full input-bordered" />
                         </div>
                         {/* Read time  */}
-                        <div className="">
+                        {/* <div className="">
                             <label className="label">
                                 <span className="label-text">Read Time</span>
                             </label>
                             <input {...register("readTime")} defaultValue={readTime} type="number" placeholder="Read time" className="input w-full input-bordered" />
-                        </div>
+                        </div> */}
                         {/* Time and Date  */}
-                        <div className="">
+                        {/* <div className="">
                             <label className="label">
                                 <span className="label-text">Article Write Date</span>
                             </label>
                             <input {...register("date")} defaultValue={date} type="date" placeholder="read time" className="input w-full input-bordered" />
-                        </div>
+                        </div> */}
 
                         <div>
                             <JoditEditor

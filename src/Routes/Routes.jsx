@@ -22,6 +22,8 @@ import PrivateRoute from "./PrivateRoute";
 import PaymentHistory from "../Dashboard/UsersRoute/PaymentHistory";
 import ErrorPage from "../Page/ErrorPage/ErrorPage";
 import Subscribe from "../Page/Membership/Subscribe";
+import ManageAllArticle from "../Dashboard/AdminRoute/manageAllArticle";
+import ArticleReview from "../Dashboard/AdminRoute/ArticleReview";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -51,7 +53,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'subscribe',
-                element: <PrivateRoute><Subscribe/></PrivateRoute>
+                element: <Subscribe/>
             },
             {
                 path: '/articleDetails/:id',
@@ -67,7 +69,7 @@ const router = createBrowserRouter([
     },
     {
         path: 'dashboard',
-        element: <PrivateRoute><Dashboard /></PrivateRoute>,
+        element: <Dashboard />,
         children: [
             {
                 path: 'adminHome',
@@ -78,8 +80,17 @@ const router = createBrowserRouter([
                 element: <ManageArticle />
             },
             {
+                path: 'manageAllArticle',
+                element: <ManageAllArticle />
+            },
+            {
                 path: 'manageUsers',
                 element: <ManageUsers />
+            },
+            {
+                path:'/dashboard/review/:id',
+                element:<ArticleReview/>,
+                loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
             },
             {
                 path: 'userHome',

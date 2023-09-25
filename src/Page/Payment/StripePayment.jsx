@@ -3,14 +3,15 @@ import { useEffect, useState } from "react";
 // import useAxiosSecure from "../../Hooks/useAxiosSecure";
 // import useAuth from "../../Hooks/useAuth";
 import axios from "axios";
-import Swal from "sweetalert2";
+import 'react-toastify/dist/ReactToastify.css';
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 
 const StripePayment = () => {
-    const navigate = useNavigate()
-    const location = useLocation()
+    const navigate = useNavigate();
+    const location = useLocation();
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
@@ -18,20 +19,10 @@ const StripePayment = () => {
     const [clientSecret, setClientSecret] = useState('');
     const [processing, setProcessing] = useState(false);
     const [transactionId, setTransactionId] = useState('');
-    const price = 100;
+    const price = 10;
     // const { user } = useAuth();
     const {user} = useSelector((state) => state.auth)
     let from = location.state?.from?.pathname || "/";
-
-    // useEffect(() => {
-    //     if (price > 0) {
-    //         axiosSecure.post('/create-payment-intent', { price })
-    //             .then(res => {
-    //                 console.log(res.data.clientSecret)
-    //                 setClientSecret(res.data.clientSecret);
-    //             })
-    //     }
-    // }, [price, axiosSecure])
 
     useEffect(() => {
         axios.post('https://premium-articles-platform-sever.vercel.app/create-payment-intent',{
@@ -125,13 +116,11 @@ const StripePayment = () => {
 
                             // reset()
                             console.log(data)
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'Payment Successful',
-                            showConfirmButton: false,
-                            timer: 1500
-                          })
+                            toast.success("Payment successful!",{
+                                position: "top-center",
+                                theme: "light",
+                                autoClose: 3000,
+                              })
                           navigate(from, { replace: true });
                         });
         }
@@ -165,7 +154,7 @@ const StripePayment = () => {
                 </div>
             </form>
             {cardError && <p className="text-red-600 ml-8">{cardError}</p>}
-            {transactionId && <p className="text-green-500">Transaction complete with transactionId: {transactionId}</p>}
+            {transactionId && <p className="text-green-500"> Payment Successful!</p>}
         </div>
     );
 };

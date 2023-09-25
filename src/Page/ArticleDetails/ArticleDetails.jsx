@@ -8,8 +8,8 @@ import useArticle from '../../Hooks/useArticle';
 import { faBookmark, faCalendarDays } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Swal from 'sweetalert2';
-
-
+import { Helmet } from 'react-helmet';
+import { useSelector } from 'react-redux';
 
 
 const ArticleDetails = () => {
@@ -17,12 +17,13 @@ const ArticleDetails = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const singleArticle = useLoaderData()
+    const { user } = useSelector((state) => state.auth)
 
     const {article} = useArticle()
     const { image, authorImage, authorName, date, description, title, _id, category } = singleArticle;
 
     const relatedArticle = article.filter(item => item.category == category)
-    console.log(relatedArticle)
+    // console.log(relatedArticle)
 
     // Use a temporary DOM element to parse and manipulate the HTML safely
     const tempDiv = document.createElement("div");
@@ -30,7 +31,7 @@ const ArticleDetails = () => {
     // Get the text content of the parsed HTML
     const textContent = tempDiv.textContent || tempDiv.innerText || "";
     // Trim the text to the first 150 characters
-    const truncatedText = textContent.slice(0, 300);
+    const truncatedText = textContent.slice(0, 500);
     // Create a new <p> element with the truncated text
     const truncatedDescription = `<p>${truncatedText}</p>`;
     // Render the truncated HTML using dangerouslySetInnerHTML
@@ -40,9 +41,8 @@ const ArticleDetails = () => {
 
 
     const handlePayment = () => {
-
         Swal.fire({
-            title: 'Please Subscribe?',
+            title: 'Are you Sure?',
             text: "You need to buy subscription for read full article!",
             icon: 'warning',
             showCancelButton: true,
@@ -55,9 +55,63 @@ const ArticleDetails = () => {
             }
         })
     }
+    const book = {
+        articleid: _id,
+        userEmail: user?.email,
+        displayName: user?.displayName,
+        image: image,
+        authorImage: authorImage,
+        authorName: authorName,
+        date: date,
+        title: title,
+        description: description
+    };
+    const handleBookMark = () => {
+        if (user) {
+            fetch('https://premium-articles-platform-sever.vercel.app/bookarticle', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(book)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Bookmark add',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                    console.log(data)
+                })
+        }else{
+            Swal.fire({
+                title: 'Please Login',
+                text: "Login first then access this route!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, Login!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location }, replace: true })
+                }
+                else {
+                    navigate('/');
+                }
+            })
+        }
+
+    };
 
     return (
-        <section className='max-w-7xl mt-20  mx-auto bg-white'>
+        <section className='max-w-7xl pt-20  overflow-x-hidden mx-auto bg-white'>
+                    <Helmet>
+            <title>ProWriter | Post details</title>
+            </Helmet>
             <div>
                 <figure className="md:w-3/4 mx-auto p-5">
                     <img
@@ -70,7 +124,7 @@ const ArticleDetails = () => {
             <div className='md:flex'>
                 <div className="md:basis-3/4 ">
 
-                    <div className="card-body border-r-4">
+                    <div className="card-body">
                         <hr className='border' />
                         <div className="flex justify-between items-center">
                             <div className="flex items-center">
@@ -111,7 +165,7 @@ const ArticleDetails = () => {
                                         {details}
                                         {/* <Link onClick={handlePayment}><span className='text-blue-500 font-mono'> Read more...</span></Link> */}
                                       
-                                        <div className='pt-56 px-5 -mt-16 text-slate-500 font-serif text-sm md:text-xl bg-gradient-to-b from-slate-100 '>You have read your last complimentary article <Link onClick={handlePayment} className='text-blue-500 underline cursor-pointer'>subscribed now!.</Link> if you are already a subscriber <Link to='/login' className='text-blue-500 underline cursor-pointer'>sign in.</Link></div>
+                                        <div className='pt-56 p-5 -mt-28 text-error font-serif text-sm md:text-xl bg-gradient-to-t from-slate-200 backdrop-blur-sm'>You have read your last complimentary article <Link onClick={handlePayment} className='text-blue-500 underline cursor-pointer'>subscribed now!.</Link> if you are already a subscriber <Link to='/login' className='text-blue-500 underline cursor-pointer'>sign in.</Link></div>
                                     </>
                             }
                         </p>
@@ -123,10 +177,10 @@ const ArticleDetails = () => {
 
                 <div className='md:basis-1/4 mt-4'>
                     <div className='p-3'>
-                        <h1 className='text-xl font-semibold'>Most Related Post :</h1>
+                        <h1 className='text-xl bg-slate-200 p-2 font-semibold'>Most Related Post :</h1>
                     </div>
                     {
-                        relatedArticle?.slice(1, 4).map(related =>
+                        relatedArticle?.slice(2, 5).map(related =>
                             <div key={related._id}>
                                 <div className=''>
                                     <div>
@@ -163,13 +217,14 @@ const ArticleDetails = () => {
                                                 </p>
 
                                             </div>
-                                            <div className="text-neutral-500 font-mono text-sm mr-3">
+                                            <div className="text-neutral-500 text-sm mr-3">
                                                 <span className='mr-1'><FontAwesomeIcon icon={faCalendarDays} /></span>{related.date}
                                             </div>
                                             <div className="text-neutral-500 font-mono text-sm mr-5">
                                                 <span>
                                                     <FontAwesomeIcon
-                                                        className="hover:text-blue-400 text-slate-600 text-sm"
+                                                    onClick={handleBookMark}
+                                                        className="hover:text-blue-400 text-slate-600 text-sm cursor-pointer"
                                                         icon={faBookmark}
                                                     />
                                                 </span>

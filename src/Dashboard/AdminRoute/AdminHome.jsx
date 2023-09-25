@@ -23,16 +23,7 @@ const AdminHome = () => {
                 <div className="flex items-center rounded-md p-2 mb-2"
                   style={{ backgroundColor: '#efefef' }}>
                   <div className="mr-3">
-                    <p className="small text-muted mb-1">Articles</p>
-                    <p className="mb-0">41</p>
-                  </div>
-                  <div className="mr-3">
-                    <p className="small text-muted mb-1">Followers</p>
-                    <p className="mb-0">976</p>
-                  </div>
-                  <div>
-                    <p className="small text-muted mb-1">Rating</p>
-                    <p className="mb-0">8.5</p>
+                    <p className="small text-muted mb-1">WELCOME</p>
                   </div>
                 </div>
                 {/* <div className="flex pt-1">

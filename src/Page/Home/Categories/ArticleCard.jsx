@@ -121,7 +121,7 @@ const ArticleCard = ({ item }) => {
                             </p>
 
                         </div>
-                        <div className="text-neutral-500 font-mono text-sm mr-3">
+                        <div className="text-neutral-500 text-sm mr-3">
                             <span className='mr-1'><FontAwesomeIcon icon={faCalendarDays} /></span>{date}
                         </div>
                         <div className="text-neutral-500 font-mono text-sm mr-5">

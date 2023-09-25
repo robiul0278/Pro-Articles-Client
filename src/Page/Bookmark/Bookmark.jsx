@@ -4,6 +4,7 @@ import MarkItem from "./MarkItem";
 import useMyBookMark from "../../Hooks/useMyBookMark";
 import { useContext } from "react";
 import { ThemContext } from "../../Routes/ThemProvider";
+import { Helmet } from "react-helmet";
 // import useMyBookMark from "../../Hooks/useMyBookMark";
 
 const Bookmark = () => {
@@ -25,11 +26,15 @@ const Bookmark = () => {
 
 
     return (
-        <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="max-w-7xl mx-auto bg-white mt-20">
+        <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="max-w-7xl mx-auto bg-white pt-20">
+                    <Helmet>
+            <title>ProWriter | Bookmark</title>
+            </Helmet>
             <div className="text-center mb-5">
-                <div className="pt-16">
-                    <h1 className="font-bold text-4xl px-4">Bookmark Article here..</h1>
-                </div>
+            <div className="text-center outline outline-offset-2 outline-cyan-500  p-8">
+                <h1 className="text-4xl font-bold ">Bookmark Article</h1>
+             
+            </div>
             </div>
             <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
                 {

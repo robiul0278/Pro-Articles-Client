@@ -2,13 +2,18 @@ import useAdmin from '../Hooks/useAdmin';
 import { NavLink, Outlet } from 'react-router-dom';
 import { FaHome, FaUsers } from 'react-icons/fa';
 import { MdArticle, MdPayment } from 'react-icons/md';
-import { BsPersonSquare } from 'react-icons/bs';
+import { BsPencilSquare, BsPersonSquare } from 'react-icons/bs';
+import { ToastContainer } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const Dashboard = () => {
     const [isAdmin] = useAdmin();
     // const isAdmin = true;
     return (
         <div className="drawer lg:drawer-open max-w-7xl mx-auto">
+            <Helmet>
+            <title>ProWriter | Dashboard</title>
+            </Helmet>
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 {/* Navbar */}
@@ -47,8 +52,18 @@ const Dashboard = () => {
 
                                                 className="flex items-center space-x-2"
                                             >
-                                                <MdArticle />
+                                                <BsPencilSquare />
                                                 <span className="font-bold">Write Article</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to="/dashboard/myArticle"
+
+                                                className="flex items-center space-x-2"
+                                            >
+                                                <MdArticle />
+                                                <span className="font-bold">My Articles</span>
                                             </NavLink>
                                         </li>
                                         <li>
@@ -58,7 +73,17 @@ const Dashboard = () => {
                                                 className="flex items-center space-x-2"
                                             >
                                                 <MdArticle />
-                                                <span className="font-bold">Manage Articles</span>
+                                                <span className="font-bold">Pending Articles</span>
+                                            </NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink
+                                                to="/dashboard/manageAllArticle"
+
+                                                className="flex items-center space-x-2"
+                                            >
+                                                <MdArticle />
+                                                <span className="font-bold">All Articles</span>
                                             </NavLink>
                                         </li>
                                         <li>
@@ -91,7 +116,7 @@ const Dashboard = () => {
 
                                                 className="flex items-center space-x-2"
                                             >
-                                                <MdArticle />
+                                                <BsPencilSquare />
                                                 <span className="font-bold">Write Article</span>
                                             </NavLink>
                                         </li>
@@ -117,7 +142,7 @@ const Dashboard = () => {
                                         </li>
                                     </>
                             }
-
+<hr />
                             <li>
                                 <NavLink
                                     to="/"
@@ -130,6 +155,7 @@ const Dashboard = () => {
                         </ul>
 
             </div>
+            <ToastContainer />
         </div>
     );
 };

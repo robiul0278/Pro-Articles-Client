@@ -2,8 +2,9 @@ import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet";
 import { FaUserShield } from "react-icons/fa";
 import {MdRemoveModerator} from "react-icons/md";
-import Swal from "sweetalert2";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const ManageUsers = () => {
     const [axiosSecure] = useAxiosSecure();
@@ -24,13 +25,10 @@ const ManageUsers = () => {
                 console.log(data)
                 if (data.modifiedCount) {
                     refetch();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: `Now Admin is ${user.name}!`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    toast.success("Add New Admin!",{
+                        theme: "light",
+                        autoClose: 3000,
+                      })
                 }
             })
     }
@@ -44,13 +42,10 @@ const ManageUsers = () => {
                 console.log(data)
                 if (data.modifiedCount) {
                     refetch();
-                    Swal.fire({
-                        position: 'top-end',
-                        icon: 'success',
-                        title: ` Remove Admin ${user?.name}!`,
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                    toast.warning("Remove Admin!",{
+                        theme: "light",
+                        autoClose: 3000,
+                      })
                 }
             })
     }

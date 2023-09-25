@@ -1,6 +1,7 @@
 
 import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
+import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
 
 
@@ -37,11 +38,13 @@ const Contact = () => {
     };
 
     return (
-        <div className='mt-20'>
+        <div className='py-20'>
+                    <Helmet>
+            <title>ProWriter | Contact Us</title>
+            </Helmet>
             <div className='px-4 lg:px-0 max-w-7xl mx-auto'>
-                <h1 className="text-5xl  text-center font-bold py-10">Contact Us</h1>
                 {/* gap-5 */}
-                <div className='grid grid-cols-1 md:grid-cols-2  '>
+                <div className='grid grid-cols-1 md:grid-cols-2 item-center '>
 
                     <div className='mb-10' data-aos="fade-right">
                         <img className='w-[100%] h-auto' src="https://i.ibb.co/8x8DvSD/Email-campaign-amico.png" alt="" data-aos="zoom-in" />
@@ -49,6 +52,8 @@ const Contact = () => {
                     {/* form */}
                     <div data-aos="fade-left">
                         <form ref={form} onSubmit={sendEmail} className='mt-10'>
+                            <h1 className="text-5xl  text-center font-bold py-10">Contact Us</h1>
+
                             <div className="mb-6">
                                 <label className="block font-bold mb-2" htmlFor="name">
                                     Name

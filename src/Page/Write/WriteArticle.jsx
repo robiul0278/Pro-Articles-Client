@@ -32,6 +32,12 @@ const WriteArticle = () => {
 
 
     const onSubmit = (data) => {
+
+        const commentDate = new Date();
+        const options = {month: 'long', day: 'numeric' };
+        const date = commentDate.toLocaleDateString('en-US', options);
+
+
         const formData = new FormData();
         // console.log(data);
         formData.append('image', data.image[0]);
@@ -44,7 +50,7 @@ const WriteArticle = () => {
             .then(imgResponse => {
                 if (imgResponse.success) {
                     const imgurl = imgResponse.data.display_url;
-                    const { title,category, readTime, date } = data;
+                    const { title, category, readTime } = data;
                     const articleDetails = {
                         authorName: user?.displayName,
                         authorImage: user?.photoURL,
@@ -89,18 +95,16 @@ const WriteArticle = () => {
 
     // }
     return (
-        <section className='bg-gradient-to-r from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
-            <div className="px-4 container mx-auto">
-                <h1 className="text-5xl  text-center font-bold py-10">Write a Article</h1>
+        <section className='bg-gradient-to-r pb-40 from-[#EFF6FF] via-[#fffaff] to-[#FFFFFF]'>
+            <div className="text-center outline outline-offset-2 outline-cyan-500 bg-white p-8 m-5">
+                <h1 className="text-4xl font-bold ">Write a Article</h1>
+                <p className=""> Unlock Your Potential with Engaging Education and Inspiring Knowledge</p>
+            </div>
+            <div className="px-4 container mx-auto pt-10">
                 <div className="grid grid-cols-1 pb-5">
-
-                    {/* <div className="">
-                        <img className='w-[100%] h-auto' src="write1.svg" alt="" data-aos="zoom-in" />
-                    </div> */}
-
                     <div>
                         <form onSubmit={handleSubmit(onSubmit)} className="w-full mx-auto">
-                            <div className="md:flex gap-3">
+                            {/* <div className="md:flex gap-3">
                                 <div className="w-full">
                                     <label className="label">
                                         <span className="label-text">Your Name</span>
@@ -113,11 +117,11 @@ const WriteArticle = () => {
                                     </label>
                                     <input type="email" value={user?.email} {...register("email")} placeholder="email" className="input w-full input-bordered" />
                                 </div>
-                            </div>
+                            </div> */}
                             {/* category */}
                             <div className="w-full">
                                 <label className="label">
-                                    <span className="label-text">Post Category</span>
+                                    <span className="label-text font-bold">Post Category</span>
                                 </label>
                                 <select {...register("category")} defaultValue="Pick One" className="select select-bordered w-full" required>
                                     <option disabled>Pick One</option>
@@ -139,38 +143,41 @@ const WriteArticle = () => {
                             {/* title */}
                             <div className="">
                                 <label className="label">
-                                    <span className="label-text">Article Title</span>
+                                    <span className="label-text font-bold">Article Title</span>
                                 </label>
                                 <input {...register("title")} type="text" placeholder="Title" className="input w-full input-bordered" />
                             </div>
-                            {/* Read time  */}
-                            <div className="">
-                                <label className="label">
-                                    <span className="label-text">Read Time</span>
-                                </label>
-                                <input {...register("readTime")} type="number" placeholder="Read time" className="input w-full input-bordered" />
-                            </div>
-                            {/* Time and Date  */}
-                            <div className="">
-                                <label className="label">
-                                    <span className="label-text">Article Write Date</span>
-                                </label>
-                                <input {...register("date")} type="date" placeholder="read time" className="input w-full input-bordered" />
+                            <div className="md:flex gap-3">
+                                {/* Read time  */}
+                                {/* <div className="">
+                                    <label className="label">
+                                        <span className="label-text">Read Time</span>
+                                    </label>
+                                    <input {...register("readTime")} type="number" placeholder="Read time" className="input w-full input-bordered" />
+                                </div> */}
+                                {/* Time and Date  */}
+                                {/* <div className="">
+                                    <label className="label">
+                                        <span className="label-text">Write Date</span>
+                                    </label>
+                                    <input {...register("date")} type="date" placeholder="read time" className="input w-full input-bordered" />
+                                </div> */}
                             </div>
                             {/* image */}
                             <div className="w-full mb-3">
                                 <label className="label">
-                                    <span className="label-text">Article Image*</span>
+                                    <span className="label-text font-bold">Article Thumbnail</span>
                                 </label>
                                 {/* <input type="file" className="file-input file-input-bordered  " /> */}
                                 <input {...register("image")} type="file" placeholder="Title" required className="file-input file-input-bordered w-full max-w-xs" />
                             </div>
-                            <div>
+                            <div >
                                 <JoditEditor
                                     ref={editor}
                                     value={description}
                                     tabIndex={1} // tabIndex of textarea
                                     onChange={newContent => setContent(newContent)} // preferred to use only this option to update the content for performance reasons
+                                    
                                 />
                             </div>
                             {/* post */}

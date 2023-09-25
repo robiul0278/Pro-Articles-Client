@@ -5,30 +5,11 @@ import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
-const ManageArticle = () => {
+const ManageAllArticle = () => {
 
  const {article, refetch} = useArticle()
 
 
-    const pendingArticle = article.filter(item => item.status === "pending");
-
-
-    const handleApproved = item => {
-        fetch(`https://premium-articles-platform-sever.vercel.app/article/approved/${item._id}`, {
-            method: 'PATCH'
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.modifiedCount > 0) {
-                    refetch();
-                    toast.success("Update successful!",{
-                        theme: "light",
-                        autoClose: 3000,
-                      })
-                }
-            })
-    }
 
     const handleDelete = item => {
         Swal.fire({
@@ -65,13 +46,13 @@ const ManageArticle = () => {
                 <title>ProWrite | Manage Article</title>
             </Helmet>
             <div className="text-center outline outline-offset-2 outline-cyan-500 bg-white p-8 m-5">
-                <h1 className="text-4xl font-bold ">Manages Pending Article</h1>
+                <h1 className="text-4xl font-bold ">Manages All Article</h1>
                 <p className=""> Unlock Your Potential with Engaging Education and Inspiring Knowledge</p>
             </div>
             
             <div className="grid mx-4 gap-5">
                 {
-                    pendingArticle.map((item) =>
+                    article.map((item) =>
                         <div key={item._id} className="card card-side bg-slate-100 shadow-lg">
                             <figure><img className="w-60" src={item.image} alt="Movie" /></figure>
                             <div className="flex  justify-between w-full">
@@ -85,8 +66,6 @@ const ManageArticle = () => {
                                     <p>{item.date}</p>
                                 </div>
                                 <div className="p-5 w-1/4 grid grid-cols-1 ">
-                                    
-                                        <button onClick={() => handleApproved(item)} className="btn btn-sm bg-green-600 text-white">APPROVED</button>
 
                                         <button onClick={() => handleDelete(item)} className="btn text-white btn-sm  bg-error ">Delete</button>
 
@@ -102,4 +81,4 @@ const ManageArticle = () => {
     );
 };
 
-export default ManageArticle;
+export default ManageAllArticle;

@@ -49,7 +49,7 @@ const Banner = () => {
 
   return (
     <div
-      className="bg-cover bg-center"
+      className="bg-cover md:-mt-32 bg-center"
       style={{
         backgroundImage: "url('https://i.ibb.co/HgMLQhY/young-woman-reading-textbook-home-library-generated-by-ai-1-1-1.jpg')",
         // height: "800px"  Adjust the height value as needed
@@ -61,7 +61,7 @@ const Banner = () => {
             <div className="md:leading-10 flex flex-col items-center justify-center md:mt-10 mt-16">
               <div className="items-center justify-center">
                 <h1 className="md:text-5xl text-2xl font-bold text-[#ffffff] mb-2 text-center">
-                  Search Your Favorite Article Here!
+                Get Paid for Your Time: Read, Unlock, Enjoy!
                 </h1>
                 <p className="text-white md:text-2xl">Engage customers with the best Article.</p>
               </div>
@@ -172,7 +172,7 @@ const Banner = () => {
 
             {/* Categories list   */}
 
-            <div className="hidden lg:flex relative">
+            <div className="hidden lg:flex">
               <div className="grid md:grid-cols-6 grid-cols-3 mt-32 md:w-3/5 mx-auto gap-6 md:gap-5 text-start text-white">
                 <div className="flex items-center">
                   <span className="mr-1"><FontAwesomeIcon icon={faMicrochip} /></span>
