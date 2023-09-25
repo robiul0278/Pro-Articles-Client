@@ -46,7 +46,7 @@ function a11yProps(index) {
 
 export default function Categories() {
   const [value, setValue] = React.useState(0);
-  const [article, loading] = useArticle();
+  const {article, loading} = useArticle();
   const subArticle = article.filter(item => item.status === "approved");
   // console.log(article)
 

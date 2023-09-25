@@ -113,8 +113,8 @@ const Navbar = ({ dark, toggle }) => {
       </li>
     </ul>
   return (
-    <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="navbar bg-white text-black   font-semibold md:px-10 shadow-xl
-        top-0  w-full  transition-transform transform scroll duration-300">
+    <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="navbar bg-white text-black z-50  font-semibold md:px-10 shadow-xl
+        top-0 fixed  w-full  transition-transform transform scroll duration-300">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -155,14 +155,14 @@ const Navbar = ({ dark, toggle }) => {
                 </div>
               </div>
             </label>
-            <ul tabIndex={0} className="menu-md menu z-50 text-black bg-white dropdown-content mt-3 p-2 shadow rounded-box w-60">
+            <ul tabIndex={0} className="menu-md menu z-[1]  text-black bg-white dropdown-content mt-3 p-2 shadow rounded-box w-60">
               <div className="card-body items-center text-center">
                 <img src={user?.photoURL} alt="avatar"
                   className="rounded-full" style={{ width: '90px' }} />
                 <FontAwesomeIcon icon={faPenToSquare} />
                 <h5 className="">{user?.displayName}</h5>
               </div>
-              <li><Link to='/bookMark'>Bookmark</Link></li>
+              <li><NavLink to='/bookMark'>Bookmark</NavLink></li>
               {DashboardLink()}
               {/* <li><Link to='/dashboard/'>Dashboard</Link></li> */}
               <li><NavLink onClick={handleLogOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> Sign Out</NavLink></li>

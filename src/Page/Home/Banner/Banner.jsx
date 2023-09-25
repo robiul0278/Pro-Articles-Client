@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBitcoinSign, faBriefcase, faChartSimple, faHeart, faLandmarkDome, faMicrochip, faMosque, faPencil, faPeopleArrows, faPersonDigging, faThumbsUp, faUserGraduate } from '@fortawesome/free-solid-svg-icons'
 import { useState } from "react"
 import { Link } from "react-router-dom"
+// import Marquee from "react-fast-marquee";
 // import { Link } from "react-router-dom"
 
 const animation = { duration: 10000, easing: (t) => t }
@@ -34,7 +35,7 @@ const Banner = () => {
 
   const handleSearch = () => {
     setLoading(true);
-    <button className="btn" onClick={()=>document.getElementById('my_modal_3').showModal()}>open modal</button>
+    <button className="btn" onClick={() => document.getElementById('my_modal_3').showModal()}>open modal</button>
 
 
     fetch(`https://premium-articles-platform-sever.vercel.app/articleSearch/${searchText}`)
@@ -48,7 +49,7 @@ const Banner = () => {
 
   return (
     <div
-      className="bg-cover -mt-32 bg-center"
+      className="bg-cover bg-center"
       style={{
         backgroundImage: "url('https://i.ibb.co/HgMLQhY/young-woman-reading-textbook-home-library-generated-by-ai-1-1-1.jpg')",
         // height: "800px"  Adjust the height value as needed
@@ -84,17 +85,17 @@ const Banner = () => {
                         <p className="text-center">Loading...</p>
                       </div>
                     ) : searchData.length > 0 ? (
-                        <div className="items-center justify-center text-center">
-                          {searchData.map((data) => (
-                            <div key={data._id}>
+                      <div className="items-center justify-center text-center">
+                        {searchData.map((data) => (
+                          <div key={data._id}>
 
-                              <ul className="menu bg-white w-full text-blue-600 hover:underline">
-                                <li><Link to={`/articleDetails/${data?._id}`}>{data?.title}</Link></li>
-                              </ul>
-                              <hr />
-                            </div>
-                          ))}
-                        </div>
+                            <ul className="menu bg-white w-full text-blue-600 hover:underline">
+                              <li><Link to={`/articleDetails/${data?._id}`}>{data?.title}</Link></li>
+                            </ul>
+                            <hr />
+                          </div>
+                        ))}
+                      </div>
                     ) :
                       (
                         <div className="text-center text-white">
@@ -108,11 +109,13 @@ const Banner = () => {
               {/* Modal  */}
               {/* Open the modal using ID.showModal() method */}
 
-
+              {/* <Marquee>
+                I can be a React component, multiple React components, or just some text.
+              </Marquee> */}
 
               {/* Carusel  */}
-
-              <div className="md:hidden z-10 mt-5 w-5/6 md:w-1/6 pb-6  mx-auto px-14">
+              
+              <div className="md:hidden  mt-5 w-5/6 md:w-1/6 pb-6  mx-auto px-14">
                 <div ref={sliderRef} className="keen-slider text-white">
                   <div className="keen-slider__slide number-slide1 flex items-center justify-center ">
                     <span className="mr-1"><FontAwesomeIcon icon={faMicrochip} /></span>

@@ -16,7 +16,7 @@ const UserHome = () => {
               <div className="flex-shrink-0">
                 <img src={user?.photoURL}
                   alt="Generic placeholder image" className="img-fluid"
-                  style={{ width: '180px', borderRadius: '10px' }} />
+                  style={{ width: '150px', borderRadius: '10px' }} />
               </div>
               <div className="flex-grow-1 ms-3">
                 <h5 className="mb-1 font-bold">{user?.displayName}</h5>
@@ -27,19 +27,7 @@ const UserHome = () => {
                     <p className="small text-muted mb-1">Articles</p>
                     <p className="mb-0">41</p>
                   </div>
-                  <div className="mr-3">
-                    <p className="small text-muted mb-1">Followers</p>
-                    <p className="mb-0">976</p>
-                  </div>
-                  <div>
-                    <p className="small text-muted mb-1">Rating</p>
-                    <p className="mb-0">8.5</p>
-                  </div>
                 </div>
-                {/* <div className="flex pt-1">
-                  <button type="button" className="btn btn-outline-primary me-1 flex-grow">Chat</button>
-                  <button type="button" className="btn btn-primary flex-grow">Follow</button>
-                </div> */}
               </div>
             </div>
           </div>
