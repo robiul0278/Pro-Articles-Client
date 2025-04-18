@@ -1,68 +1,91 @@
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-    return (
-        <section className="bg-[#1a1c2d] text-white p-5">
-            <div>
-                <footer className="footer py-5 max-w-7xl mx-auto flex flex-col lg:flex-row md:flex-row">
-                    <aside className="basis-2/5">
-                        <h1 className="font-bold text-2xl md:text-4xl">About Us</h1>
+  return (
+    <footer className="bg-[#1a1c2d] text-white py-10">
+      <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* About Section */}
+        <div>
+          <h2 className="text-2xl font-bold mb-4">About Us</h2>
+          <Link to="/" className="inline-block w-52 mb-4">
+            <img src="https://i.ibb.co/cD4K19h/FLogo.png" alt="ProWriter Logo" />
+          </Link>
+          <p className="text-sm text-gray-400">
+            ProWriter is a platform for article writing. Our aim is to spread knowledge
+            and empower readers with meaningful content.
+          </p>
+        </div>
 
-                        <Link to="/" className="w-52 text-error my-2 font-bold text-3xl"><img src="https://i.ibb.co/cD4K19h/FLogo.png" alt="" /></Link>
-                        <p>ProWriter is a article writing platform. <br /> Its aim is to spread the light of the knowledge among all.</p>
-                    </aside>
-                    {/* <nav className="hidden lg:flex"></nav> */}
-                    <nav className="basis-1/5">
-                        <header className="footer-title">Popular</header>
-                        <a className="link link-hover">Technology</a>
-                        <a className="link link-hover">Social Media</a>
-                        <a className="link link-hover">Travel</a>
-                        <a className="link link-hover">Writing</a>
-                    </nav>
-                    <nav className="basis-1/5">
-                        <header className="footer-title">Other</header>
-                        <a className="link link-hover">About us</a>
-                        <a className="link link-hover">Contact</a>
-                        <a className="link link-hover">Write</a>
-                        <a className="link link-hover">Membership</a>
-                    </nav>
-                    <nav className="basis-1/5">
-                        <form>
-                            <header className="footer-title">subscribe</header>
-                            <a className="link link-hover">Subscribe to get new posts and important  updates from ProWriter in your email.</a>
-                            {/* <fieldset className="form-control w-80">
-                                <label className="label">
-                                    <span className="label-text text-white">Enter your email address</span>
-                                </label>
-                                <div className="relative">
-                                    <input  type="text" placeholder="username@site.com" className="input input-bordered text-black w-full pr-16" />
-                                    <button className="btn text-white btn-error absolute top-0 right-0 rounded-l-none">Subscribe</button>
-                                </div>
-                            </fieldset> */}
-                        </form>
-                    </nav>
-                </footer>
-            </div>
-            <hr />
-            <section className="footer pt-3 max-w-7xl mx-auto flex flex-col md:flex-row lg:flex-row md:justify-between lg:justify-between justify-center items-center">
-                <div className="flex space-x-1">
-                    <img className="w-4" src="https://i.ibb.co/4gz4FK0/facebook-733547.png" alt="facebook" />
-                    <img className="w-4" src="https://i.ibb.co/PFXXH0W/twitter-3256013.png" alt="twitter" />
-                    <img className="w-4" src="https://i.ibb.co/gDbPffB/pinterest-3536558.png" alt="" />
-                    <img className="w-4" src="https://i.ibb.co/mvY6sRb/youtube-3838026.png" alt="youtube" />
-                    <img className="w-4" src="https://i.ibb.co/17BrLWg/link.png" alt="link" />
-                </div>
-                <div className="flex  md:space-x-14">
-                    <h1>Terms of use</h1>
-                    <h1>Privacy policy</h1>
-                    <h1>Cookie policy</h1>
-                </div>
-                <div>
-                <h1 className="text-center">Copyright © 2023 - All right reserved by ProWriter</h1>
-                </div>
-            </section>
-        </section>
-    );
+        {/* Popular Categories */}
+        <div>
+          <h2 className="text-lg font-semibold mb-4">Popular</h2>
+          <ul className="space-y-2 text-sm">
+            <li><Link to="#" className="hover:underline">Technology</Link></li>
+            <li><Link to="#" className="hover:underline">Social Media</Link></li>
+            <li><Link to="#" className="hover:underline">Travel</Link></li>
+            <li><Link to="#" className="hover:underline">Writing</Link></li>
+          </ul>
+        </div>
+
+        {/* Other Links */}
+        <div>
+          <h2 className="text-lg font-semibold mb-4">Other</h2>
+          <ul className="space-y-2 text-sm">
+            <li><Link to="#" className="hover:underline">About Us</Link></li>
+            <li><Link to="#" className="hover:underline">Contact</Link></li>
+            <li><Link to="#" className="hover:underline">Write</Link></li>
+            <li><Link to="#" className="hover:underline">Membership</Link></li>
+          </ul>
+        </div>
+
+        {/* Subscribe */}
+        <div>
+          <h2 className="text-lg font-semibold mb-4">Subscribe</h2>
+          <p className="text-sm text-gray-400 mb-4">
+            Get the latest posts and updates from ProWriter delivered to your inbox.
+          </p>
+          <form className="flex flex-col gap-2">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              className="px-4 py-2 rounded bg-white text-black"
+            />
+            <button
+              type="submit"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+      <div className="border-t border-gray-700 mt-10 pt-6">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col lg:flex-row justify-between items-center gap-4">
+          {/* Social Links */}
+          <div className="flex space-x-4">
+            <img className="w-5" src="https://i.ibb.co/4gz4FK0/facebook-733547.png" alt="Facebook" />
+            <img className="w-5" src="https://i.ibb.co/PFXXH0W/twitter-3256013.png" alt="Twitter" />
+            <img className="w-5" src="https://i.ibb.co/gDbPffB/pinterest-3536558.png" alt="Pinterest" />
+            <img className="w-5" src="https://i.ibb.co/mvY6sRb/youtube-3838026.png" alt="YouTube" />
+            <img className="w-5" src="https://i.ibb.co/17BrLWg/link.png" alt="LinkedIn" />
+          </div>
+
+          {/* Legal Links */}
+          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
+            <Link to="#" className="hover:underline">Terms of Use</Link>
+            <Link to="#" className="hover:underline">Privacy Policy</Link>
+            <Link to="#" className="hover:underline">Cookie Policy</Link>
+          </div>
+
+          {/* Copyright */}
+          <p className="text-sm text-gray-500 text-center">
+            © {new Date().getFullYear()} ProWriter. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
