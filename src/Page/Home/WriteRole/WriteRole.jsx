@@ -1,59 +1,68 @@
-import Lottie from 'react-lottie';
-import keyboard from '../../../assets/keyboard2.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import { Link,} from 'react-router-dom';
-// import Swal from 'sweetalert2';
-import useAdmin from '../../../Hooks/useAdmin';
+import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import useAdmin from '../../../Hooks/useAdmin';
+import keyboard from '../../../assets/keyboard2.json';
+import AnimationPlayer from '../../../Components/Share/AnimationPlayer';
+
 const WriteRole = () => {
     const [isAdmin] = useAdmin();
-    const {user} = useSelector((state) => state.auth)
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: keyboard,
-        rendererSettings: {
-            preserveAspectRatio: "xMidYMid slice"
-        }
-    };
+    const { user } = useSelector((state) => state.auth);
 
-
-    const writeLink = () => {
-        if (isAdmin?.role && user === "admin") {
-            return (
-                <Link to="/dashboard/write">Write Article</Link>
-            );
-        } else {
-            return (
-                <Link to="/dashboard/write">Write Article</Link>
-            );
-        }
-        // return null;
-    };
-
+    const isAuthorized = isAdmin?.role && user === "admin";
 
     return (
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 bg-white justify-center p-5 items-center">
-            <div className='md:pl-16'>
-                <h1 className='text-3xl font-semibold'>You can also write in ProWriter</h1>
-                <h4 className='text-xl my-4'>Write quality content and earn from ProWriter! </h4>
-                <div className='flex space-x-4'>
-                    <p ><FontAwesomeIcon className='mr-1' icon={faCircleCheck} style={{ color: "#1968f0", }} />Compatible content</p>
-                    <p><FontAwesomeIcon className='mr-1' icon={faCircleCheck} style={{ color: "#1968f0", }} />1200+ words</p>
+        <section className="grid grid-cols-1 md:grid-cols-2 bg-white p-5 items-center">
+            <div className="md:pl-16">
+                <h1 className="text-3xl font-semibold">You can also write in ProWriter</h1>
+                <h4 className="text-xl my-4">Write quality content and earn from ProWriter!</h4>
+
+                <div className="flex flex-wrap gap-4 text-sm">
+                    <p>
+                        <FontAwesomeIcon icon={faCircleCheck} className="mr-1 text-blue-600" />
+                        Compatible content
+                    </p>
+                    <p>
+                        <FontAwesomeIcon icon={faCircleCheck} className="mr-1 text-blue-600" />
+                        1200+ words
+                    </p>
                 </div>
-                <div className='flex space-x-4 mt-3'>
-                    <p><FontAwesomeIcon className='mr-1' icon={faCircleXmark} style={{ color: "#ef3f3f", }} />Copy posts are not acceptable</p>
-                    <p><FontAwesomeIcon className='mr-1' icon={faCircleXmark} style={{ color: "#ef3f3f", }} />Spelling mistakes are not acceptable</p>
+
+                <div className="flex flex-wrap gap-4 mt-3 text-sm">
+                    <p>
+                        <FontAwesomeIcon icon={faCircleXmark} className="mr-1 text-red-500" />
+                        No copy-paste posts
+                    </p>
+                    <p>
+                        <FontAwesomeIcon icon={faCircleXmark} className="mr-1 text-red-500" />
+                        No spelling mistakes
+                    </p>
                 </div>
-                <Link className="btn-sm btn btn-error mt-5 text-white font-semibold rounded">{writeLink()}</Link>
+
+                {isAuthorized ? (
+                    <Link
+                        to="/dashboard/write"
+                        data-testid="write-article-button"
+                        className="btn btn-error btn-sm mt-5 text-white font-semibold rounded transition duration-200 hover:opacity-90"
+                    >
+                        Write Article
+                    </Link>
+                ) : (
+                    <button
+                        disabled
+                        title="Login required to write articles"
+                        data-testid="write-article-button-disabled"
+                        className="mt-5 px-4 py-2 text-white font-semibold rounded bg-blue-500 opacity-60 cursor-not-allowed"
+                    >
+                        Write Article
+                    </button>
+                )}
+
             </div>
-            <div className=''>
-                <Lottie
-                    options={defaultOptions}
-                    height={400}
-                    width={350}
-                />
+
+            <div>
+                <AnimationPlayer animationData={keyboard} />
             </div>
         </section>
     );
