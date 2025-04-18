@@ -23,7 +23,7 @@ const ConnectUs = () => {
     ];
   
     return (
-      <section className="bg-white px-4 py-10">
+      <section className="px-4 py-10">
         <div className="w-full mx-auto bg-[#72bbf7]/20 p-8 rounded-lg text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
             Connect with us virtually

@@ -3,10 +3,9 @@ import {
 } from "react-router-dom";
 
 import WriteArticle from "../Page/Write/WriteArticle";
-import Contact from "../Page/Home/Contact/Contact";
+import Contact from "../Page/Home/Contact";
 import About from "../Page/About/About";
 import Dashboard from "../Layout/Dashboard";
-import Home from "../Page/Home/Home/Home";
 import Login from "../FirebaseAuth/Login/Login";
 import Register from "../FirebaseAuth/Register/Register";
 import ManageArticle from "../Dashboard/AdminRoute/ManageArticle";
@@ -14,7 +13,6 @@ import ManageUsers from "../Dashboard/AdminRoute/ManageUsers";
 import MyArticle from "../Dashboard/UsersRoute/MyArticle";
 import AdminHome from "../Dashboard/AdminRoute/AdminHome";
 import UserHome from "../Dashboard/UsersRoute/UserHome";
-import ArticleDetails from "../Page/ArticleDetails/ArticleDetails";
 import EditArticle from "../Page/Write/EditArticle";
 import Bookmark from "../Page/Bookmark/Bookmark";
 import PrivateRoute from "./PrivateRoute";
@@ -24,6 +22,8 @@ import Subscribe from "../Page/Membership/Subscribe";
 import ManageAllArticle from "../Dashboard/AdminRoute/manageAllArticle";
 import ArticleReview from "../Dashboard/AdminRoute/ArticleReview";
 import MainLayout from "../Layout/MainLayout";
+import ViewBlog from "../Page/Home/Blog/ViewBlog";
+import Home from "../Page/Home/Home";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -53,11 +53,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'subscribe',
-                element: <Subscribe/>
+                element: <Subscribe />
             },
             {
-                path: '/articleDetails/:id',
-                element: <ArticleDetails></ArticleDetails>,
+                path: '/view/:id',
+                element: <ViewBlog></ViewBlog>,
                 loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
             },
             {
@@ -88,8 +88,8 @@ const router = createBrowserRouter([
                 element: <ManageUsers />
             },
             {
-                path:'/dashboard/review/:id',
-                element:<ArticleReview/>,
+                path: '/dashboard/review/:id',
+                element: <ArticleReview />,
                 loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
             },
             {
@@ -102,15 +102,15 @@ const router = createBrowserRouter([
             },
             {
                 path: 'write',
-                element: <PrivateRoute><WriteArticle/></PrivateRoute>
+                element: <PrivateRoute><WriteArticle /></PrivateRoute>
             },
             {
-                path:'paymentHistory',
-                element: <PaymentHistory/>
+                path: 'paymentHistory',
+                element: <PaymentHistory />
             },
             {
                 path: '/dashboard/articleDetails/:id',
-                element: <ArticleDetails></ArticleDetails>,
+                element: <ViewBlog></ViewBlog>,
                 loader: ({ params }) => fetch(`https://premium-articles-platform-sever.vercel.app/article/${params.id}`)
             },
             {

@@ -4,7 +4,7 @@ import Footer from "../Components/Share/Footer";
 
 const MainLayout = () => {
     return (
-        <div className="w-full mx-auto bg-white">
+        <div className="w-full mx-auto bg-gray-100">
             <Navbar />
                 <Outlet />
             <Footer />

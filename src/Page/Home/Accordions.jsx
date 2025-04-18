@@ -6,7 +6,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function Accordions() {
   return (
-    <section className='bg-white' >
+    <section className='' >
       <div className='text-center py-5'>
         <h1 className='text-4xl font-semibold'>Article Submission FAQs</h1>
         <h4 className='text-xl'>Unlock Your Author Potential: A Step-by-Step Guide to Success</h4>
