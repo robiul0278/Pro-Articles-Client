@@ -5,14 +5,11 @@ import { Link } from 'react-router-dom';
 // import axios from 'axios';
 // import useAuth from '../../../Hooks/useAuth';
 import Swal from 'sweetalert2';
-import { useContext } from 'react';
-import { ThemContext } from '../../../Routes/ThemProvider';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 
 const ArticleCard = ({ item }) => {
-    const [{ theme }] = useContext(ThemContext)
     // const { user } = useAuth();
     const {user} = useSelector((state) => state.auth)
     const navigate = useNavigate();
@@ -84,7 +81,7 @@ const ArticleCard = ({ item }) => {
     };
 
     return (
-        <div className="card-compact bg-white mb-3 shadow-md" style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+        <div className="card-compact bg-white mb-3 shadow-md">
             <div className='md:flex'>
                 <div>
                     <figure className="md:w-60 bg-cover w-full p-3">

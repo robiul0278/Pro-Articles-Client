@@ -6,13 +6,8 @@ import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
 const ManageArticle = () => {
-
  const {article, refetch} = useArticle()
-
-
     const pendingArticle = article.filter(item => item.status === "pending");
-
-
     const handleApproved = item => {
         fetch(`https://premium-articles-platform-sever.vercel.app/article/approved/${item._id}`, {
             method: 'PATCH'
@@ -68,7 +63,6 @@ const ManageArticle = () => {
                 <h1 className="text-4xl font-bold ">Manages Pending Article</h1>
                 <p className=""> Unlock Your Potential with Engaging Education and Inspiring Knowledge</p>
             </div>
-            
             <div className="grid mx-4 gap-5">
                 {
                     pendingArticle.map((item) =>
@@ -84,12 +78,9 @@ const ManageArticle = () => {
                                     </div>
                                     <p>{item.date}</p>
                                 </div>
-                                <div className="p-5 w-1/4 grid grid-cols-1 ">
-                                    
+                                <div className="p-5 w-1/4 grid grid-cols-1 ">                           
                                         <button onClick={() => handleApproved(item)} className="btn btn-sm bg-green-600 text-white">APPROVED</button>
-
                                         <button onClick={() => handleDelete(item)} className="btn text-white btn-sm  bg-error ">Delete</button>
-
                                         <button className="btn btn-sm text-white bg-slate-400 "><Link to={`/dashboard/review/${item?._id}`}>Preview</Link></button>
                                 </div>
                             </div>

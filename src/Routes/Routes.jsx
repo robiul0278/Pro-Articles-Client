@@ -2,7 +2,6 @@ import {
     createBrowserRouter,
 } from "react-router-dom";
 
-import Main from "../Layout/Main";
 import WriteArticle from "../Page/Write/WriteArticle";
 import Contact from "../Page/Home/Contact/Contact";
 import About from "../Page/About/About";
@@ -24,10 +23,11 @@ import ErrorPage from "../Page/ErrorPage/ErrorPage";
 import Subscribe from "../Page/Membership/Subscribe";
 import ManageAllArticle from "../Dashboard/AdminRoute/manageAllArticle";
 import ArticleReview from "../Dashboard/AdminRoute/ArticleReview";
+import MainLayout from "../Layout/MainLayout";
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <Main />,
+        element: <MainLayout />,
         errorElement: <ErrorPage />,
 
         children: [

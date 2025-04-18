@@ -1,112 +1,125 @@
-
 import emailjs from '@emailjs/browser';
 import { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import Swal from 'sweetalert2';
 
-
 const Contact = () => {
-    const form = useRef();
+  const form = useRef();
 
+  const ServiceId = import.meta.env.VITE_SERVICE_ID;
+  const TemplateId = import.meta.env.VITE_TEMPLATE_ID;
+  const PublicKey = import.meta.env.VITE_PUBLIC_KEY;
 
-    //import.meta.env.VITE_SERVICE_ID
-    const ServiceId = import.meta.env.VITE_SERVICE_ID
-    const TemplateId = import.meta.env.VITE_TEMPLATE_ID
-    const PublicKey = import.meta.env.VITE_PUBLIC_KEY
-    console.log(PublicKey);
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+    const currentForm = form.current;
 
-        const currentForm = form.current;
-        console.log(currentForm);
+    emailjs.sendForm(ServiceId, TemplateId, currentForm, PublicKey)
+      .then(() => {
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Email Sent Successfully!',
+          showConfirmButton: false,
+          timer: 1500
+        });
+        currentForm.reset();
+      }, (error) => {
+        console.error(error.text);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong. Try again later!'
+        });
+      });
+  };
 
-        emailjs.sendForm(ServiceId, TemplateId, currentForm, PublicKey)
-            .then((result) => {
-                console.log('result are:', result.text);
-                Swal.fire({
-                    position: 'center',
-                    icon: 'success',
-                    title: 'Email Sent Successfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-                currentForm.reset();
-            }, (error) => {
-                console.log(error.text);
-            });
-    };
+  return (
+    <div className="py-20 bg-gradient-to-br from-white via-indigo-50 to-white">
+      <Helmet>
+        <title>ProWriter | Contact Us</title>
+      </Helmet>
 
-    return (
-        <div className='py-20'>
-                    <Helmet>
-            <title>ProWriter | Contact Us</title>
-            </Helmet>
-            <div className='px-4 lg:px-0 max-w-7xl mx-auto'>
-                {/* gap-5 */}
-                <div className='grid grid-cols-1 md:grid-cols-2 item-center '>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+          
+          {/* Image */}
+          <div data-aos="fade-right">
+            <img
+              src="https://i.ibb.co/8x8DvSD/Email-campaign-amico.png"
+              alt="Contact Illustration"
+              className="w-full h-auto rounded-2xl shadow-lg"
+              data-aos="zoom-in"
+            />
+          </div>
 
-                    <div className='mb-10' data-aos="fade-right">
-                        <img className='w-[100%] h-auto' src="https://i.ibb.co/8x8DvSD/Email-campaign-amico.png" alt="" data-aos="zoom-in" />
-                    </div>
-                    {/* form */}
-                    <div data-aos="fade-left">
-                        <form ref={form} onSubmit={sendEmail} className='mt-10'>
-                            <h1 className="text-5xl  text-center font-bold py-10">Contact Us</h1>
+          {/* Form */}
+          <div data-aos="fade-left">
+            <div className="bg-white p-8 rounded-2xl shadow-xl">
+              <h2 className="text-3xl md:text-4xl font-bold text-center text-indigo-700 mb-6">
+                Get in Touch
+              </h2>
 
-                            <div className="mb-6">
-                                <label className="block font-bold mb-2" htmlFor="name">
-                                    Name
-                                </label>
-                                <input
-                                    className="input input-bordered  w-full py-2 px-3"
-                                    id="name"
-                                    type="text"
-                                    name="user_name"
-                                    placeholder="Your Name"
-                                    required
-                                />
-                            </div>
-
-                            <div className="mb-6">
-                                <label className="block  font-bold mb-2" htmlFor="email">
-                                    Email
-                                </label>
-                                <input
-                                    className="input input-bordered   w-full py-2 px-3"
-                                    id="email"
-                                    type="email"
-                                    name="user_email"
-                                    placeholder="Your Email"
-                                    required
-                                />
-                            </div>
-
-                            <div className="mb-6">
-                                <label className="block font-bold mb-2" htmlFor="message">
-                                    Message
-                                </label>
-                                <textarea
-                                    className="border rounded w-full py-2 px-3"
-                                    id="message"
-                                    name="message"
-                                    placeholder="Your Message"
-                                    rows={6}
-                                    required
-                                />
-                            </div>
-                            <div className="flex items-center justify-center">
-                                <input type="submit" value="Send"
-                                    className="btn btn-error w-full text-white font-semibold mt-4"
-                                />
-                            </div>
-                        </form>
-                    </div>
+              <form ref={form} onSubmit={sendEmail} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block font-medium text-gray-700 mb-1">
+                    Name
+                  </label>
+                  <input
+                    id="name"
+                    name="user_name"
+                    type="text"
+                    placeholder="Your Name"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    required
+                  />
                 </div>
+
+                <div>
+                  <label htmlFor="email" className="block font-medium text-gray-700 mb-1">
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="user_email"
+                    type="email"
+                    placeholder="you@example.com"
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="message" className="block font-medium text-gray-700 mb-1">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    placeholder="Type your message here..."
+                    className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    required
+                  ></textarea>
+                </div>
+
+                <div>
+                  <button
+                    type="submit"
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-lg transition duration-300"
+                  >
+                    Send Message
+                  </button>
+                </div>
+              </form>
             </div>
+          </div>
 
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Contact;

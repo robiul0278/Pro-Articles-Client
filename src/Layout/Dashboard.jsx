@@ -39,7 +39,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/adminHome"
-
                                                 className="flex items-center space-x-2"
                                             >
                                                 <BsPersonSquare />
@@ -49,7 +48,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/write"
-
                                                 className="flex items-center space-x-2"
                                             >
                                                 <BsPencilSquare />
@@ -59,7 +57,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/myArticle"
-
                                                 className="flex items-center space-x-2"
                                             >
                                                 <MdArticle />
@@ -69,7 +66,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/manageArticle"
-
                                                 className="flex items-center space-x-2"
                                             >
                                                 <MdArticle />
@@ -79,7 +75,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/manageAllArticle"
-
                                                 className="flex items-center space-x-2"
                                             >
                                                 <MdArticle />
@@ -89,7 +84,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/manageUsers"
-
                                                 className="flex items-center space-x-2 "
                                             >
                                                 <FaUsers />
@@ -103,7 +97,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/userHome"
-
                                                 className="flex items-center space-x-2"
                                             >
                                                 <BsPersonSquare />
@@ -113,7 +106,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/write"
-
                                                 className="flex items-center space-x-2"
                                             >
                                                 <BsPencilSquare />
@@ -123,7 +115,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/myArticle"
-
                                                 className="flex items-center space-x-2"
                                             >
                                                 <MdArticle />
@@ -133,7 +124,6 @@ const Dashboard = () => {
                                         <li>
                                             <NavLink
                                                 to="/dashboard/paymentHistory"
-
                                                 className="flex items-center space-x-2 "
                                             >
                                                 <MdPayment />

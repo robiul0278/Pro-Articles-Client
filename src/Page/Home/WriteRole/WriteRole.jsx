@@ -2,8 +2,6 @@ import Lottie from 'react-lottie';
 import keyboard from '../../../assets/keyboard2.json'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleCheck, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
-import { useContext } from 'react';
-import { ThemContext } from '../../../Routes/ThemProvider';
 import { Link,} from 'react-router-dom';
 // import Swal from 'sweetalert2';
 import useAdmin from '../../../Hooks/useAdmin';
@@ -11,7 +9,6 @@ import { useSelector } from 'react-redux';
 const WriteRole = () => {
     const [isAdmin] = useAdmin();
     const {user} = useSelector((state) => state.auth)
-    const [{ theme }] = useContext(ThemContext)
     const defaultOptions = {
         loop: true,
         autoplay: true,
@@ -37,7 +34,7 @@ const WriteRole = () => {
 
 
     return (
-        <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 bg-white justify-center p-5 items-center">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 bg-white justify-center p-5 items-center">
             <div className='md:pl-16'>
                 <h1 className='text-3xl font-semibold'>You can also write in ProWriter</h1>
                 <h4 className='text-xl my-4'>Write quality content and earn from ProWriter! </h4>

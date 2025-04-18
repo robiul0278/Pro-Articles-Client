@@ -1,63 +1,77 @@
-import { useContext } from "react";
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import { Dna } from "react-loader-spinner";
-import { ThemContext } from "../../../Routes/ThemProvider";
 import useArticle from "../../../Hooks/useArticle";
 
+const LoadingSpinner = () => (
+  <div className="flex items-center justify-center py-28">
+    <Dna
+      visible={true}
+      height={80}
+      width={80}
+      ariaLabel="dna-loading"
+      wrapperClass="dna-wrapper"
+    />
+  </div>
+);
 
+const BlogCard = ({ blog }) => (
+    <div className="flex items-start gap-3 p-3 rounded-lg hover:bg-gray-100 transition">
+      {/* Blog Thumbnail */}
+      <div className="w-14 h-14 shrink-0">
+        <img
+          src={blog?.image || "/placeholder.jpg"}
+          alt="blog thumbnail"
+          className="w-full h-full object-cover rounded-xl"
+        />
+      </div>
+  
+      <div className="flex flex-col gap-1">
+        <div className="flex items-center gap-2">
+          <figure className="w-6 h-6">
+            <img
+              src={blog?.authorImage}
+              alt={`${blog?.authorName}'s avatar`}
+              className="rounded-full object-cover w-full h-full"
+            />
+          </figure>
+          <Link to="#" className="text-xs text-gray-400 hover:underline">
+            {blog?.authorName}
+          </Link>
+        </div>
+  
+        <Link
+          to={`/articleDetails/${blog?._id}`}
+          className="text-base font-semibold hover:underline text-gray-800"
+        >
+          {blog?.title}
+        </Link>
+  
+        <p className="text-xs text-gray-400">{blog?.date}</p>
+      </div>
+    </div>
+  );
+  
+  
 
 const Trending = () => {
-    const [{ theme }] = useContext(ThemContext)
-    const {article, loading} = useArticle()
+  const { article, loading } = useArticle();
 
-    return (
-        <section className=" bg-white p-5"  style={{ backgroundColor: theme.backgroundColor, color: theme.color }} >
-            <h1 className="font-bold text-2xl md:text-4xl py-4">Recent Posts</h1>
-            {
-                loading ?
-                    <div className="flex items-center justify-center py-28">
-                        <Dna
-                            visible={true}
-                            height="80"
-                            width="80"
-                            ariaLabel="dna-loading"
-                            wrapperStyle={{}}
-                            wrapperClass="dna-wrapper"
-                        />
-                    </div> :
+  return (
+    <section className="bg-white p-5">
+      <h1 className="font-bold text-2xl md:text-3xl py-4">Recent Posts</h1>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                        {
-                            article?.slice(0,6).map((blog, index) =>
-
-                                <div key={blog._id} className="flex items-center justify-center gap-3">
-                                    <div className="">
-                                        <h1 className="text-4xl font-[Orbitron] text-gray-500">{index < 10 ? '0' + (index + 1) : index}</h1>
-                                    </div>
-                                    <div className="my-2">
-                                        <div className="flex items-center gap-2">
-                                            <figure className="w-6 ">
-                                                <img className="rounded-full" src={blog?.authorImage} alt="" />
-                                            </figure>
-                                            <Link to="#"><h4 className="text-xs text-gray-400">{blog?.authorName}</h4></Link>
-                                        </div>
-                                        <div>
-                                            <Link to={`/articleDetails/${blog?._id}`} className="my-1 hover:underline font-semibold">{blog?.title}</Link>
-                                        </div>
-                                        <div className="flex justify-start gap-3 items-center">
-                                            <h6 className="text-xs text-gray-400">{blog.date}</h6>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            )
-                        }
-                    </div>
-
-            }
-        </section>
-    );
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {article?.slice(0, 6).map((blog, index) => (
+            <BlogCard key={blog._id} blog={blog} index={index} />
+          ))}
+        </div>
+      )}
+    </section>
+  );
 };
 
 export default Trending;

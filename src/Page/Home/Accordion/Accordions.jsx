@@ -3,20 +3,17 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { useContext } from 'react';
-import { ThemContext } from '../../../Routes/ThemProvider';
 
 export default function Accordions() {
-  const [{ theme }] = useContext(ThemContext)
   return (
-    <section style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className='bg-white' >
+    <section className='bg-white' >
       <div className='text-center py-5'>
         <h1 className='text-4xl font-semibold'>Article Submission FAQs</h1>
         <h4 className='text-xl'>Unlock Your Author Potential: A Step-by-Step Guide to Success</h4>
       </div>
-      <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }} className='grid grid-cols-1 gap-5 md:grid-cols-2 p-5'>
-        <div style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
-          <Accordion style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+      <div className='grid grid-cols-1 gap-5 md:grid-cols-2 p-5'>
+        <div>
+          <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
@@ -30,7 +27,7 @@ export default function Accordions() {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+          <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
@@ -44,7 +41,7 @@ export default function Accordions() {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+          <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
@@ -60,7 +57,7 @@ export default function Accordions() {
           </Accordion>
         </div>
         <div>
-          <Accordion style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+          <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1a-content"
@@ -74,7 +71,7 @@ export default function Accordions() {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+          <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
@@ -88,7 +85,7 @@ export default function Accordions() {
               </Typography>
             </AccordionDetails>
           </Accordion>
-          <Accordion style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+          <Accordion>
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel2a-content"
